@@ -30,19 +30,31 @@ export default function HeroSection() {
 
   return (
     <section className="relative bg-primary overflow-hidden" aria-label="Hero">
-      {/* Background Pattern */}
+      {/* Background Video & Overlay */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-light to-primary opacity-90" />
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px]" />
-        {/* Subtle grid pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
-          }}
-        />
+        {/* Fallback background if video fails */}
+        <div className="absolute inset-0 bg-primary" />
+        
+        {/* Video Element */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+        >
+          {/* Replace this src with your actual roofing video in the public folder */}
+          <source src="/hero-video.mp4" type="video/mp4" />
+          {/* Placeholder external video for demonstration */}
+          <source src="https://player.vimeo.com/external/403362140.sd.mp4?s=f5e4bb507ec7941fb5d2b70ba5e917ad023199f3&profile_id=164&oauth2_token_id=57447761" type="video/mp4" />
+        </video>
+
+        {/* Gradient Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-primary/40" />
+        
+        {/* Decorative accents */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
