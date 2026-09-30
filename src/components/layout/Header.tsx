@@ -38,9 +38,10 @@ export default function Header() {
   }, [mobileOpen]);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
           ? "bg-white shadow-lg"
           : "bg-white/95 backdrop-blur-sm"
       }`}
@@ -160,7 +161,9 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      </header>
+
+      {/* Mobile Menu (Moved outside header to avoid backdrop-filter containing block issues) */}
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 top-[72px] bg-white z-40 overflow-y-auto" role="dialog" aria-label="Mobile navigation">
           <nav className="p-6 space-y-1" aria-label="Mobile navigation">
@@ -229,6 +232,6 @@ export default function Header() {
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }
