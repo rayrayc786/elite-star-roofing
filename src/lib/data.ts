@@ -710,6 +710,7 @@ export const navigationItems = [
   },
   { label: "Projects", href: "/projects" },
   { label: "Service Areas", href: "/service-areas" },
+  { label: "Blog", href: "/blog" },
   { label: "Resources", href: "/resources" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
