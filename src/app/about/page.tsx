@@ -38,17 +38,20 @@ export default function AboutPage() {
             <div>
               <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">Our Story</span>
               <h2 className="text-3xl font-bold text-primary mb-6">
-                Why We Started {businessInfo.name}
+                About {businessInfo.name}
               </h2>
               <div className="space-y-4 text-text-muted leading-relaxed">
                 <p>
-                  [Company story placeholder — replace with the real story of how and why {businessInfo.name} was started. What motivated the founder? What gap in the market did they see? What experience do they bring?]
+                  Since our establishment, Elite Star Roofing has been providing reliable and professional roofing services to homeowners and businesses across Australia. What started with a commitment to quality workmanship has grown into a trusted roofing service focused on delivering durable, practical, and long-lasting solutions.
                 </p>
                 <p>
-                  [Additional story content — describe the company&apos;s growth, values, and what drives the team. Keep it authentic and human rather than corporate.]
+                  At Elite Star Roofing, we specialise in roof repairs, maintenance, restoration, cleaning, gutter and box gutter works, leak prevention, and bird-proofing solutions. Whether you need a small repair, ongoing maintenance, or comprehensive roofing works, our experienced team takes pride in completing every project with care and attention to detail.
                 </p>
                 <p>
-                  We believe in doing roofing work properly — identifying the actual problem, explaining the recommended solution clearly, and completing work to a standard we&apos;re proud of.
+                  We combine quality materials, professional workmanship, and a strong focus on safety to ensure every roofing project is completed to a high standard. From residential properties to commercial buildings, we work closely with our customers to provide reliable solutions that protect their property and keep their roof performing at its best.
+                </p>
+                <p className="font-bold text-primary italic">
+                  Elite Star Roofing — Quality workmanship. Reliable service. Built to last.
                 </p>
               </div>
             </div>

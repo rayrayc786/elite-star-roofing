@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Star, ArrowRight, Globe } from "lucide-react";
 import { businessInfo, services, navigationItems } from "@/lib/data";
 
@@ -10,14 +11,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-2 mb-6" aria-label="Elite Star Roofing WA Home">
-              <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                <Star className="w-6 h-6 text-primary" fill="currentColor" />
-              </div>
-              <div className="flex flex-col leading-tight">
-                <span className="text-lg font-bold tracking-tight">Elite Star</span>
-                <span className="text-xs font-medium text-white/60 uppercase tracking-wider">Roofing WA</span>
-              </div>
+            <Link href="/" className="inline-flex items-center mb-6" aria-label="Elite Star Roofing WA Home">
+              <Image 
+                src="/logo.jpeg" 
+                alt="Elite Star Roofing WA Logo" 
+                width={160} 
+                height={50} 
+                className="object-contain h-12 w-auto rounded-lg bg-white p-1" 
+              />
             </Link>
             <p className="text-white/70 text-sm leading-relaxed mb-6">
               Professional roofing services in Western Australia. Roof repair, leak detection, roof restoration, and roof painting.

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Menu, X, ChevronDown, Star } from "lucide-react";
 import { navigationItems, businessInfo } from "@/lib/data";
 
@@ -49,18 +50,15 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[72px] lg:h-[80px]">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="Elite Star Roofing WA Home">
-            <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-              <Star className="w-6 h-6 text-primary" fill="currentColor" />
-            </div>
-            <div className="flex flex-col leading-tight">
-              <span className="text-base lg:text-lg font-bold text-primary tracking-tight">
-                Elite Star
-              </span>
-              <span className="text-[10px] lg:text-xs font-medium text-text-muted uppercase tracking-wider">
-                Roofing WA
-              </span>
-            </div>
+          <Link href="/" className="flex items-center shrink-0" aria-label="Elite Star Roofing WA Home">
+            <Image 
+              src="/logo.jpeg" 
+              alt="Elite Star Roofing WA Logo" 
+              width={160} 
+              height={50} 
+              className="object-contain h-10 lg:h-12 w-auto" 
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

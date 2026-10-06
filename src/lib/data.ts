@@ -8,9 +8,9 @@ export const businessInfo = {
   name: "Elite Star Roofing WA",
   shortName: "Elite Star",
   tagline: "Reliable Roofing Solutions Built to Protect Your Home",
-  phone: "[PHONE NUMBER]", // Replace with actual phone number
-  phoneRaw: "", // Replace with tel: link format e.g. +61400000000
-  email: "[EMAIL ADDRESS]", // Replace with actual email
+  phone: "+61 451 901 275", // Replace with actual phone number
+  phoneRaw: "+61451901275", // Replace with tel: link format e.g. +61400000000
+  email: "elitestarroofing@gmail.com", // Replace with actual email
   address: "[BUSINESS ADDRESS]", // Replace with actual address
   city: "[CITY]",
   state: "WA",
@@ -46,9 +46,9 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    slug: "roof-repair",
-    name: "Roof Repair",
-    shortName: "Repair",
+    slug: "roof-cleaning",
+    name: "Roof Cleaning",
+    shortName: "Cleaning",
     tagline: "For isolated damage and roof problems",
     description:
       "Professional roof repair services to fix damage, leaks, and wear. We identify the problem, provide a clear quote, and complete quality repairs to protect your home.",
@@ -166,9 +166,9 @@ export const services: Service[] = [
       "Can't find where the leak is coming from? Our leak detection service traces the actual source of water intrusion. Get expert help from Elite Star Roofing WA.",
   },
   {
-    slug: "roof-restoration",
-    name: "Roof Restoration",
-    shortName: "Restoration",
+    slug: "roof-pointing",
+    name: "Roof Pointing",
+    shortName: "Pointing",
     tagline: "For improving and extending the condition of an existing roof",
     description:
       "Comprehensive roof restoration services to extend the life of your existing roof. We clean, repair, prepare, and apply protective finishes to restore your roof's condition and appearance.",
@@ -295,6 +295,38 @@ export const services: Service[] = [
     metaDescription:
       "Professional roof painting in WA. We prepare, prime and paint your roof for a lasting finish. Get a free painting quote from Elite Star Roofing WA.",
   },
+  {
+    slug: "all-roofing-service",
+    name: "All Roofing Services",
+    shortName: "All Services",
+    tagline: "Comprehensive roofing solutions for your home",
+    description: "From minor repairs to major installations, our team handles all types of roofing services.",
+    icon: "Home",
+    problems: [
+      "General roof wear and tear",
+      "Need for a new roof",
+      "Preventative maintenance"
+    ],
+    processSteps: [
+      {
+        title: "Assessment",
+        description: "We assess your entire roofing system to recommend the right services."
+      },
+      {
+        title: "Execution",
+        description: "Our experts safely and efficiently complete the required work."
+      }
+    ],
+    faqs: [
+      {
+        question: "Do you handle all types of roofs?",
+        answer: "Yes, we have experience working with various roofing materials and structures common in WA."
+      }
+    ],
+    ctaText: "Get a Comprehensive Quote",
+    metaTitle: "All Roofing Services | Elite Star Roofing WA",
+    metaDescription: "Comprehensive roofing services in WA. We handle everything from repairs and maintenance to new installations."
+  }
 ];
 
 export const processSteps = [
@@ -478,19 +510,19 @@ export interface ServiceArea {
 // Placeholder service areas — replace with actual service areas
 export const serviceAreas: ServiceArea[] = [
   {
-    slug: "placeholder-city-1",
-    name: "[City/Suburb 1]",
-    description: "Professional roofing services in [City/Suburb 1]. Roof repair, leak detection, restoration and painting.",
+    slug: "bunbury",
+    name: "Bunbury",
+    description: "Professional roofing services in Bunbury. Roof cleaning, pointing, painting, leak detection, and all roofing services.",
   },
   {
-    slug: "placeholder-city-2",
-    name: "[City/Suburb 2]",
-    description: "Professional roofing services in [City/Suburb 2]. Roof repair, leak detection, restoration and painting.",
+    slug: "mandurah",
+    name: "Mandurah",
+    description: "Professional roofing services in Mandurah. Roof cleaning, pointing, painting, leak detection, and all roofing services.",
   },
   {
-    slug: "placeholder-city-3",
-    name: "[City/Suburb 3]",
-    description: "Professional roofing services in [City/Suburb 3]. Roof repair, leak detection, restoration and painting.",
+    slug: "perth-canning-vale",
+    name: "Perth Canning Vale",
+    description: "Professional roofing services in Perth Canning Vale. Roof cleaning, pointing, painting, leak detection, and all roofing services.",
   },
 ];
 
