@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, MapPin, Wrench } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import CTASection from "@/components/sections/CTASection";
@@ -38,8 +39,15 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Image */}
-          <div className="aspect-[16/9] bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center border border-border mb-10">
-            <span className="text-sm text-text-muted">[Hero project image placeholder]</span>
+          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-border shadow-md mb-10">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 1200px"
+              className="object-cover"
+            />
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
@@ -75,24 +83,32 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               </div>
               <Link
                 href="/request-quote"
-                className="block w-full text-center px-6 py-3.5 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-all"
+                className="block w-full text-center px-6 py-3.5 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-all shadow-md"
               >
                 Get a Free Quote
               </Link>
             </div>
           </div>
 
-          {/* Gallery Placeholder */}
-          <div className="mt-12">
-            <h3 className="text-xl font-bold text-primary mb-6">Project Gallery</h3>
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="aspect-[4/3] bg-warm-white border border-border rounded-xl flex items-center justify-center">
-                  <span className="text-xs text-text-muted">[Photo {i}]</span>
-                </div>
-              ))}
+          {/* Project Gallery */}
+          {project.galleryImages && project.galleryImages.length > 0 && (
+            <div className="mt-12">
+              <h3 className="text-xl font-bold text-primary mb-6">Project Gallery</h3>
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                {project.galleryImages.map((imgUrl, i) => (
+                  <div key={i} className="relative aspect-[4/3] rounded-xl overflow-hidden border border-border shadow-sm">
+                    <Image
+                      src={imgUrl}
+                      alt={`${project.title} photo ${i + 1}`}
+                      fill
+                      sizes="(max-width: 640px) 50vw, 33vw"
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 

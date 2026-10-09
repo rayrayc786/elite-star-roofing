@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Clock, User } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import CTASection from "@/components/sections/CTASection";
@@ -44,8 +45,14 @@ export default function ResourcesPage() {
                 href={`/resources/${blogPosts[0].slug}`}
                 className="group grid lg:grid-cols-2 gap-8 items-center bg-warm-white border border-border rounded-2xl overflow-hidden hover:border-accent/30 hover:shadow-xl transition-all"
               >
-                <div className="aspect-[16/9] lg:aspect-auto lg:h-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                  <span className="text-sm text-text-muted">[Featured image placeholder]</span>
+                <div className="relative aspect-[16/9] lg:aspect-auto lg:h-full w-full min-h-[300px]">
+                  <Image
+                    src={blogPosts[0].image}
+                    alt={blogPosts[0].title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
                 <div className="p-8 lg:p-12">
                   <div className="flex items-center gap-3 mb-4">
@@ -76,8 +83,14 @@ export default function ResourcesPage() {
                 href={`/resources/${post.slug}`}
                 className="group bg-white border border-border rounded-2xl overflow-hidden hover:border-accent/30 hover:shadow-lg transition-all flex flex-col"
               >
-                <div className="aspect-[16/9] bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center border-b border-border">
-                  <span className="text-sm text-text-muted">[Image placeholder]</span>
+                <div className="relative aspect-[16/9] w-full">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="flex items-center gap-3 mb-3">

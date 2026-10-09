@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import CTASection from "@/components/sections/CTASection";
 import { projects, services } from "@/lib/data";
@@ -18,7 +19,7 @@ export default function ProjectsPage() {
           <Breadcrumbs items={[{ label: "Projects" }]} />
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">Our Projects</h1>
           <p className="text-lg text-white/70 max-w-2xl">
-            Browse our roofing projects across Western Australia.
+            Browse our completed roofing projects across Western Australia.
           </p>
         </div>
       </section>
@@ -43,8 +44,14 @@ export default function ProjectsPage() {
                 href={`/projects/${project.slug}`}
                 className="group bg-warm-white border border-border rounded-2xl overflow-hidden hover:border-accent/30 hover:shadow-xl transition-all"
               >
-                <div className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                  <span className="text-sm text-text-muted">[Project photo placeholder]</span>
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
                 <div className="p-5">
                   <h2 className="text-base font-bold text-primary group-hover:text-accent transition-colors mb-2">
@@ -64,10 +71,6 @@ export default function ProjectsPage() {
               </Link>
             ))}
           </div>
-
-          <p className="text-center text-sm text-text-muted mt-10">
-            [Add more projects as they are completed. Replace placeholders with real project photos and details.]
-          </p>
         </div>
       </section>
 

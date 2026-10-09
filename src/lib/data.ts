@@ -36,6 +36,8 @@ export interface Service {
   tagline: string;
   description: string;
   icon: string;
+  image: string;
+  galleryImages?: string[];
   problems: string[];
   processSteps: { title: string; description: string }[];
   faqs: { question: string; answer: string }[];
@@ -49,119 +51,132 @@ export const services: Service[] = [
     slug: "roof-cleaning",
     name: "Roof Cleaning",
     shortName: "Cleaning",
-    tagline: "For isolated damage and roof problems",
+    tagline: "High-pressure moss, lichen & dirt removal",
     description:
-      "Professional roof repair services to fix damage, leaks, and wear. We identify the problem, provide a clear quote, and complete quality repairs to protect your home.",
+      "Professional roof cleaning and pressure washing services to eliminate stubborn moss, lichen, algae, and accumulated debris. We restore your roof's original appearance and ensure unblocked water channels.",
     icon: "Wrench",
+    image: "/images/web/IMG_4970.jpg",
+    galleryImages: [
+      "/images/web/IMG_4970.jpg",
+      "/images/web/IMG_4965.jpg",
+      "/images/web/IMG_5652.jpg",
+      "/images/web/IMG_5647.jpg",
+    ],
     problems: [
-      "Missing or broken roof tiles",
-      "Cracked or deteriorating roof materials",
-      "Storm and weather damage",
-      "Damaged or corroded flashing",
-      "Water damage and staining",
-      "Ridge cap issues",
+      "Heavy moss, lichen, and algae buildup",
+      "Blocked roof channels and water backup",
+      "Stained, dirty, or discoloured roof tiles",
+      "Slippery roof surface reducing tile lifespan",
+      "Debris buildup in valleys and gutters",
     ],
     processSteps: [
       {
-        title: "Inspection",
+        title: "Roof Surface Inspection",
         description:
-          "We thoroughly inspect your roof to identify all areas of damage and determine the scope of repair needed.",
+          "We assess your roof's tile condition and identify areas requiring targeted cleaning and debris removal.",
       },
       {
-        title: "Assessment & Quote",
+        title: "Site & Gutter Protection",
         description:
-          "We provide a clear, detailed quote explaining the recommended repairs and expected costs.",
+          "We protect surrounding property, downpipes, and garden areas before starting high-pressure cleaning.",
       },
       {
-        title: "Professional Repair",
+        title: "Professional Pressure Wash",
         description:
-          "Our team completes the repair work with quality materials and careful workmanship.",
+          "Our team uses commercial-grade pressure cleaning equipment to lift moss, algae, and grime safely.",
       },
       {
-        title: "Final Check",
+        title: "Final Washdown & Inspection",
         description:
-          "We review the completed work with you to ensure everything meets our quality standards.",
+          "We rinse down gutters, clean up the perimeter, and inspect the roof surface for complete cleanliness.",
       },
     ],
     faqs: [
       {
-        question: "When does a roof need repair?",
+        question: "Why is roof cleaning important?",
         answer:
-          "Common signs include visible damage to tiles or roofing materials, water stains on ceilings, missing ridge caps, damaged flashing, or any visible deterioration. If you notice any of these signs, it's best to have your roof inspected.",
+          "Moss and lichen trap moisture against roof tiles, accelerating wear and blocking drainage channels. Regular roof cleaning prevents water backup and keeps your roof looking like new.",
       },
       {
-        question: "Can damaged roof sections be repaired without replacing the entire roof?",
+        question: "Will pressure washing damage my roof tiles?",
         answer:
-          "In many cases, yes. Isolated damage such as broken tiles, damaged flashing, or localised wear can often be repaired without a full roof replacement. We'll assess the extent of the damage and recommend the most appropriate solution.",
+          "Our technicians adjust pressure levels based on tile material (concrete, terracotta, Colorbond) to ensure deep cleaning without causing surface damage.",
       },
       {
-        question: "How long does a typical roof repair take?",
+        question: "How long does a roof cleaning service take?",
         answer:
-          "The duration depends on the extent of the damage. Minor repairs may be completed in a few hours, while more extensive work could take one to several days. We'll provide an estimated timeline with your quote.",
+          "Most residential roof cleaning jobs are completed within a single day depending on property size and moss buildup.",
       },
     ],
-    ctaText: "Request Roof Repair",
-    metaTitle: "Roof Repair Services | Elite Star Roofing WA",
+    ctaText: "Request Roof Cleaning Quote",
+    metaTitle: "Roof Cleaning & Pressure Washing Services | Elite Star Roofing WA",
     metaDescription:
-      "Professional roof repair services in WA. We fix damaged tiles, flashing, leaks and storm damage. Get a free quote from Elite Star Roofing WA.",
+      "Professional roof cleaning in WA. We remove moss, lichen, and dirt build-up to protect tile life. Get a free quote from Elite Star Roofing WA.",
   },
   {
     slug: "leak-detection",
     name: "Leak Detection",
     shortName: "Leak Detection",
-    tagline: "For finding the source of water intrusion",
+    tagline: "For finding and sealing the true source of water intrusion",
     description:
-      "Expert leak detection services to trace and identify the true source of roof leaks. The visible leak is not always where the water is entering — we find the actual problem.",
+      "Expert leak detection services to trace and identify the true source of roof leaks. The visible leak inside is not always where water enters — we trace the exact intrusion path and fix it permanently.",
     icon: "Droplets",
+    image: "/images/web/IMG_0918.jpg",
+    galleryImages: [
+      "/images/web/IMG_0918.jpg",
+      "/images/web/IMG_0919.jpg",
+      "/images/web/WhatsApp_Image_2026-10-07_at_09_33_00.jpg",
+      "/images/web/WhatsApp_Image_2026-10-07_at_09_33_12__2.jpg",
+    ],
     problems: [
       "Water stains on ceilings or walls",
-      "Dripping water during rain",
-      "Mould or mildew growth",
-      "Musty odours in rooms",
-      "Peeling paint near the ceiling",
-      "Unexplained dampness",
+      "Dripping water during rain storms",
+      "Mould or mildew growth near ceilings",
+      "Musty odours in roof cavities",
+      "Peeling paint or sagging plasterboard",
+      "Unexplained dampness near internal walls",
     ],
     processSteps: [
       {
         title: "Identify Symptoms",
         description:
-          "We start by understanding the signs you've noticed — water stains, drips, dampness, or mould.",
+          "We start by examining interior water stains, ceiling drips, and damp spots inside your home.",
       },
       {
-        title: "Roof Inspection",
+        title: "Roof & Cavity Inspection",
         description:
-          "We inspect the roof surface, flashing, penetrations, valleys, and all potential entry points.",
+          "We inspect roof surface tiles, flashing, valleys, penetration seals, and internal ceiling cavity structures.",
       },
       {
         title: "Trace & Diagnose",
         description:
-          "We trace the water path from the interior symptoms to the actual point of entry on the roof.",
+          "We trace the water path from internal symptoms back to the exact point of entry on your roof.",
       },
       {
-        title: "Recommend Repair",
+        title: "Permanent Repair",
         description:
-          "Once the source is identified, we provide a clear recommendation and quote for the repair.",
+          "Once pinpointed, we replace damaged tiles/flashing and seal the leak to prevent future water ingress.",
       },
     ],
     faqs: [
       {
         question: "Why can't I find where the leak is coming from?",
         answer:
-          "Water can travel along roof structures, beams, and membranes before appearing as a visible leak inside your home. The point where you see the water is often not where it's entering the roof. Professional leak detection traces the water path to find the actual source.",
+          "Water can travel along roof structures, rafters, and sarking for meters before dripping onto plasterboard. Professional leak detection traces this path directly back to the roof surface entry point.",
       },
       {
         question: "What happens during a leak detection inspection?",
         answer:
-          "We inspect the roof surface, check all flashing points, penetrations (such as vents and pipes), valleys, ridge lines, and any areas where water could potentially enter. We then trace the water path to identify the source of the leak.",
+          "We thoroughly check flashing points, roof penetrations (vents, flues), valleys, ridge lines, and tile integrity, inspecting both roof exterior and interior cavity where accessible.",
       },
       {
         question: "Should I wait until the next rain to get a leak inspected?",
         answer:
-          "No. It's best to have the inspection done as soon as possible. Even without active rain, experienced inspectors can identify potential leak points and areas of concern. Waiting can lead to further water damage.",
+          "No. Immediate inspection prevents secondary water damage to timber framework, insulation, and electrical wiring.",
       },
     ],
-    ctaText: "Book Leak Detection",
-    metaTitle: "Leak Detection Services | Elite Star Roofing WA",
+    ctaText: "Book Leak Detection Service",
+    metaTitle: "Roof Leak Detection Services | Elite Star Roofing WA",
     metaDescription:
       "Can't find where the leak is coming from? Our leak detection service traces the actual source of water intrusion. Get expert help from Elite Star Roofing WA.",
   },
@@ -169,163 +184,179 @@ export const services: Service[] = [
     slug: "roof-pointing",
     name: "Roof Pointing",
     shortName: "Pointing",
-    tagline: "For improving and extending the condition of an existing roof",
+    tagline: "Ridge cap re-bedding & flexible pointing restoration",
     description:
-      "Comprehensive roof restoration services to extend the life of your existing roof. We clean, repair, prepare, and apply protective finishes to restore your roof's condition and appearance.",
+      "Comprehensive roof re-pointing and bedding services to secure loose ridge caps and seal your roof against heavy weather. We use premium flexible pointing compounds designed for long-lasting durability in Australian conditions.",
     icon: "RotateCcw",
+    image: "/images/web/IMG_2870.jpg",
+    galleryImages: [
+      "/images/web/IMG_2870.jpg",
+      "/images/web/IMG_2429.jpg",
+      "/images/web/IMG_2442.jpg",
+      "/images/web/IMG_2866.jpg",
+      "/images/web/IMG_2968.jpg",
+    ],
     problems: [
-      "Aging and deteriorating roof",
-      "Faded or discoloured roof surface",
-      "Multiple areas needing repair",
-      "Roof looking worn but structurally sound",
-      "Failed or peeling coatings",
-      "Moss, lichen, or algae buildup",
+      "Cracked, crumbling, or missing ridge cap mortar",
+      "Loose or dislodged ridge capping tiles",
+      "Water ingress around roof ridges and hips",
+      "Aging roof needing structural bedding repair",
+      "Deteriorating cement pointing from weather exposure",
     ],
     processSteps: [
       {
-        title: "Condition Assessment",
+        title: "Ridge Condition Assessment",
         description:
-          "We assess the overall condition of your roof to determine if restoration is appropriate.",
+          "We inspect all ridge capping, hip lines, and existing mortar bedding across your roof.",
       },
       {
-        title: "Cleaning & Preparation",
+        title: "Old Mortar Removal & Bedding Prep",
         description:
-          "The roof is thoroughly cleaned to remove dirt, moss, lichen, and any loose material.",
+          "Damaged cement mortar is cleared away and loose ridge caps are reset on a fresh sand-cement bed.",
       },
       {
-        title: "Repairs",
+        title: "Flexible Pointing Application",
         description:
-          "All necessary repairs are completed — replacing damaged materials, fixing flashing, and addressing any structural issues.",
+          "High-adhesion flexible pointing compound is trowelled over all caps to lock them securely in place.",
       },
       {
-        title: "Protective Finishing",
+        title: "Color Matching & Cleanup",
         description:
-          "A protective coating or sealant is applied to protect the roof surface and enhance its appearance.",
-      },
-      {
-        title: "Final Inspection",
-        description:
-          "We conduct a thorough final inspection and review the completed restoration with you.",
+          "Pointing is color-matched to your roof tile shade, leaving a clean, seamless, storm-proof seal.",
       },
     ],
     faqs: [
       {
-        question: "What is roof restoration?",
+        question: "What is flexible roof pointing?",
         answer:
-          "Roof restoration is a comprehensive process of cleaning, repairing, and protecting an existing roof to extend its lifespan and improve its appearance. It's different from a full roof replacement — restoration works with the existing roof structure.",
+          "Unlike traditional rigid cement, flexible pointing expands and contracts with home settlement and temperature fluctuations, preventing cracking and dislodging.",
       },
       {
-        question: "When is roof restoration suitable?",
+        question: "How do I know if my roof needs re-pointing?",
         answer:
-          "Restoration is typically suitable when the roof's underlying structure is still sound but the surface is showing signs of age, wear, or deterioration. If the roof structure has significant damage, a different approach may be needed.",
+          "Look for cracked mortar under ridge caps, loose capping tiles, or loose cement pieces falling into your gutters.",
       },
       {
-        question: "How long does a roof restoration take?",
+        question: "How long does new roof pointing last?",
         answer:
-          "A typical roof restoration can take several days to a week or more, depending on the size of the roof, extent of repairs needed, and weather conditions. We'll provide an estimated timeline after the initial assessment.",
+          "Quality flexible pointing can last 10 to 15+ years under typical Australian weather conditions when applied professionally.",
       },
     ],
-    ctaText: "Request a Restoration Quote",
-    metaTitle: "Roof Restoration Services | Elite Star Roofing WA",
+    ctaText: "Request Pointing Quote",
+    metaTitle: "Roof Re-Pointing & Bedding Services | Elite Star Roofing WA",
     metaDescription:
-      "Professional roof restoration in WA. We clean, repair and protect your existing roof to extend its life. Get a free restoration quote from Elite Star Roofing WA.",
+      "Professional roof pointing and ridge cap re-bedding in WA. Secure loose tiles and prevent leaks with high-adhesion flexible pointing from Elite Star Roofing WA.",
   },
   {
     slug: "roof-painting",
     name: "Roof Painting",
     shortName: "Painting",
-    tagline: "For refreshing and protecting suitable roof surfaces",
+    tagline: "Protective coating & aesthetic roof transformations",
     description:
-      "Professional roof painting services to refresh the look and add a protective layer to your roof. Proper preparation is key — we clean, repair, prime, and paint for a lasting finish.",
+      "Professional roof painting and protective coating services to refresh tile appearance, seal porous surfaces, and shield your home from intense UV rays and harsh WA weather.",
     icon: "Paintbrush",
+    image: "/images/web/IMG_5505.jpg",
+    galleryImages: [
+      "/images/web/IMG_5505.jpg",
+      "/images/web/IMG_5293.jpg",
+      "/images/web/IMG_1544.jpg",
+      "/images/web/IMG_2914.jpg",
+      "/images/web/IMG_5794.jpg",
+    ],
     problems: [
-      "Faded or dull roof colour",
-      "Peeling or flaking paint",
-      "Roof looking tired or dated",
-      "Want to change roof colour",
-      "Surface needs weather protection",
-      "Previous paint job failing",
+      "Faded, dull, or discoloured roof tiles",
+      "Peeling or flaking existing roof paint",
+      "Porous tiles absorbing rainwater",
+      "Desire to modernise roof color and curb appeal",
+      "Roof surface needing UV and weather barrier protection",
     ],
     processSteps: [
       {
-        title: "Surface Assessment",
+        title: "Thorough Surface Cleaning",
         description:
-          "We assess the roof surface to determine the preparation and products needed.",
+          "We high-pressure clean all tile surfaces to eliminate grime, chalking, moss, and loose paint.",
       },
       {
-        title: "Cleaning",
+        title: "Repairs & Re-pointing",
         description:
-          "The roof is thoroughly pressure-cleaned to remove dirt, moss, and old loose material.",
+          "Broken tiles are replaced and ridge caps re-pointed before paint primer application.",
       },
       {
-        title: "Repairs",
+        title: "Primer & Sealer Application",
         description:
-          "Any necessary repairs are completed before painting — cracked tiles, damaged pointing, or flashing issues.",
+          "A high-penetration primer sealer is applied to bind the tile surface and maximize topcoat adhesion.",
       },
       {
-        title: "Primer & Sealer",
+        title: "Dual Topcoat Painting",
         description:
-          "Where appropriate, a primer or sealer is applied to ensure proper adhesion and coverage.",
-      },
-      {
-        title: "Paint Application",
-        description:
-          "Quality roof paint is applied according to manufacturer specifications for a durable, long-lasting finish.",
+          "Two full coats of premium acrylic roof membrane paint are applied for deep color and UV protection.",
       },
     ],
     faqs: [
       {
-        question: "Why paint a roof?",
+        question: "Why paint a roof instead of replacing it?",
         answer:
-          "Roof painting can refresh the appearance of your home, add a protective layer to the roof surface, and potentially improve energy efficiency with reflective coatings. It's a way to give your roof a new lease on life without a full replacement.",
+          "If roof tiles are structurally sound, painting provides a brand-new aesthetic look and waterproof protection at a fraction of full replacement cost.",
       },
       {
-        question: "What preparation is required before roof painting?",
+        question: "What roof paint colors are available?",
         answer:
-          "Proper preparation is essential for a lasting paint job. This typically includes pressure cleaning, repairing any damaged areas, replacing broken tiles, fixing pointing, and applying a primer or sealer where needed.",
+          "We offer a wide range of standard and modern Colorbond-matched roof paint shades including Charcoal, Slate Grey, Monument, Terracotta Red, and Classic Cream.",
       },
       {
-        question: "How long does roof paint last?",
+        question: "How long does roof paint take to cure?",
         answer:
-          "The longevity of roof paint depends on the products used, the quality of preparation, and environmental conditions. A properly prepared and painted roof can last many years, though specific timeframes vary.",
+          "Topcoats dry within hours and fully cure in 48-72 hours, providing immediate weather resistance.",
       },
     ],
     ctaText: "Request Roof Painting Quote",
-    metaTitle: "Roof Painting Services | Elite Star Roofing WA",
+    metaTitle: "Roof Painting & Membrane Coating | Elite Star Roofing WA",
     metaDescription:
-      "Professional roof painting in WA. We prepare, prime and paint your roof for a lasting finish. Get a free painting quote from Elite Star Roofing WA.",
+      "Transform your roof with professional roof painting in WA. We prime, repair, and apply high-durability acrylic coatings. Get a free quote from Elite Star Roofing WA.",
   },
   {
     slug: "all-roofing-service",
     name: "All Roofing Services",
     shortName: "All Services",
-    tagline: "Comprehensive roofing solutions for your home",
-    description: "From minor repairs to major installations, our team handles all types of roofing services.",
+    tagline: "Comprehensive residential roofing solutions in WA",
+    description: "From targeted repairs and leak tracing to complete roof re-pointing and painting, our team handles all residential roofing needs across Western Australia.",
     icon: "Home",
+    image: "/images/web/IMG_5760_JPG.jpg",
+    galleryImages: [
+      "/images/web/IMG_5760_JPG.jpg",
+      "/images/web/IMG_5780.jpg",
+      "/images/web/IMG_5797.jpg",
+      "/images/web/IMG_5806.jpg",
+    ],
     problems: [
-      "General roof wear and tear",
-      "Need for a new roof",
-      "Preventative maintenance"
+      "General roof wear and age deterioration",
+      "Multiple simultaneous roofing issues (leaks + broken tiles)",
+      "Comprehensive pre-winter preventative roof maintenance",
+      "Complete roof restoration package required",
     ],
     processSteps: [
       {
-        title: "Assessment",
-        description: "We assess your entire roofing system to recommend the right services."
+        title: "Comprehensive Roof Inspection",
+        description: "We inspect your entire roof system, valleys, flashing, and gutter connections."
       },
       {
-        title: "Execution",
-        description: "Our experts safely and efficiently complete the required work."
+        title: "Customized Service Plan",
+        description: "We outline exact required services with a transparent, itemized quote."
+      },
+      {
+        title: "Expert Execution",
+        description: "Our experienced team carries out repairs, cleaning, re-pointing, or painting safely."
       }
     ],
     faqs: [
       {
-        question: "Do you handle all types of roofs?",
-        answer: "Yes, we have experience working with various roofing materials and structures common in WA."
+        question: "Do you service all suburbs in WA?",
+        answer: "Yes! We service Bunbury, Mandurah, Canning Vale, Perth metropolitan areas, and surrounding regions."
       }
     ],
     ctaText: "Get a Comprehensive Quote",
     metaTitle: "All Roofing Services | Elite Star Roofing WA",
-    metaDescription: "Comprehensive roofing services in WA. We handle everything from repairs and maintenance to new installations."
+    metaDescription: "Comprehensive roofing services in WA. We handle everything from repairs and maintenance to full roof restorations."
   }
 ];
 
@@ -452,52 +483,89 @@ export interface Project {
   service: string;
   serviceSlug: string;
   location: string;
+  image: string;
+  beforeImage?: string;
+  afterImage?: string;
+  galleryImages?: string[];
   description: string;
   challenge: string;
   result: string;
 }
 
-// Placeholder projects — replace with real projects when available
 export const projects: Project[] = [
   {
-    slug: "roof-repair-project-1",
-    title: "Residential Roof Repair",
-    service: "Roof Repair",
-    serviceSlug: "roof-repair",
-    location: "[Suburb, WA]",
-    description: "[Project description placeholder — replace with real project details when available.]",
-    challenge: "[Challenge description placeholder]",
-    result: "[Result description placeholder]",
+    slug: "ridge-pointing-restoration",
+    title: "Ridge Pointing & Tile Bedding Restoration",
+    service: "Roof Pointing",
+    serviceSlug: "roof-pointing",
+    location: "Canning Vale, WA",
+    image: "/images/web/IMG_2870.jpg",
+    beforeImage: "/images/web/IMG_2845.jpg",
+    afterImage: "/images/web/IMG_2870.jpg",
+    galleryImages: [
+      "/images/web/IMG_2870.jpg",
+      "/images/web/IMG_2429.jpg",
+      "/images/web/IMG_2442.jpg",
+      "/images/web/IMG_2866.jpg",
+    ],
+    description: "Complete ridge capping re-bedding and flexible pointing on a classic tiled roof in Canning Vale.",
+    challenge: "Cracked cement mortar had caused ridge capping tiles to loosen, posing a high risk of water ingress during severe WA winter storms.",
+    result: "Reset all ridge caps on fresh mortar bedding and sealed with weather-resistant flexible pointing for a long-lasting, storm-proof finish.",
   },
   {
-    slug: "leak-detection-project-1",
-    title: "Leak Detection & Repair",
+    slug: "ceiling-leak-detection-repair",
+    title: "Ceiling Water Ingress Trace & Repair",
     service: "Leak Detection",
     serviceSlug: "leak-detection",
-    location: "[Suburb, WA]",
-    description: "[Project description placeholder — replace with real project details when available.]",
-    challenge: "[Challenge description placeholder]",
-    result: "[Result description placeholder]",
+    location: "Mandurah, WA",
+    image: "/images/web/IMG_0918.jpg",
+    beforeImage: "/images/web/IMG_0919.jpg",
+    afterImage: "/images/web/IMG_0918.jpg",
+    galleryImages: [
+      "/images/web/IMG_0918.jpg",
+      "/images/web/IMG_0919.jpg",
+      "/images/web/WhatsApp_Image_2026-10-07_at_09_33_00.jpg",
+    ],
+    description: "Expert leak detection to trace ceiling dampness back to a hidden valley flashing failure.",
+    challenge: "The visible interior ceiling stain was several meters away from the actual roof entry point where rainwater was leaking under tiles.",
+    result: "Traced the water trajectory, replaced corroded valley flashing and damaged tiles, and fully restored interior ceiling protection.",
   },
   {
-    slug: "roof-restoration-project-1",
-    title: "Full Roof Restoration",
-    service: "Roof Restoration",
-    serviceSlug: "roof-restoration",
-    location: "[Suburb, WA]",
-    description: "[Project description placeholder — replace with real project details when available.]",
-    challenge: "[Challenge description placeholder]",
-    result: "[Result description placeholder]",
+    slug: "pressure-cleaning-moss-removal",
+    title: "High-Pressure Roof Cleaning & Moss Removal",
+    service: "Roof Cleaning",
+    serviceSlug: "roof-cleaning",
+    location: "Bunbury, WA",
+    image: "/images/web/IMG_4970.jpg",
+    beforeImage: "/images/web/IMG_4965.jpg",
+    afterImage: "/images/web/IMG_4970.jpg",
+    galleryImages: [
+      "/images/web/IMG_4970.jpg",
+      "/images/web/IMG_4965.jpg",
+      "/images/web/IMG_5652.jpg",
+    ],
+    description: "Deep pressure cleaning of a heavily lichen-covered tile roof in Bunbury.",
+    challenge: "Years of accumulated moss had clogged rainwater channels between tiles, causing water to pool and overflow into eaves.",
+    result: "Cleared all lichen, unblocked water flow channels, and thoroughly washed down gutters, leaving the roof looking clean and revitalized.",
   },
   {
-    slug: "roof-painting-project-1",
-    title: "Roof Painting & Protection",
+    slug: "terracotta-roof-painting-coating",
+    title: "Tile Roof Painting & Membrane Coating",
     service: "Roof Painting",
     serviceSlug: "roof-painting",
-    location: "[Suburb, WA]",
-    description: "[Project description placeholder — replace with real project details when available.]",
-    challenge: "[Challenge description placeholder]",
-    result: "[Result description placeholder]",
+    location: "Perth, WA",
+    image: "/images/web/IMG_5505.jpg",
+    beforeImage: "/images/web/IMG_5293.jpg",
+    afterImage: "/images/web/IMG_5505.jpg",
+    galleryImages: [
+      "/images/web/IMG_5505.jpg",
+      "/images/web/IMG_5293.jpg",
+      "/images/web/IMG_1544.jpg",
+      "/images/web/IMG_5794.jpg",
+    ],
+    description: "Full surface cleaning, tile repairs, priming, and double-coat acrylic roof painting for a home in Perth.",
+    challenge: "Severely faded, chalky tiles had lost their protective finish and absorbed moisture during rains.",
+    result: "Applied high-durability acrylic roof coating, giving the home a vibrant new look and adding a robust waterproof barrier.",
   },
 ];
 
@@ -620,6 +688,7 @@ export interface BlogPost {
   date: string;
   readTime: string;
   author: string;
+  image: string;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -632,6 +701,7 @@ export const blogPosts: BlogPost[] = [
     date: "2024-01-15",
     readTime: "5 min read",
     author: "Elite Star Roofing WA",
+    image: "/images/web/IMG_0918.jpg",
   },
   {
     slug: "common-causes-of-roof-leaks",
@@ -642,6 +712,7 @@ export const blogPosts: BlogPost[] = [
     date: "2024-01-10",
     readTime: "6 min read",
     author: "Elite Star Roofing WA",
+    image: "/images/web/IMG_0919.jpg",
   },
   {
     slug: "roof-repair-vs-restoration",
@@ -652,6 +723,7 @@ export const blogPosts: BlogPost[] = [
     date: "2024-01-05",
     readTime: "4 min read",
     author: "Elite Star Roofing WA",
+    image: "/images/web/IMG_2870.jpg",
   },
   {
     slug: "roof-painting-preparation-guide",
@@ -662,6 +734,7 @@ export const blogPosts: BlogPost[] = [
     date: "2023-12-20",
     readTime: "5 min read",
     author: "Elite Star Roofing WA",
+    image: "/images/web/IMG_5505.jpg",
   },
   {
     slug: "signs-your-roof-needs-attention",
@@ -672,6 +745,7 @@ export const blogPosts: BlogPost[] = [
     date: "2023-12-15",
     readTime: "4 min read",
     author: "Elite Star Roofing WA",
+    image: "/images/web/IMG_4970.jpg",
   },
   {
     slug: "questions-to-ask-a-roofing-contractor",
@@ -682,6 +756,7 @@ export const blogPosts: BlogPost[] = [
     date: "2023-12-10",
     readTime: "5 min read",
     author: "Elite Star Roofing WA",
+    image: "/images/web/IMG_5760_JPG.jpg",
   },
 ];
 
@@ -689,14 +764,15 @@ export interface TeamMember {
   name: string;
   role: string;
   bio: string;
+  image?: string;
 }
 
-// Placeholder team members — replace with real team info
 export const teamMembers: TeamMember[] = [
   {
-    name: "[Owner/Founder Name]",
-    role: "Founder",
-    bio: "[Bio placeholder — replace with real bio when available.]",
+    name: "Elite Star Roofing Specialists",
+    role: "WA Roofing Team",
+    bio: "Dedicated local roofing professionals serving Bunbury, Mandurah, Canning Vale, and Greater WA with top-tier workmanship and reliable customer service.",
+    image: "/images/web/IMG_5780.jpg",
   },
 ];
 
@@ -711,7 +787,7 @@ export const navigationItems = [
   { label: "Projects", href: "/projects" },
   { label: "Service Areas", href: "/service-areas" },
   { label: "Blog", href: "/blog" },
-  { label: "Resources", href: "/resources" },
-  { label: "FAQ", href: "/faq" },
+  // { label: "Resources", href: "/resources" },
+  // { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];

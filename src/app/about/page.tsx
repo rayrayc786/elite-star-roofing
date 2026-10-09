@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import CTASection from "@/components/sections/CTASection";
 import { businessInfo, teamMembers } from "@/lib/data";
@@ -55,8 +56,14 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-primary/5 to-accent/10 rounded-2xl aspect-[4/3] flex items-center justify-center border border-border">
-              <p className="text-sm text-text-muted">[Team/founder photo placeholder]</p>
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] border border-border shadow-md">
+              <Image
+                src="/images/web/IMG_5760_JPG.jpg"
+                alt="Elite Star Roofing WA Team on Site"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
@@ -92,9 +99,15 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-3xl mx-auto">
             {teamMembers.map((member) => (
-              <div key={member.name} className="bg-warm-white border border-border rounded-2xl overflow-hidden">
-                <div className="aspect-square bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                  <p className="text-sm text-text-muted">[Photo placeholder]</p>
+              <div key={member.name} className="bg-warm-white border border-border rounded-2xl overflow-hidden shadow-sm">
+                <div className="relative aspect-square w-full">
+                  <Image
+                    src={member.image || "/images/web/IMG_5780.jpg"}
+                    alt={member.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                    className="object-cover"
+                  />
                 </div>
                 <div className="p-5 text-center">
                   <h3 className="text-base font-bold text-primary">{member.name}</h3>

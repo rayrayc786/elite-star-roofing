@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Wrench, Droplets, RotateCcw, Paintbrush } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { services } from "@/lib/data";
@@ -33,19 +34,28 @@ export default function ServicesPage() {
       <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, idx) => {
+            {services.map((service) => {
               const Icon = iconMap[service.icon] || Wrench;
               return (
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="group bg-warm-white border border-border rounded-2xl p-8 hover:border-accent/30 hover:shadow-xl transition-all"
+                  className="group bg-warm-white border border-border rounded-2xl overflow-hidden hover:border-accent/30 hover:shadow-xl transition-all flex flex-col"
                 >
-                  <div className="flex items-start gap-5">
-                    <div className="w-16 h-16 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent transition-colors">
-                      <Icon className="w-8 h-8 text-accent group-hover:text-primary transition-colors" />
+                  <div className="relative aspect-[16/9] w-full">
+                    <Image
+                      src={service.image}
+                      alt={service.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md">
+                      <Icon className="w-6 h-6 text-primary" />
                     </div>
-                    <div className="flex-1">
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
                       <h2 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">
                         {service.name}
                       </h2>
@@ -63,10 +73,10 @@ export default function ServicesPage() {
                           ))}
                         </ul>
                       </div>
-                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
-                        Learn More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </span>
                     </div>
+                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent mt-2">
+                      Learn More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
                   </div>
                 </Link>
               );

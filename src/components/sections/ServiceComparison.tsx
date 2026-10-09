@@ -22,7 +22,7 @@ export default function ServiceComparison() {
           {services.map((service, idx) => (
             <div
               key={service.slug}
-              className="bg-white rounded-2xl p-6 border border-border hover:border-accent/30 hover:shadow-lg transition-all duration-300 flex flex-col"
+              className="bg-white rounded-2xl p-6 border border-border hover:border-accent/30 hover:shadow-lg transition-all duration-300 flex flex-col h-full"
             >
               <div className="text-xs font-bold text-accent uppercase tracking-wider mb-3">
                 0{idx + 1}

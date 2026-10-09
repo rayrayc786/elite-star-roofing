@@ -1,29 +1,38 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
-import { ChevronLeft, ChevronRight, MoveHorizontal } from "lucide-react";
+import Image from "next/image";
+import { MoveHorizontal } from "lucide-react";
 
 interface BeforeAfterProject {
   title: string;
   service: string;
   location: string;
+  beforeImage: string;
+  afterImage: string;
 }
 
 const projects: BeforeAfterProject[] = [
   {
-    title: "Residential Roof Repair",
-    service: "Roof Repair",
-    location: "[Suburb, WA]",
+    title: "Ridge Pointing & Bedding Restoration",
+    service: "Roof Pointing",
+    location: "Canning Vale, WA",
+    beforeImage: "/images/web/IMG_2845.jpg",
+    afterImage: "/images/web/IMG_2870.jpg",
   },
   {
-    title: "Full Roof Restoration",
-    service: "Roof Restoration",
-    location: "[Suburb, WA]",
+    title: "Moss & Algae Pressure Cleaning",
+    service: "Roof Cleaning",
+    location: "Bunbury, WA",
+    beforeImage: "/images/web/IMG_4965.jpg",
+    afterImage: "/images/web/IMG_4970.jpg",
   },
   {
-    title: "Roof Painting Transformation",
+    title: "Roof Painting & Membrane Coating",
     service: "Roof Painting",
-    location: "[Suburb, WA]",
+    location: "Perth, WA",
+    beforeImage: "/images/web/IMG_5293.jpg",
+    afterImage: "/images/web/IMG_5505.jpg",
   },
 ];
 
@@ -83,25 +92,31 @@ function BeforeAfterItem({ project }: { project: BeforeAfterProject }) {
         }}
       >
         {/* After (background) */}
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-green-100 flex items-center justify-center">
-          <div className="text-center">
-            <p className="text-lg font-bold text-primary/50">After</p>
-            <p className="text-sm text-text-muted">[Project photo placeholder]</p>
-          </div>
+        <div className="absolute inset-0">
+          <Image
+            src={project.afterImage}
+            alt={`${project.title} After`}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover"
+          />
         </div>
 
-        {/* Before (clipped) */}
+        {/* Before (clipped overlay) */}
         <div
-          className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-200 flex items-center justify-center"
+          className="absolute inset-0 overflow-hidden"
           style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
         >
-          <div className="text-center">
-            <p className="text-lg font-bold text-primary/50">Before</p>
-            <p className="text-sm text-text-muted">[Project photo placeholder]</p>
-          </div>
+          <Image
+            src={project.beforeImage}
+            alt={`${project.title} Before`}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover"
+          />
         </div>
 
-        {/* Divider */}
+        {/* Divider line */}
         <div
           className="absolute top-0 bottom-0 w-[3px] bg-white shadow-lg z-10"
           style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }}
@@ -116,10 +131,10 @@ function BeforeAfterItem({ project }: { project: BeforeAfterProject }) {
         </div>
 
         {/* Labels */}
-        <div className="absolute top-3 left-3 z-10 px-3 py-1 bg-black/60 rounded-full text-xs font-bold text-white">
+        <div className="absolute top-3 left-3 z-10 px-3 py-1 bg-black/70 rounded-full text-xs font-bold text-white shadow">
           Before
         </div>
-        <div className="absolute top-3 right-3 z-10 px-3 py-1 bg-accent/90 rounded-full text-xs font-bold text-primary">
+        <div className="absolute top-3 right-3 z-10 px-3 py-1 bg-accent/90 rounded-full text-xs font-bold text-primary shadow">
           After
         </div>
       </div>
@@ -142,13 +157,13 @@ export default function BeforeAfterSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
-            Our Work
+            Our Real Work
           </span>
           <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
             See the Difference
           </h2>
           <p className="text-text-muted max-w-2xl mx-auto text-lg">
-            Drag the slider to see the before and after transformation on our roofing projects.
+            Drag the slider to see the before and after transformations on our actual Western Australia roofing projects.
           </p>
         </div>
 
@@ -157,10 +172,6 @@ export default function BeforeAfterSection() {
             <BeforeAfterItem key={project.title} project={project} />
           ))}
         </div>
-
-        <p className="text-center text-sm text-text-muted mt-8">
-          [Replace placeholder images with real before/after project photos when available]
-        </p>
       </div>
     </section>
   );

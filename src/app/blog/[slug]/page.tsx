@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { blogPosts } from "@/lib/data";
 
@@ -49,12 +50,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <span>{post.readTime}</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-primary mb-10 leading-[1.15]">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-10 leading-[1.15]">
             {post.title}
           </h1>
 
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-accent/20 border border-accent flex items-center justify-center text-accent font-serif font-bold text-lg">
+            <div className="w-10 h-10 rounded-full bg-accent/20 border border-accent flex items-center justify-center text-accent font-bold text-lg">
               {post.author.charAt(0)}
             </div>
             <div className="flex flex-col">
@@ -67,16 +68,23 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       {/* Featured Image */}
       <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <div className="w-full aspect-[21/9] bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl overflow-hidden shadow-md flex items-center justify-center border border-border/50">
-          <span className="text-primary/30 font-serif text-xl">Featured Image Placeholder</span>
+        <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden shadow-md border border-border/50">
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            priority
+            sizes="(max-width: 1000px) 100vw, 1000px"
+            className="object-cover"
+          />
         </div>
       </div>
 
       <div className="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Article Content */}
-        <article className="prose prose-lg prose-slate max-w-none prose-headings:font-serif prose-headings:text-primary prose-a:text-accent prose-p:text-text/80 prose-p:leading-relaxed">
+        <article className="prose prose-lg prose-slate max-w-none prose-headings:font-bold prose-headings:text-primary prose-a:text-accent prose-p:text-text/80 prose-p:leading-relaxed">
           <p className="text-xl text-text/90 font-medium mb-8 leading-relaxed">
-            <span className="float-left text-7xl font-serif text-accent leading-[0.8] mr-4 mt-2">
+            <span className="float-left text-7xl font-bold text-accent leading-[0.8] mr-4 mt-2">
               {post.excerpt.charAt(0)}
             </span>
             {post.excerpt.slice(1)}
@@ -91,17 +99,17 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           
           <p>
             The result is a reliable, durable roof that modern quick-fix methods simply cannot replicate. It is a thorough, 
-            meditative process, requiring patience and absolute precision—a true testament to the elegance of proper roofing.
+            meditative process, requiring patience and absolute precision—a true testament to proper Australian roofing standards.
           </p>
 
           <h2>The Importance of Preparation</h2>
           <p>
-            Before any major repair or painting project begins, preparation is critical. We spend considerable time inspecting, 
-            cleaning, and treating the roof surface to guarantee our materials bond perfectly. 
+            Before any major repair, pointing, or painting project begins, preparation is critical. We spend considerable time inspecting, 
+            cleaning, and treating the roof surface to guarantee our materials bond perfectly and last for years. 
           </p>
 
           <blockquote>
-            "Quality isn't an act, it's a habit. We treat every roof as if it were our own."
+            &quot;Quality isn&apos;t an act, it&apos;s a habit. We treat every roof as if it were our own.&quot;
           </blockquote>
           
           <p>
@@ -114,13 +122,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
         {/* Continue Reading Section */}
         <div>
-          <h2 className="text-2xl font-serif text-accent mb-8">Continue Reading</h2>
+          <h2 className="text-2xl font-bold text-primary mb-8">Continue Reading</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {morePosts.slice(0, 2).map((p) => (
               <Link href={`/blog/${p.slug}`} key={p.slug} className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border/50 flex flex-col">
                 <div className="relative aspect-[16/10] bg-primary/5 overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
-                  </div>
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 400px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center gap-2 text-[10px] text-text-muted mb-3 uppercase tracking-wider">
@@ -128,7 +141,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     <span className="w-1 h-1 rounded-full bg-accent"></span>
                     <span>{p.readTime}</span>
                   </div>
-                  <h3 className="text-lg font-serif text-primary mb-4 group-hover:text-accent transition-colors">
+                  <h3 className="text-lg font-bold text-primary mb-4 group-hover:text-accent transition-colors">
                     {p.title}
                   </h3>
                   <div className="mt-auto">

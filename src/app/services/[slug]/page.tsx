@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import FAQAccordion from "@/components/ui/FAQAccordion";
@@ -51,7 +52,7 @@ export default async function ServiceDetailPage({
           <p className="text-lg text-white/70 max-w-2xl mb-8">{service.description}</p>
           <Link
             href="/request-quote"
-            className="inline-flex items-center gap-2 px-7 py-4 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-all"
+            className="inline-flex items-center gap-2 px-7 py-4 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-all shadow-lg"
           >
             {service.ctaText}
             <ArrowRight className="w-5 h-5" />
@@ -62,7 +63,7 @@ export default async function ServiceDetailPage({
       {/* Problems This Service Addresses */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
                 Common Problems
@@ -82,8 +83,14 @@ export default async function ServiceDetailPage({
                 ))}
               </div>
             </div>
-            <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl aspect-[4/3] flex items-center justify-center border border-border">
-              <p className="text-sm text-text-muted">[Service image placeholder]</p>
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] border border-border shadow-md">
+              <Image
+                src={service.image}
+                alt={`${service.name} Work`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
@@ -119,32 +126,40 @@ export default async function ServiceDetailPage({
         </div>
       </section>
 
-      {/* Before/After Placeholder */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
-              Results
-            </span>
-            <h2 className="text-3xl font-bold text-primary mb-4">
-              {service.name} Examples
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[1, 2].map((i) => (
-              <div key={i} className="bg-warm-white border border-border rounded-2xl overflow-hidden">
-                <div className="aspect-[16/9] bg-gradient-to-br from-gray-200 to-gray-100 flex items-center justify-center">
-                  <span className="text-sm text-text-muted">[Project photo placeholder]</span>
+      {/* Real Project Gallery */}
+      {service.galleryImages && service.galleryImages.length > 0 && (
+        <section className="py-16 lg:py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
+                Recent Projects
+              </span>
+              <h2 className="text-3xl font-bold text-primary mb-4">
+                {service.name} Work Gallery
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {service.galleryImages.map((imgUrl, i) => (
+                <div key={i} className="bg-warm-white border border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={imgUrl}
+                      alt={`${service.name} project photo ${i + 1}`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-sm font-bold text-primary">{service.name} Project #{i + 1}</h3>
+                    <p className="text-xs text-text-muted">Western Australia Job Site</p>
+                  </div>
                 </div>
-                <div className="p-5">
-                  <h3 className="text-base font-bold text-primary">[Project Title]</h3>
-                  <p className="text-sm text-text-muted">[Suburb, WA] • {service.name}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* FAQ */}
       {service.faqs.length > 0 && (

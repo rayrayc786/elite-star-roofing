@@ -32,18 +32,18 @@ export default function ServiceGrid() {
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="group relative bg-warm-white border border-border rounded-2xl p-6 lg:p-8 hover:border-accent/30 hover:shadow-xl transition-all duration-300"
+                className="group relative bg-warm-white border border-border rounded-2xl p-6 lg:p-8 hover:border-accent/30 hover:shadow-xl transition-all duration-300 flex flex-col h-full"
               >
-                <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
+                <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shrink-0">
                   <Icon className="w-7 h-7 text-accent group-hover:text-primary transition-colors" />
                 </div>
                 <h3 className="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors">
                   {service.name}
                 </h3>
-                <p className="text-sm text-text-muted leading-relaxed mb-4">
+                <p className="text-sm text-text-muted leading-relaxed mb-4 flex-1">
                   {service.tagline}
                 </p>
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 mt-auto">
                   Learn More <ArrowRight className="w-4 h-4" />
                 </span>
               </Link>
