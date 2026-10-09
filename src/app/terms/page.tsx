@@ -42,7 +42,7 @@ export default function TermsPage() {
 
             <h2>4. Limitation of Liability</h2>
             <p>
-              While we strive to ensure the accuracy of the information on this website, {businessInfo.name} makes no warranties or representations about the accuracy or completeness of the site's content. In no event shall {businessInfo.name} be liable for any direct, indirect, incidental, or consequential damages arising out of the use of or inability to use this website.
+              While we strive to ensure the accuracy of the information on this website, {businessInfo.name} makes no warranties or representations about the accuracy or completeness of the site&apos;s content. In no event shall {businessInfo.name} be liable for any direct, indirect, incidental, or consequential damages arising out of the use of or inability to use this website.
             </p>
 
             <h2>5. Changes to Terms</h2>

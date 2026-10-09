@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Star, ArrowRight, Globe } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowRight, Globe } from "lucide-react";
 import { businessInfo, services, navigationItems } from "@/lib/data";
 
 export default function Footer() {
@@ -13,11 +13,12 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center mb-6" aria-label="Elite Star Roofing WA Home">
               <Image 
-                src="/logo.jpeg" 
+                src="/Elite Final Logo.png" 
                 alt="Elite Star Roofing WA Logo" 
-                width={160} 
-                height={50} 
-                className="object-contain h-12 w-auto rounded-lg bg-white p-1" 
+                width={400} 
+                height={140} 
+                className="object-contain h-24 lg:h-32 w-auto scale-150 lg:scale-[2] transform origin-left" 
+                style={{ width: "auto" }}
               />
             </Link>
             <p className="text-white/70 text-sm leading-relaxed mb-6">

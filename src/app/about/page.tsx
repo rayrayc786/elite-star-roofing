@@ -61,6 +61,7 @@ export default function AboutPage() {
                 src="/images/web/IMG_5760_JPG.jpg"
                 alt="Elite Star Roofing WA Team on Site"
                 fill
+                priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />

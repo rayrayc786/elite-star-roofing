@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Menu, X, ChevronDown, Star } from "lucide-react";
+import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { navigationItems, businessInfo } from "@/lib/data";
 
 export default function Header() {
@@ -48,15 +48,16 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-[72px] lg:h-[80px]">
+        <div className="flex items-center justify-between h-[120px] lg:h-[140px]">
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0" aria-label="Elite Star Roofing WA Home">
             <Image 
-              src="/logo.jpeg" 
+              src="/Elite Final Logo.png" 
               alt="Elite Star Roofing WA Logo" 
-              width={160} 
-              height={50} 
-              className="object-contain h-10 lg:h-12 w-auto" 
+              width={400} 
+              height={140} 
+              className="object-contain h-24 lg:h-32 w-auto scale-150 lg:scale-[2] transform origin-left" 
+              style={{ width: "auto" }}
               priority
             />
           </Link>
@@ -163,7 +164,7 @@ export default function Header() {
 
       {/* Mobile Menu (Moved outside header to avoid backdrop-filter containing block issues) */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 top-[72px] bg-white z-40 overflow-y-auto" role="dialog" aria-label="Mobile navigation">
+        <div className="lg:hidden fixed inset-0 top-[120px] bg-white z-40 overflow-y-auto" role="dialog" aria-label="Mobile navigation">
           <nav className="p-6 space-y-1" aria-label="Mobile navigation">
             {navigationItems.map((item) =>
               item.children ? (

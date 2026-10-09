@@ -35,17 +35,15 @@ export default function HeroSection() {
         {/* Fallback background if video fails */}
         <div className="absolute inset-0 bg-primary" />
         
-        {/* Video Element */}
         <video
           autoPlay
           loop
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-60"
+          suppressHydrationWarning
         >
-          {/* Replace this src with your actual roofing video in the public folder */}
           <source src="/hero-video.mp4" type="video/mp4" />
-          {/* Placeholder external video for demonstration */}
           <source src="https://player.vimeo.com/external/403362140.sd.mp4?s=f5e4bb507ec7941fb5d2b70ba5e917ad023199f3&profile_id=164&oauth2_token_id=57447761" type="video/mp4" />
         </video>
 
