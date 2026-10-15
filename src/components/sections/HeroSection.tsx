@@ -59,20 +59,20 @@ export default function HeroSection() {
         <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
           {/* Hero Copy */}
           <div className="text-white flex flex-col items-center">
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm border border-white/10">
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm border border-white/15">
               <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-white/80">
+              <span className="text-xs font-bold uppercase tracking-widest text-cream font-[family-name:var(--font-montserrat)]">
                 Professional Roofing Services in WA
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[4rem] font-bold leading-[1.1] mb-6 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-[4rem] font-bold leading-[1.1] mb-6 tracking-wide font-glint italic uppercase text-white">
               Reliable Roofing Solutions <br className="hidden sm:block" />
               <span className="text-accent">Built to Protect</span>{" "}
-              Your Home
+              <span className="text-cream">Your Home</span>
             </h1>
 
-            <p className="text-lg text-white/75 leading-relaxed mb-10 max-w-2xl">
+            <p className="text-lg text-cream/80 leading-relaxed mb-10 max-w-2xl font-[family-name:var(--font-montserrat)]">
               Roof repairs, leak detection, roof restoration, and roof painting.
               Professional service from a local WA roofing team you can trust.
             </p>
@@ -80,9 +80,9 @@ export default function HeroSection() {
             {/* Trust Points */}
             <div className="flex flex-wrap justify-center gap-4 mb-10">
               {trustIcons.map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-2.5 bg-black/20 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
+                <div key={label} className="flex items-center gap-2.5 bg-black/40 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
                   <Icon className="w-4 h-4 text-accent shrink-0" />
-                  <span className="text-sm font-medium text-white/90">{label}</span>
+                  <span className="text-sm font-medium text-white/95">{label}</span>
                 </div>
               ))}
             </div>
@@ -91,7 +91,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/request-quote"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-all shadow-lg hover:shadow-xl text-base"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-bold rounded-xl hover:bg-accent-hover transition-all shadow-lg hover:shadow-xl text-base shadow-accent/25"
               >
                 Get a Free Quote
                 <ArrowRight className="w-5 h-5" />

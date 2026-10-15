@@ -25,7 +25,7 @@ export default function AboutPage() {
       <section className="bg-primary py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: "About" }]} />
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">About {businessInfo.name}</h1>
+          <h1 className="text-4xl lg:text-5xl font-bold text-cream mb-4 font-glint italic uppercase">About {businessInfo.name}</h1>
           <p className="text-lg text-white/70 max-w-2xl">
             A local WA roofing company focused on quality workmanship and honest service.
           </p>
@@ -37,8 +37,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">Our Story</span>
-              <h2 className="text-3xl font-bold text-primary mb-6">
+              <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">Our Story</span>
+              <h2 className="text-3xl font-bold text-primary mb-6 font-glint italic uppercase">
                 About {businessInfo.name}
               </h2>
               <div className="space-y-4 text-text-muted leading-relaxed">
@@ -58,7 +58,7 @@ export default function AboutPage() {
             </div>
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] border border-border shadow-md">
               <Image
-                src="/images/web/IMG_5760_JPG.jpg"
+                src="/images/web/IMG_1544.jpg"
                 alt="Elite Star Roofing WA Team on Site"
                 fill
                 priority
@@ -74,8 +74,8 @@ export default function AboutPage() {
       <section className="py-16 lg:py-24 bg-light-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">Our Values</span>
-            <h2 className="text-3xl font-bold text-primary">What We Stand For</h2>
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">Our Values</span>
+            <h2 className="text-3xl font-bold text-primary font-glint italic uppercase">What We Stand For</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((v) => (
@@ -83,7 +83,7 @@ export default function AboutPage() {
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                   <v.icon className="w-6 h-6 text-accent" />
                 </div>
-                <h3 className="text-base font-bold text-primary mb-2">{v.title}</h3>
+                <h3 className="text-base font-bold text-primary mb-2 font-glint italic">{v.title}</h3>
                 <p className="text-sm text-text-muted">{v.description}</p>
               </div>
             ))}
@@ -95,8 +95,8 @@ export default function AboutPage() {
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">Our Team</span>
-            <h2 className="text-3xl font-bold text-primary">Meet the Team</h2>
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">Our Team</span>
+            <h2 className="text-3xl font-bold text-primary font-glint italic uppercase">Meet the Team</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-3xl mx-auto">
             {teamMembers.map((member) => (

@@ -23,7 +23,7 @@ export default function ServicesPage() {
       <section className="bg-primary py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: "Services" }]} />
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">Our Roofing Services</h1>
+          <h1 className="text-4xl lg:text-5xl font-bold text-cream mb-4 font-glint italic uppercase">Our Roofing Services</h1>
           <p className="text-lg text-white/70 max-w-2xl">
             We specialise in four core roofing services designed to address your specific needs. From repairs to full restorations.
           </p>
@@ -31,7 +31,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="py-20 lg:py-28 bg-warm-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service) => {
@@ -40,7 +40,7 @@ export default function ServicesPage() {
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="group bg-warm-white border border-border rounded-2xl overflow-hidden hover:border-accent/30 hover:shadow-xl transition-all flex flex-col"
+                  className="group bg-white border border-border rounded-2xl overflow-hidden hover:border-accent/40 hover:shadow-xl transition-all flex flex-col"
                 >
                   <div className="relative aspect-[16/9] w-full">
                     <Image
@@ -51,12 +51,12 @@ export default function ServicesPage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md">
-                      <Icon className="w-6 h-6 text-primary" />
+                      <Icon className="w-6 h-6 text-accent" />
                     </div>
                   </div>
                   <div className="p-6 flex-1 flex flex-col justify-between">
                     <div>
-                      <h2 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">
+                      <h2 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors font-glint italic">
                         {service.name}
                       </h2>
                       <p className="text-sm text-text-muted leading-relaxed mb-4">

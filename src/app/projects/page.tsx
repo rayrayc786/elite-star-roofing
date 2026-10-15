@@ -17,7 +17,7 @@ export default function ProjectsPage() {
       <section className="bg-primary py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: "Projects" }]} />
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">Our Projects</h1>
+          <h1 className="text-4xl lg:text-5xl font-bold text-cream mb-4 font-glint italic uppercase">Our Projects</h1>
           <p className="text-lg text-white/70 max-w-2xl">
             Browse our completed roofing projects across Western Australia.
           </p>
@@ -28,7 +28,7 @@ export default function ProjectsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Filters */}
           <div className="flex flex-wrap gap-3 mb-10">
-            <span className="px-4 py-2 bg-primary text-white text-sm font-semibold rounded-lg">All</span>
+            <span className="px-4 py-2 bg-accent text-white text-sm font-semibold rounded-lg shadow-sm">All</span>
             {services.map((s) => (
               <span key={s.slug} className="px-4 py-2 bg-warm-white text-text-muted text-sm font-semibold rounded-lg border border-border hover:border-accent hover:text-accent transition-colors cursor-pointer">
                 {s.name}
@@ -42,7 +42,7 @@ export default function ProjectsPage() {
               <Link
                 key={project.slug}
                 href={`/projects/${project.slug}`}
-                className="group bg-warm-white border border-border rounded-2xl overflow-hidden hover:border-accent/30 hover:shadow-xl transition-all"
+                className="group bg-white border border-border rounded-2xl overflow-hidden hover:border-accent/40 hover:shadow-xl transition-all"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
@@ -54,7 +54,7 @@ export default function ProjectsPage() {
                   />
                 </div>
                 <div className="p-5">
-                  <h2 className="text-base font-bold text-primary group-hover:text-accent transition-colors mb-2">
+                  <h2 className="text-base font-bold text-primary group-hover:text-accent transition-colors mb-2 font-glint italic">
                     {project.title}
                   </h2>
                   <div className="flex items-center gap-3 mb-3">

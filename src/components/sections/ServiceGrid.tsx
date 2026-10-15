@@ -11,13 +11,13 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default function ServiceGrid() {
   return (
-    <section className="py-20 lg:py-28 bg-white" aria-label="Our Services">
+    <section className="py-20 lg:py-28 bg-warm-white" aria-label="Our Services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
+          <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">
             Our Services
           </span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 font-glint italic uppercase">
             Professional Roofing Services
           </h2>
           <p className="text-text-muted max-w-2xl mx-auto text-lg">
@@ -32,12 +32,12 @@ export default function ServiceGrid() {
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="group relative bg-warm-white border border-border rounded-2xl p-6 lg:p-8 hover:border-accent/30 hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+                className="group relative bg-white border border-border hover:border-accent/40 rounded-2xl p-6 lg:p-8 hover:shadow-xl transition-all duration-300 flex flex-col h-full"
               >
                 <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shrink-0">
-                  <Icon className="w-7 h-7 text-accent group-hover:text-primary transition-colors" />
+                  <Icon className="w-7 h-7 text-accent group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors">
+                <h3 className="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors font-glint italic">
                   {service.name}
                 </h3>
                 <p className="text-sm text-text-muted leading-relaxed mb-4 flex-1">

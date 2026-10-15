@@ -22,15 +22,15 @@ export default function CTASection({
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2
-          className={`text-3xl lg:text-4xl font-bold mb-4 ${
-            isDark ? "text-white" : "text-primary"
+          className={`text-3xl lg:text-4xl font-bold mb-4 font-glint italic uppercase ${
+            isDark ? "text-cream" : "text-primary"
           }`}
         >
           {title}
         </h2>
         <p
           className={`text-lg mb-8 max-w-2xl mx-auto ${
-            isDark ? "text-white/70" : "text-text-muted"
+            isDark ? "text-white/75" : "text-text-muted"
           }`}
         >
           {description}
@@ -38,7 +38,7 @@ export default function CTASection({
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/request-quote"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-all shadow-lg hover:shadow-xl text-base"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white font-bold rounded-xl hover:bg-accent-hover transition-all shadow-lg hover:shadow-xl text-base shadow-accent/25"
           >
             Get a Free Quote
             <ArrowRight className="w-5 h-5" />

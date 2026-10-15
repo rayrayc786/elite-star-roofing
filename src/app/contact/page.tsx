@@ -23,7 +23,7 @@ export default function ContactPage() {
       <section className="bg-primary py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: "Contact Us" }]} />
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">Contact Us</h1>
+          <h1 className="text-4xl lg:text-5xl font-bold text-cream mb-4 font-glint italic uppercase">Contact Us</h1>
           <p className="text-lg text-white/70 max-w-2xl">
             Get in touch with Elite Star Roofing WA for inquiries, advice, or to schedule a service.
           </p>
@@ -37,7 +37,7 @@ export default function ContactPage() {
             {/* Contact Info */}
             <div className="lg:col-span-2 space-y-8">
               <div>
-                <h2 className="text-2xl font-bold text-primary mb-6">Get In Touch</h2>
+                <h2 className="text-2xl font-bold text-primary mb-6 font-glint italic uppercase">Get In Touch</h2>
                 <p className="text-text-muted mb-8">
                   Whether you have a question about our services or need immediate assistance, our team is ready to help.
                 </p>
@@ -49,7 +49,7 @@ export default function ContactPage() {
                     <Phone className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-primary mb-1">Phone</h3>
+                    <h3 className="text-sm font-bold text-primary mb-1 font-glint italic">Phone</h3>
                     <p className="text-sm text-text-muted mb-2">Call us for immediate assistance.</p>
                     <a href={`tel:${businessInfo.phoneRaw}`} className="text-base font-semibold text-accent hover:text-accent-hover transition-colors">
                       {businessInfo.phone}
@@ -62,7 +62,7 @@ export default function ContactPage() {
                     <Mail className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-primary mb-1">Email</h3>
+                    <h3 className="text-sm font-bold text-primary mb-1 font-glint italic">Email</h3>
                     <p className="text-sm text-text-muted mb-2">Send us an email anytime.</p>
                     <a href={`mailto:${businessInfo.email}`} className="text-base font-semibold text-accent hover:text-accent-hover transition-colors">
                       {businessInfo.email}
@@ -75,7 +75,7 @@ export default function ContactPage() {
                     <MapPin className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-primary mb-1">Service Area</h3>
+                    <h3 className="text-sm font-bold text-primary mb-1 font-glint italic">Service Area</h3>
                     <p className="text-sm text-text-muted">Serving {businessInfo.city} and surrounding areas across {businessInfo.state}.</p>
                   </div>
                 </div>
@@ -85,7 +85,7 @@ export default function ContactPage() {
                     <Clock className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-primary mb-1">Hours</h3>
+                    <h3 className="text-sm font-bold text-primary mb-1 font-glint italic">Hours</h3>
                     <p className="text-sm text-text-muted">Mon - Fri: {businessInfo.openingHours.weekdays}</p>
                     <p className="text-sm text-text-muted">Sat: {businessInfo.openingHours.saturday}</p>
                     <p className="text-sm text-text-muted">Sun: {businessInfo.openingHours.sunday}</p>
@@ -97,7 +97,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="lg:col-span-3">
               <div className="bg-white rounded-2xl p-8 border border-border shadow-lg">
-                <h2 className="text-2xl font-bold text-primary mb-2">Send a Message</h2>
+                <h2 className="text-2xl font-bold text-primary mb-2 font-glint italic uppercase">Send a Message</h2>
                 <p className="text-text-muted mb-8">Fill out the form below and we&apos;ll get back to you as soon as possible.</p>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -156,7 +156,7 @@ export default function ContactPage() {
                   
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-all"
+                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-accent text-white font-bold rounded-xl hover:bg-accent-hover transition-all shadow-md shadow-accent/20"
                   >
                     Send Message <ArrowRight className="w-5 h-5" />
                   </button>

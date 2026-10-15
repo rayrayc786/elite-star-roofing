@@ -19,7 +19,7 @@ export default function ResourcesPage() {
       <section className="bg-primary py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: "Resources" }]} />
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">Roofing Resources</h1>
+          <h1 className="text-4xl lg:text-5xl font-bold text-cream mb-4 font-glint italic uppercase">Roofing Resources</h1>
           <p className="text-lg text-white/70 max-w-2xl">
             Helpful articles, guides, and tips to help you understand and maintain your roof.
           </p>
@@ -30,7 +30,7 @@ export default function ResourcesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Filters */}
           <div className="flex flex-wrap gap-3 mb-12">
-            <span className="px-4 py-2 bg-primary text-white text-sm font-semibold rounded-lg">All Articles</span>
+            <span className="px-4 py-2 bg-accent text-white text-sm font-semibold rounded-lg shadow-sm">All Articles</span>
             {categories.map((cat) => (
               <span key={cat} className="px-4 py-2 bg-warm-white text-text-muted text-sm font-semibold rounded-lg border border-border hover:border-accent hover:text-accent transition-colors cursor-pointer">
                 {cat}
@@ -43,7 +43,7 @@ export default function ResourcesPage() {
             <div className="mb-12">
               <Link
                 href={`/resources/${blogPosts[0].slug}`}
-                className="group grid lg:grid-cols-2 gap-8 items-center bg-warm-white border border-border rounded-2xl overflow-hidden hover:border-accent/30 hover:shadow-xl transition-all"
+                className="group grid lg:grid-cols-2 gap-8 items-center bg-warm-white border border-border rounded-2xl overflow-hidden hover:border-accent/40 hover:shadow-xl transition-all"
               >
                 <div className="relative aspect-[16/9] lg:aspect-auto lg:h-full w-full min-h-[300px]">
                   <Image
@@ -56,12 +56,12 @@ export default function ResourcesPage() {
                 </div>
                 <div className="p-8 lg:p-12">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-accent/20 text-accent text-xs font-bold uppercase tracking-wider rounded-full">
+                    <span className="px-3 py-1 bg-accent/15 text-accent text-xs font-bold uppercase tracking-wider rounded-full font-subheading">
                       {blogPosts[0].category}
                     </span>
                     <span className="text-sm text-text-muted flex items-center gap-1.5"><Clock className="w-4 h-4" /> {blogPosts[0].readTime}</span>
                   </div>
-                  <h2 className="text-2xl lg:text-3xl font-bold text-primary group-hover:text-accent transition-colors mb-4">
+                  <h2 className="text-2xl lg:text-3xl font-bold text-primary group-hover:text-accent transition-colors mb-4 font-glint italic">
                     {blogPosts[0].title}
                   </h2>
                   <p className="text-text-muted leading-relaxed mb-6">
@@ -81,7 +81,7 @@ export default function ResourcesPage() {
               <Link
                 key={post.slug}
                 href={`/resources/${post.slug}`}
-                className="group bg-white border border-border rounded-2xl overflow-hidden hover:border-accent/30 hover:shadow-lg transition-all flex flex-col"
+                className="group bg-white border border-border rounded-2xl overflow-hidden hover:border-accent/40 hover:shadow-lg transition-all flex flex-col"
               >
                 <div className="relative aspect-[16/9] w-full">
                   <Image
@@ -98,7 +98,7 @@ export default function ResourcesPage() {
                     <span className="w-1 h-1 rounded-full bg-border" />
                     <span className="text-xs text-text-muted">{post.readTime}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-primary group-hover:text-accent transition-colors mb-3">
+                  <h3 className="text-xl font-bold text-primary group-hover:text-accent transition-colors mb-3 font-glint italic">
                     {post.title}
                   </h3>
                   <p className="text-sm text-text-muted line-clamp-2 mb-6 flex-1">

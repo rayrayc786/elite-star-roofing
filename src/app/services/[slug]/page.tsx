@@ -48,11 +48,11 @@ export default async function ServiceDetailPage({
               { label: service.name },
             ]}
           />
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">{service.name}</h1>
+          <h1 className="text-4xl lg:text-5xl font-bold text-cream mb-4 font-glint italic uppercase">{service.name}</h1>
           <p className="text-lg text-white/70 max-w-2xl mb-8">{service.description}</p>
           <Link
             href="/request-quote"
-            className="inline-flex items-center gap-2 px-7 py-4 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-all shadow-lg"
+            className="inline-flex items-center gap-2 px-7 py-4 bg-accent text-white font-bold rounded-xl hover:bg-accent-hover transition-all shadow-lg shadow-accent/25"
           >
             {service.ctaText}
             <ArrowRight className="w-5 h-5" />
@@ -65,10 +65,10 @@ export default async function ServiceDetailPage({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
+              <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">
                 Common Problems
               </span>
-              <h2 className="text-3xl font-bold text-primary mb-4">
+              <h2 className="text-3xl font-bold text-primary mb-4 font-glint italic uppercase">
                 When You May Need {service.name}
               </h2>
               <p className="text-text-muted mb-6">
@@ -100,10 +100,10 @@ export default async function ServiceDetailPage({
       <section className="py-16 lg:py-24 bg-light-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">
               Our Process
             </span>
-            <h2 className="text-3xl font-bold text-primary mb-4">
+            <h2 className="text-3xl font-bold text-primary mb-4 font-glint italic uppercase">
               How Our {service.name} Works
             </h2>
           </div>
@@ -111,13 +111,13 @@ export default async function ServiceDetailPage({
             {service.processSteps.map((step, idx) => (
               <div key={step.title} className="flex gap-5">
                 <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center shrink-0 shadow-md">
-                    <span className="text-lg font-bold text-accent">{String(idx + 1).padStart(2, "0")}</span>
+                  <div className="w-12 h-12 rounded-xl bg-primary border border-white/10 flex items-center justify-center shrink-0 shadow-md">
+                    <span className="text-lg font-bold text-accent font-glint italic">{String(idx + 1).padStart(2, "0")}</span>
                   </div>
                   {idx < service.processSteps.length - 1 && <div className="w-[2px] flex-1 bg-border my-2" />}
                 </div>
                 <div className="pb-8">
-                  <h3 className="text-lg font-bold text-primary mb-1">{step.title}</h3>
+                  <h3 className="text-lg font-bold text-primary mb-1 font-glint italic">{step.title}</h3>
                   <p className="text-sm text-text-muted leading-relaxed">{step.description}</p>
                 </div>
               </div>
@@ -131,10 +131,10 @@ export default async function ServiceDetailPage({
         <section className="py-16 lg:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
+              <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">
                 Recent Projects
               </span>
-              <h2 className="text-3xl font-bold text-primary mb-4">
+              <h2 className="text-3xl font-bold text-primary mb-4 font-glint italic uppercase">
                 {service.name} Work Gallery
               </h2>
             </div>
@@ -151,7 +151,7 @@ export default async function ServiceDetailPage({
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="text-sm font-bold text-primary">{service.name} Project #{i + 1}</h3>
+                    <h3 className="text-sm font-bold text-primary font-glint italic">{service.name} Project #{i + 1}</h3>
                     <p className="text-xs text-text-muted">Western Australia Job Site</p>
                   </div>
                 </div>
@@ -166,10 +166,10 @@ export default async function ServiceDetailPage({
         <section className="py-16 lg:py-24 bg-light-gray">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
-              <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
+              <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">
                 FAQ
               </span>
-              <h2 className="text-3xl font-bold text-primary mb-4">
+              <h2 className="text-3xl font-bold text-primary mb-4 font-glint italic uppercase">
                 {service.name} Questions
               </h2>
             </div>
@@ -181,15 +181,15 @@ export default async function ServiceDetailPage({
       {/* Related Services */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-primary mb-8">Other Services</h2>
+          <h2 className="text-2xl font-bold text-primary mb-8 font-glint italic uppercase">Other Services</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {otherServices.map((s) => (
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className="group bg-warm-white border border-border rounded-xl p-5 hover:border-accent/30 hover:shadow-lg transition-all"
+                className="group bg-warm-white border border-border hover:border-accent/40 rounded-xl p-5 hover:shadow-lg transition-all"
               >
-                <h3 className="text-base font-bold text-primary group-hover:text-accent transition-colors mb-1">
+                <h3 className="text-base font-bold text-primary group-hover:text-accent transition-colors mb-1 font-glint italic">
                   {s.name}
                 </h3>
                 <p className="text-sm text-text-muted mb-3">{s.tagline}</p>

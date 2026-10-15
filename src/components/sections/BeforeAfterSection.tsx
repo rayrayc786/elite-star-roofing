@@ -134,13 +134,13 @@ function BeforeAfterItem({ project }: { project: BeforeAfterProject }) {
         <div className="absolute top-3 left-3 z-10 px-3 py-1 bg-black/70 rounded-full text-xs font-bold text-white shadow">
           Before
         </div>
-        <div className="absolute top-3 right-3 z-10 px-3 py-1 bg-accent/90 rounded-full text-xs font-bold text-primary shadow">
+        <div className="absolute top-3 right-3 z-10 px-3 py-1 bg-accent rounded-full text-xs font-bold text-white shadow">
           After
         </div>
       </div>
 
       <div className="p-5">
-        <h3 className="text-base font-bold text-primary">{project.title}</h3>
+        <h3 className="text-base font-bold text-primary font-glint italic">{project.title}</h3>
         <div className="flex items-center gap-3 mt-1.5">
           <span className="text-xs font-semibold text-accent">{project.service}</span>
           <span className="w-1 h-1 rounded-full bg-border" />
@@ -156,10 +156,10 @@ export default function BeforeAfterSection() {
     <section className="py-20 lg:py-28 bg-light-gray" aria-label="Before and after projects">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
+          <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">
             Our Real Work
           </span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 font-glint italic uppercase">
             See the Difference
           </h2>
           <p className="text-text-muted max-w-2xl mx-auto text-lg">

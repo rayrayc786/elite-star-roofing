@@ -28,7 +28,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       <section className="bg-primary py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: "Projects", href: "/projects" }, { label: project.title }]} />
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">{project.title}</h1>
+          <h1 className="text-4xl lg:text-5xl font-bold text-cream mb-4 font-glint italic uppercase">{project.title}</h1>
           <div className="flex items-center gap-4 text-white/70">
             <span className="flex items-center gap-1.5"><Wrench className="w-4 h-4 text-accent" /> {project.service}</span>
             <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-accent" /> {project.location}</span>
@@ -53,15 +53,15 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
               <div>
-                <h2 className="text-2xl font-bold text-primary mb-4">Project Overview</h2>
+                <h2 className="text-2xl font-bold text-primary mb-4 font-glint italic uppercase">Project Overview</h2>
                 <p className="text-text-muted leading-relaxed">{project.description}</p>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-primary mb-3">The Challenge</h3>
+                <h3 className="text-xl font-bold text-primary mb-3 font-glint italic">The Challenge</h3>
                 <p className="text-text-muted leading-relaxed">{project.challenge}</p>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-primary mb-3">The Result</h3>
+                <h3 className="text-xl font-bold text-primary mb-3 font-glint italic">The Result</h3>
                 <p className="text-text-muted leading-relaxed">{project.result}</p>
               </div>
             </div>
@@ -69,7 +69,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             {/* Sidebar */}
             <div className="space-y-6">
               <div className="bg-warm-white border border-border rounded-xl p-5">
-                <h4 className="text-sm font-bold text-primary mb-3">Project Details</h4>
+                <h4 className="text-sm font-bold text-primary mb-3 font-glint italic">Project Details</h4>
                 <dl className="space-y-3 text-sm">
                   <div>
                     <dt className="text-text-muted">Service</dt>
@@ -83,7 +83,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               </div>
               <Link
                 href="/request-quote"
-                className="block w-full text-center px-6 py-3.5 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-all shadow-md"
+                className="block w-full text-center px-6 py-3.5 bg-accent text-white font-bold rounded-xl hover:bg-accent-hover transition-all shadow-md shadow-accent/20"
               >
                 Get a Free Quote
               </Link>
@@ -93,7 +93,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           {/* Project Gallery */}
           {project.galleryImages && project.galleryImages.length > 0 && (
             <div className="mt-12">
-              <h3 className="text-xl font-bold text-primary mb-6">Project Gallery</h3>
+              <h3 className="text-xl font-bold text-primary mb-6 font-glint italic uppercase">Project Gallery</h3>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                 {project.galleryImages.map((imgUrl, i) => (
                   <div key={i} className="relative aspect-[4/3] rounded-xl overflow-hidden border border-border shadow-sm">

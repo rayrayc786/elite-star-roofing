@@ -43,19 +43,19 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-          ? "bg-white shadow-lg"
-          : "bg-white/95 backdrop-blur-sm"
+          ? "bg-warm-white/98 shadow-md border-b border-border"
+          : "bg-warm-white/90 backdrop-blur-sm border-b border-border/60"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-[120px] lg:h-[140px]">
+        <div className="flex items-center justify-between h-[120px] lg:h-[120px]">
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0" aria-label="Elite Star Roofing WA Home">
             <Image 
               src="/Elite Final Logo.png" 
               alt="Elite Star Roofing WA Logo" 
               width={400} 
-              height={140} 
+              height={120} 
               className="object-contain h-24 lg:h-32 w-auto scale-150 lg:scale-[2] transform origin-left" 
               style={{ width: "auto" }}
               priority
@@ -131,7 +131,7 @@ export default function Header() {
             )}
             <Link
               href="/request-quote"
-              className="px-5 py-2.5 text-sm font-semibold bg-accent text-primary rounded-lg hover:bg-accent-hover transition-all shadow-md hover:shadow-lg"
+              className="px-5 py-2.5 text-sm font-semibold bg-accent text-white rounded-lg hover:bg-accent-hover transition-all shadow-md hover:shadow-lg"
             >
               Get a Free Quote
             </Link>

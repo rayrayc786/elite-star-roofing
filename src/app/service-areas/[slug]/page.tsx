@@ -34,13 +34,13 @@ export default async function ServiceAreaDetailPage({ params }: { params: Promis
             <div className="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center shrink-0">
               <MapPin className="w-5 h-5 text-accent" />
             </div>
-            <h1 className="text-4xl lg:text-5xl font-bold text-white">Roofing in {area.name}</h1>
+            <h1 className="text-4xl lg:text-5xl font-bold text-cream font-glint italic uppercase">Roofing in {area.name}</h1>
           </div>
           <p className="text-lg text-white/70 max-w-2xl mb-8">{area.description}</p>
           <div className="flex flex-wrap gap-4">
             <Link
               href="/request-quote"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-all"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-white font-bold rounded-xl hover:bg-accent-hover transition-all shadow-md shadow-accent/20"
             >
               Get a Free Quote
               <ArrowRight className="w-5 h-5" />
@@ -62,15 +62,15 @@ export default async function ServiceAreaDetailPage({ params }: { params: Promis
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">Our Services</span>
-            <h2 className="text-3xl font-bold text-primary mb-4">What We Do in {area.name}</h2>
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">Our Services</span>
+            <h2 className="text-3xl font-bold text-primary mb-4 font-glint italic uppercase">What We Do in {area.name}</h2>
             <p className="text-text-muted max-w-2xl mx-auto">We provide our full range of professional roofing services to residential properties in {area.name} and surrounding areas.</p>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service) => (
-              <Link key={service.slug} href={`/services/${service.slug}`} className="bg-warm-white border border-border rounded-xl p-5 hover:border-accent hover:shadow-md transition-all">
-                <h3 className="text-lg font-bold text-primary mb-2">{service.name}</h3>
+              <Link key={service.slug} href={`/services/${service.slug}`} className="bg-white border border-border hover:border-accent/40 rounded-xl p-5 hover:shadow-md transition-all">
+                <h3 className="text-lg font-bold text-primary mb-2 font-glint italic">{service.name}</h3>
                 <p className="text-sm text-text-muted mb-4">{service.tagline}</p>
                 <span className="inline-flex items-center gap-1 text-sm font-semibold text-accent">Learn More <ArrowRight className="w-3.5 h-3.5" /></span>
               </Link>
@@ -84,7 +84,7 @@ export default async function ServiceAreaDetailPage({ params }: { params: Promis
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-primary mb-6">Your Local {area.name} Roofers</h2>
+              <h2 className="text-3xl font-bold text-primary mb-6 font-glint italic uppercase">Your Local {area.name} Roofers</h2>
               <p className="text-text-muted mb-6 leading-relaxed">
                 As a local WA roofing company, we understand the specific challenges that {area.name} roofs face from our local climate and weather conditions.
               </p>

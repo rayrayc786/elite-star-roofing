@@ -14,15 +14,15 @@ export default function BlogPage() {
   const regularPosts = blogPosts.slice(1);
 
   return (
-    <div className="bg-[#f9f8f4] min-h-screen pt-24 pb-20">
+    <div className="bg-warm-white min-h-screen pt-24 pb-20">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="mb-16">
-          <span className="block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-4">
+          <span className="block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-4 font-subheading">
             ROOFING INSIGHTS & GUIDES
           </span>
-          <h1 className="text-5xl lg:text-7xl font-bold text-primary mb-6">
+          <h1 className="text-5xl lg:text-7xl font-bold text-primary mb-6 font-glint italic uppercase">
             The Roofing Journal
           </h1>
           <p className="text-text-muted max-w-xl text-lg leading-relaxed">
@@ -38,7 +38,7 @@ export default function BlogPage() {
               <Link href={`/blog/${featuredPost.slug}`} className="block h-full bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border/50">
                 <div className="relative aspect-[16/10] bg-primary/5 overflow-hidden">
                   <div className="absolute top-6 left-6 z-10">
-                    <span className="px-3 py-1.5 bg-accent text-primary text-[10px] font-bold uppercase tracking-widest rounded-full shadow-md">
+                    <span className="px-3 py-1.5 bg-accent text-white text-[10px] font-bold uppercase tracking-widest rounded-full shadow-md font-subheading">
                       {featuredPost.category}
                     </span>
                   </div>
@@ -56,7 +56,7 @@ export default function BlogPage() {
                     <span className="w-1 h-1 rounded-full bg-accent"></span>
                     <span>{featuredPost.readTime}</span>
                   </div>
-                  <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 group-hover:text-accent transition-colors">
+                  <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 group-hover:text-accent transition-colors font-glint italic">
                     {featuredPost.title}
                   </h2>
                   <p className="text-text-muted mb-8 text-base leading-relaxed">
@@ -94,7 +94,7 @@ export default function BlogPage() {
                     <span className="w-1 h-1 rounded-full bg-accent"></span>
                     <span>{post.readTime}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-accent transition-colors line-clamp-2">
+                  <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-accent transition-colors line-clamp-2 font-glint italic">
                     {post.title}
                   </h3>
                   <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-accent group-hover:text-accent-hover transition-colors">
@@ -108,7 +108,7 @@ export default function BlogPage() {
 
         {/* More Stories Section */}
         <div className="border-t border-border/50 pt-16">
-          <h2 className="text-2xl font-bold text-primary mb-8">
+          <h2 className="text-2xl font-bold text-primary mb-8 font-glint italic uppercase">
             More Articles
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -116,7 +116,7 @@ export default function BlogPage() {
               <Link href={`/blog/${post.slug}`} key={post.slug} className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border/50 flex flex-col h-full">
                 <div className="relative aspect-[16/10] bg-primary/5 overflow-hidden">
                   <div className="absolute top-4 left-4 z-10">
-                    <span className="px-2 py-1 bg-accent text-primary text-[9px] font-bold uppercase tracking-widest rounded-full shadow-sm">
+                    <span className="px-2 py-1 bg-accent text-white text-[9px] font-bold uppercase tracking-widest rounded-full shadow-sm font-subheading">
                       {post.category}
                     </span>
                   </div>
@@ -134,7 +134,7 @@ export default function BlogPage() {
                     <span className="w-1 h-1 rounded-full bg-accent"></span>
                     <span>{post.readTime}</span>
                   </div>
-                  <h3 className="text-lg font-bold text-primary mb-4 group-hover:text-accent transition-colors">
+                  <h3 className="text-lg font-bold text-primary mb-4 group-hover:text-accent transition-colors font-glint italic">
                     {post.title}
                   </h3>
                   <p className="text-sm text-text-muted line-clamp-2 mb-6">

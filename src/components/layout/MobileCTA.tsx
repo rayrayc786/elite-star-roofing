@@ -28,7 +28,7 @@ export default function MobileCTA() {
         )}
         <Link
           href="/request-quote"
-          className="flex flex-col items-center justify-center py-3 bg-accent text-primary hover:bg-accent-hover transition-colors"
+          className="flex flex-col items-center justify-center py-3 bg-accent text-white hover:bg-accent-hover transition-colors"
         >
           <FileText className="w-5 h-5 mb-1" />
           <span className="text-[10px] font-bold uppercase tracking-wider">Quote</span>

@@ -27,7 +27,7 @@ export default function Footer() {
             <div className="flex gap-3">
               <a
                 href={businessInfo.social.facebook}
-                className="w-10 h-10 rounded-lg bg-white/10 hover:bg-accent hover:text-primary flex items-center justify-center transition-all"
+                className="w-10 h-10 rounded-lg bg-white/10 hover:bg-accent hover:text-white flex items-center justify-center transition-all"
                 aria-label="Facebook"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -36,7 +36,7 @@ export default function Footer() {
               </a>
               <a
                 href={businessInfo.social.instagram}
-                className="w-10 h-10 rounded-lg bg-white/10 hover:bg-accent hover:text-primary flex items-center justify-center transition-all"
+                className="w-10 h-10 rounded-lg bg-white/10 hover:bg-accent hover:text-white flex items-center justify-center transition-all"
                 aria-label="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -129,7 +129,7 @@ export default function Footer() {
             <div className="mt-6">
               <Link
                 href="/request-quote"
-                className="inline-flex items-center gap-2 px-5 py-3 bg-accent text-primary font-semibold rounded-lg hover:bg-accent-hover transition-all text-sm"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-accent text-white font-semibold rounded-lg hover:bg-accent-hover transition-all text-sm shadow-md"
               >
                 Get a Free Quote
                 <ArrowRight className="w-4 h-4" />

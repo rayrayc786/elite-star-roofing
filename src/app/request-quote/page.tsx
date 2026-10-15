@@ -33,10 +33,10 @@ export default function RequestQuotePage() {
         
         {/* Header */}
         <div className="text-center mb-10">
-          <Link href="/" className="inline-flex items-center justify-center w-12 h-12 bg-white rounded-xl shadow-sm mb-6 text-accent hover:bg-accent hover:text-primary transition-all">
+          <Link href="/" className="inline-flex items-center justify-center w-12 h-12 bg-white rounded-xl shadow-sm mb-6 text-accent hover:bg-accent hover:text-white transition-all">
             <Home className="w-6 h-6" />
           </Link>
-          <h1 className="text-3xl lg:text-4xl font-bold text-primary mb-3">Request a Free Quote</h1>
+          <h1 className="text-3xl lg:text-4xl font-bold text-primary mb-3 font-glint italic uppercase">Request a Free Quote</h1>
           <p className="text-text-muted">Tell us about your roofing needs and we&apos;ll get back to you with a clear quote.</p>
         </div>
 
@@ -48,7 +48,7 @@ export default function RequestQuotePage() {
               <div className="absolute left-0 top-1/2 h-[2px] bg-accent -z-10 transform -translate-y-1/2 transition-all duration-300" style={{ width: `${((step - 1) / 2) * 100}%` }} />
               
               {[1, 2, 3].map((num) => (
-                <div key={num} className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${step >= num ? "bg-accent text-primary shadow-md" : "bg-white border-2 border-border text-text-muted"}`}>
+                <div key={num} className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${step >= num ? "bg-accent text-white shadow-md" : "bg-white border-2 border-border text-text-muted"}`}>
                   {step > num ? <CheckCircle className="w-4 h-4" /> : num}
                 </div>
               ))}
@@ -66,7 +66,7 @@ export default function RequestQuotePage() {
           
           {step === 1 && (
             <div className="animate-fade-in">
-              <h2 className="text-xl font-bold text-primary mb-6">What do you need help with?</h2>
+              <h2 className="text-xl font-bold text-primary mb-6 font-glint italic">What do you need help with?</h2>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {[
@@ -94,7 +94,7 @@ export default function RequestQuotePage() {
                 <button
                   onClick={handleNext}
                   disabled={!formData.serviceType}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-bold rounded-xl hover:bg-accent-hover transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-accent/20"
                 >
                   Next Step <ArrowRight className="w-5 h-5" />
                 </button>
@@ -104,7 +104,7 @@ export default function RequestQuotePage() {
 
           {step === 2 && (
             <div className="animate-fade-in">
-              <h2 className="text-xl font-bold text-primary mb-6">Tell us a bit more</h2>
+              <h2 className="text-xl font-bold text-primary mb-6 font-glint italic">Tell us a bit more</h2>
               
               <div className="space-y-6 mb-8">
                 <div>
@@ -146,7 +146,7 @@ export default function RequestQuotePage() {
                 <button
                   onClick={handleNext}
                   disabled={!formData.urgency}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-bold rounded-xl hover:bg-accent-hover transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-accent/20"
                 >
                   Next Step <ArrowRight className="w-5 h-5" />
                 </button>
@@ -156,7 +156,7 @@ export default function RequestQuotePage() {
 
           {step === 3 && (
             <div className="animate-fade-in">
-              <h2 className="text-xl font-bold text-primary mb-6">Your Contact Details</h2>
+              <h2 className="text-xl font-bold text-primary mb-6 font-glint italic">Your Contact Details</h2>
               
               <form onSubmit={handleSubmit} className="space-y-5 mb-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -237,7 +237,7 @@ export default function RequestQuotePage() {
                   <button type="button" onClick={handlePrev} className="inline-flex items-center gap-2 px-4 py-3 text-text-muted hover:text-primary font-medium transition-colors">
                     <ArrowLeft className="w-4 h-4" /> Back
                   </button>
-                  <button type="submit" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary-light transition-all shadow-lg hover:shadow-xl">
+                  <button type="submit" className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white font-bold rounded-xl hover:bg-accent-hover transition-all shadow-lg hover:shadow-xl shadow-accent/25">
                     Submit Request
                   </button>
                 </div>
@@ -250,7 +250,7 @@ export default function RequestQuotePage() {
               <div className="w-20 h-20 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle className="w-10 h-10 text-success" />
               </div>
-              <h2 className="text-3xl font-bold text-primary mb-4">Request Received!</h2>
+              <h2 className="text-3xl font-bold text-primary mb-4 font-glint italic uppercase">Request Received!</h2>
               <p className="text-text-muted mb-8 max-w-md mx-auto">
                 Thank you for requesting a quote, {formData.firstName}. We have received your details and will be in touch shortly to discuss your roofing needs.
               </p>
@@ -259,7 +259,7 @@ export default function RequestQuotePage() {
                   Return Home
                 </Link>
                 {businessInfo.phoneRaw && (
-                  <a href={`tel:${businessInfo.phoneRaw}`} className="px-6 py-3 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-colors">
+                  <a href={`tel:${businessInfo.phoneRaw}`} className="px-6 py-3 bg-accent text-white font-bold rounded-xl hover:bg-accent-hover transition-colors shadow-md shadow-accent/20">
                     Call Us Now
                   </a>
                 )}

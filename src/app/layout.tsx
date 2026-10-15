@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileCTA from "@/components/layout/MobileCTA";
 import { businessInfo } from "@/lib/data";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
+const glintRace = localFont({
+  src: "./fonts/GlintRace.otf",
+  variable: "--font-glint",
   display: "swap",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -93,14 +101,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   };
 
   return (
-    <html lang="en" className={`${inter.variable} h-full scroll-smooth`}>
+    <html lang="en" className={`${glintRace.variable} ${montserrat.variable} h-full scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-[var(--font-inter)] antialiased">
+      <body className="min-h-full flex flex-col font-[family-name:var(--font-montserrat)] antialiased bg-warm-white text-text">
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>

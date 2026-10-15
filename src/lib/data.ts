@@ -314,50 +314,50 @@ export const services: Service[] = [
     metaDescription:
       "Transform your roof with professional roof painting in WA. We prime, repair, and apply high-durability acrylic coatings. Get a free quote from Elite Star Roofing WA.",
   },
-  {
-    slug: "all-roofing-service",
-    name: "All Roofing Services",
-    shortName: "All Services",
-    tagline: "Comprehensive residential roofing solutions in WA",
-    description: "From targeted repairs and leak tracing to complete roof re-pointing and painting, our team handles all residential roofing needs across Western Australia.",
-    icon: "Home",
-    image: "/images/web/IMG_5760_JPG.jpg",
-    galleryImages: [
-      "/images/web/IMG_5760_JPG.jpg",
-      "/images/web/IMG_5780.jpg",
-      "/images/web/IMG_5797.jpg",
-      "/images/web/IMG_5806.jpg",
-    ],
-    problems: [
-      "General roof wear and age deterioration",
-      "Multiple simultaneous roofing issues (leaks + broken tiles)",
-      "Comprehensive pre-winter preventative roof maintenance",
-      "Complete roof restoration package required",
-    ],
-    processSteps: [
-      {
-        title: "Comprehensive Roof Inspection",
-        description: "We inspect your entire roof system, valleys, flashing, and gutter connections."
-      },
-      {
-        title: "Customized Service Plan",
-        description: "We outline exact required services with a transparent, itemized quote."
-      },
-      {
-        title: "Expert Execution",
-        description: "Our experienced team carries out repairs, cleaning, re-pointing, or painting safely."
-      }
-    ],
-    faqs: [
-      {
-        question: "Do you service all suburbs in WA?",
-        answer: "Yes! We service Bunbury, Mandurah, Canning Vale, Perth metropolitan areas, and surrounding regions."
-      }
-    ],
-    ctaText: "Get a Comprehensive Quote",
-    metaTitle: "All Roofing Services | Elite Star Roofing WA",
-    metaDescription: "Comprehensive roofing services in WA. We handle everything from repairs and maintenance to full roof restorations."
-  }
+  // {
+  //   slug: "all-roofing-service",
+  //   name: "All Roofing Services",
+  //   shortName: "All Services",
+  //   tagline: "Comprehensive residential roofing solutions in WA",
+  //   description: "From targeted repairs and leak tracing to complete roof re-pointing and painting, our team handles all residential roofing needs across Western Australia.",
+  //   icon: "Home",
+  //   image: "/images/web/IMG_5760_JPG.jpg",
+  //   galleryImages: [
+  //     "/images/web/IMG_5760_JPG.jpg",
+  //     "/images/web/IMG_5780.jpg",
+  //     "/images/web/IMG_5797.jpg",
+  //     "/images/web/IMG_5806.jpg",
+  //   ],
+  //   problems: [
+  //     "General roof wear and age deterioration",
+  //     "Multiple simultaneous roofing issues (leaks + broken tiles)",
+  //     "Comprehensive pre-winter preventative roof maintenance",
+  //     "Complete roof restoration package required",
+  //   ],
+  //   processSteps: [
+  //     {
+  //       title: "Comprehensive Roof Inspection",
+  //       description: "We inspect your entire roof system, valleys, flashing, and gutter connections."
+  //     },
+  //     {
+  //       title: "Customized Service Plan",
+  //       description: "We outline exact required services with a transparent, itemized quote."
+  //     },
+  //     {
+  //       title: "Expert Execution",
+  //       description: "Our experienced team carries out repairs, cleaning, re-pointing, or painting safely."
+  //     }
+  //   ],
+  //   faqs: [
+  //     {
+  //       question: "Do you service all suburbs in WA?",
+  //       answer: "Yes! We service Bunbury, Mandurah, Canning Vale, Perth metropolitan areas, and surrounding regions."
+  //     }
+  //   ],
+  //   ctaText: "Get a Comprehensive Quote",
+  //   metaTitle: "All Roofing Services | Elite Star Roofing WA",
+  //   metaDescription: "Comprehensive roofing services in WA. We handle everything from repairs and maintenance to full roof restorations."
+  // }
 ];
 
 export const processSteps = [

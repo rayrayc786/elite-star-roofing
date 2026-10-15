@@ -28,10 +28,10 @@ export default function HomePage() {
       <section className="py-20 lg:py-28 bg-white" aria-label="Testimonials">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">
               Testimonials
             </span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 font-glint italic uppercase">
               What Our Customers Say
             </h2>
           </div>
@@ -63,10 +63,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10">
             <div>
-              <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
+              <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">
                 Resources
               </span>
-              <h2 className="text-3xl lg:text-4xl font-bold text-primary">
+              <h2 className="text-3xl lg:text-4xl font-bold text-primary font-glint italic uppercase">
                 Roofing Tips & Guides
               </h2>
             </div>
@@ -82,7 +82,7 @@ export default function HomePage() {
               <Link
                 key={post.slug}
                 href={`/resources/${post.slug}`}
-                className="group bg-white rounded-2xl overflow-hidden border border-border hover:border-accent/30 hover:shadow-lg transition-all"
+                className="group bg-white rounded-2xl overflow-hidden border border-border hover:border-accent/40 hover:shadow-lg transition-all"
               >
                 <div className="aspect-[16/9] bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
                   <span className="text-sm text-text-muted">[Featured image placeholder]</span>
@@ -93,7 +93,7 @@ export default function HomePage() {
                     <span className="w-1 h-1 rounded-full bg-border" />
                     <span className="text-xs text-text-muted">{post.readTime}</span>
                   </div>
-                  <h3 className="text-base font-bold text-primary group-hover:text-accent transition-colors mb-2">
+                  <h3 className="text-base font-bold text-primary group-hover:text-accent transition-colors mb-2 font-glint italic">
                     {post.title}
                   </h3>
                   <p className="text-sm text-text-muted line-clamp-2">{post.excerpt}</p>
@@ -108,10 +108,10 @@ export default function HomePage() {
       <section className="py-20 lg:py-28 bg-white" aria-label="Service areas">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">
               Service Areas
             </span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 font-glint italic uppercase">
               Serving Western Australia
             </h2>
             <p className="text-text-muted max-w-2xl mx-auto">
@@ -125,7 +125,7 @@ export default function HomePage() {
                 href={`/service-areas/${area.slug}`}
                 className="inline-flex items-center gap-1.5 px-4 py-2 bg-warm-white border border-border rounded-lg text-sm text-text hover:border-accent hover:text-accent transition-colors"
               >
-                <MapPin className="w-3.5 h-3.5" />
+                <MapPin className="w-3.5 h-3.5 text-accent" />
                 {area.name}
               </Link>
             ))}
@@ -145,10 +145,10 @@ export default function HomePage() {
       <section className="py-20 lg:py-28 bg-light-gray" aria-label="Frequently asked questions">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">
               FAQ
             </span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 font-glint italic uppercase">
               Common Questions
             </h2>
           </div>

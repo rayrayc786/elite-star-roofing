@@ -1,20 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0F1729;
-  --color-primary-light: #1E293B;
-  --color-accent: #F59E0B;
-  --color-accent-hover: #D97706;
-  --color-accent-light: #FEF3C7;
-  --color-warm-white: #F8FAFC;
-  --color-light-gray: #F1F5F9;
-  --color-border: #E2E8F0;
-  --color-text: #1E293B;
-  --color-text-muted: #64748B;
+  --color-primary: #0B0B0B;
+  --color-primary-light: #181818;
+  --color-accent: #EF4323;
+  --color-accent-hover: #D83617;
+  --color-accent-light: #FDECE8;
+  --color-cream: #FCF5DD;
+  --color-cream-light: #FCF8ED;
+  --color-sand: #D9D4C8;
+  --color-charcoal: #4A4A4A;
+  --color-warm-white: #FCF8ED;
+  --color-light-gray: #F7F4EB;
+  --color-border: #E5DFD1;
+  --color-text: #0B0B0B;
+  --color-text-muted: #525252;
   --color-success: #10B981;
 
-  --font-heading: "Inter", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --font-heading: var(--font-glint), "Montserrat", sans-serif;
+  --font-body: var(--font-montserrat), sans-serif;
+  --font-glint: var(--font-glint), sans-serif;
+  --font-montserrat: var(--font-montserrat), sans-serif;
 }
 
 /* Base styles */
@@ -25,8 +31,22 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--color-text);
+  background-color: var(--color-warm-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, .font-heading, .font-glint {
+  font-family: var(--font-heading);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.font-subheading {
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
 }
 
 /* Focus styles for accessibility */
@@ -42,7 +62,7 @@ body {
   left: 1rem;
   padding: 0.5rem 1rem;
   background: var(--color-accent);
-  color: var(--color-primary);
+  color: #FFFFFF;
   font-weight: 700;
   z-index: 9999;
   border-radius: 0 0 0.5rem 0.5rem;
@@ -131,7 +151,7 @@ body {
 
 .step-dot.active {
   background: var(--color-accent);
-  color: var(--color-primary);
+  color: #FFFFFF;
 }
 
 .step-dot.completed {
