@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Wrench, Droplets, RotateCcw, Paintbrush } from "lucide-react";
+import { ArrowRight, Wrench, Droplets, RotateCcw, Paintbrush, Wind } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { services } from "@/lib/data";
 import CTASection from "@/components/sections/CTASection";
@@ -9,11 +9,11 @@ import CTASection from "@/components/sections/CTASection";
 export const metadata: Metadata = {
   title: "Our Roofing Services",
   description:
-    "Professional roofing services: Roof Repair, Leak Detection, Roof Restoration, and Roof Painting. Get a free quote from Elite Star Roofing WA.",
+    "Professional roofing services: Roof Cleaning, Leak Detection, Roof Pointing, Roof Painting, and Gutter Cleaning. Get a free quote from Elite Star Roofing WA.",
 };
 
 const iconMap: Record<string, React.ElementType> = {
-  Wrench, Droplets, RotateCcw, Paintbrush,
+  Wrench, Droplets, RotateCcw, Paintbrush, Wind,
 };
 
 export default function ServicesPage() {
@@ -25,7 +25,7 @@ export default function ServicesPage() {
           <Breadcrumbs items={[{ label: "Services" }]} />
           <h1 className="text-4xl lg:text-5xl font-bold text-cream mb-4 font-glint italic uppercase">Our Roofing Services</h1>
           <p className="text-lg text-white/70 max-w-2xl">
-            We specialise in four core roofing services designed to address your specific needs. From repairs to full restorations.
+            We specialise in five core roofing services designed to address your specific needs. From gutter cleaning to full restorations.
           </p>
         </div>
       </section>
@@ -33,7 +33,7 @@ export default function ServicesPage() {
       {/* Services Grid */}
       <section className="py-20 lg:py-28 bg-warm-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {services.map((service) => {
               const Icon = iconMap[service.icon] || Wrench;
               return (

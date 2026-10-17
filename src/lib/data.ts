@@ -314,6 +314,72 @@ export const services: Service[] = [
     metaDescription:
       "Transform your roof with professional roof painting in WA. We prime, repair, and apply high-durability acrylic coatings. Get a free quote from Elite Star Roofing WA.",
   },
+  {
+    slug: "gutter-cleaning",
+    name: "Gutter Cleaning",
+    shortName: "Gutters",
+    tagline: "Leaf, debris & blockage removal from all gutter types",
+    description:
+      "Professional gutter cleaning and downpipe flushing services to keep rainwater flowing freely away from your home. Blocked gutters cause overflow, fascia rot, and foundation damage — we clear it all safely and thoroughly.",
+    icon: "Wind",
+    image: "/images/web/gutter_hero.jpg",
+    galleryImages: [
+      "/images/web/gutter_hero.jpg",
+      "/images/web/gutter_before.jpg",
+      "/images/web/gutter_after.jpg",
+    ],
+    problems: [
+      "Gutters overflowing during heavy rain",
+      "Leaf, twig, and debris build-up blocking water flow",
+      "Stagnant water pooling and breeding mosquitoes",
+      "Fascia boards and eaves showing water damage or rot",
+      "Blocked downpipes preventing proper drainage",
+      "Foundation or garden erosion from uncontrolled overflow",
+    ],
+    processSteps: [
+      {
+        title: "Roof & Gutter Inspection",
+        description:
+          "We inspect your gutters, downpipes, and fascia boards to assess the level of blockage and any existing damage.",
+      },
+      {
+        title: "Manual Debris Removal",
+        description:
+          "All leaves, twigs, moss, and compacted sludge are manually cleared from the entire gutter channel length.",
+      },
+      {
+        title: "Downpipe Flushing",
+        description:
+          "Every downpipe is flushed with water to clear blockages and confirm free flow from gutter to stormwater drain.",
+      },
+      {
+        title: "Final Flow Test & Cleanup",
+        description:
+          "We run a final water flow test, clean up all removed debris from your property, and inspect for any gutter damage.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How often should gutters be cleaned in WA?",
+        answer:
+          "We recommend cleaning gutters at least twice a year — once in autumn after leaf fall and again in spring before the WA wet season. Homes near gum trees may need more frequent cleans.",
+      },
+      {
+        question: "What happens if gutters are left blocked?",
+        answer:
+          "Blocked gutters cause rainwater to overflow onto fascia boards and eaves, leading to timber rot, ceiling leaks, and even foundation erosion. Stagnant water also becomes a breeding ground for mosquitoes.",
+      },
+      {
+        question: "Do you also flush the downpipes?",
+        answer:
+          "Yes. Every gutter clean includes flushing all downpipes with water to confirm unobstructed flow from the gutter through to the stormwater drain.",
+      },
+    ],
+    ctaText: "Request Gutter Cleaning Quote",
+    metaTitle: "Gutter Cleaning & Downpipe Flushing | Elite Star Roofing WA",
+    metaDescription:
+      "Professional gutter cleaning in WA. We remove leaves, debris, and blockages to keep water flowing freely. Protect your fascia, eaves, and foundation. Free quote available.",
+  },
   // {
   //   slug: "all-roofing-service",
   //   name: "All Roofing Services",
@@ -475,6 +541,16 @@ export const problemCards = [
     description: "The source of a leak is often not where the water appears.",
     serviceSlug: "leak-detection",
   },
+  {
+    problem: "Gutters overflowing?",
+    description: "Blocked gutters cause fascia rot, ceiling leaks, and foundation damage.",
+    serviceSlug: "gutter-cleaning",
+  },
+  {
+    problem: "Blocked downpipes?",
+    description: "Downpipe blockages stop rainwater draining away from your home safely.",
+    serviceSlug: "gutter-cleaning",
+  },
 ];
 
 export interface Project {
@@ -566,6 +642,24 @@ export const projects: Project[] = [
     description: "Full surface cleaning, tile repairs, priming, and double-coat acrylic roof painting for a home in Perth.",
     challenge: "Severely faded, chalky tiles had lost their protective finish and absorbed moisture during rains.",
     result: "Applied high-durability acrylic roof coating, giving the home a vibrant new look and adding a robust waterproof barrier.",
+  },
+  {
+    slug: "gutter-cleaning-leaf-removal",
+    title: "Full Gutter Clean & Downpipe Flush",
+    service: "Gutter Cleaning",
+    serviceSlug: "gutter-cleaning",
+    location: "Rockingham, WA",
+    image: "/images/web/gutter_after.jpg",
+    beforeImage: "/images/web/gutter_before.jpg",
+    afterImage: "/images/web/gutter_after.jpg",
+    galleryImages: [
+      "/images/web/gutter_hero.jpg",
+      "/images/web/gutter_before.jpg",
+      "/images/web/gutter_after.jpg",
+    ],
+    description: "Complete gutter debris removal and downpipe flushing for a residential home surrounded by large gum trees in Rockingham.",
+    challenge: "Years of accumulated gum leaves and decomposed organic sludge had completely blocked the gutters, causing overflow onto the fascia and visible water staining on the eaves.",
+    result: "Manually cleared all debris, flushed all four downpipes to confirm unobstructed drainage, and left the property clean with free-flowing gutters ready for the WA wet season.",
   },
 ];
 
@@ -677,6 +771,19 @@ export const faqs: FAQ[] = [
     question: "What preparation is required before painting?",
     answer:
       "Proper preparation is essential for a lasting result. This typically includes pressure cleaning, repairing damaged areas, replacing broken tiles, fixing pointing, and applying primer or sealer where needed.",
+  },
+  // Gutter Cleaning
+  {
+    category: "Gutter Cleaning",
+    question: "How often should gutters be cleaned in WA?",
+    answer:
+      "We recommend cleaning gutters at least twice a year — once in autumn after leaf fall and once in spring before the wet season. Homes near large gum trees may benefit from more frequent cleans.",
+  },
+  {
+    category: "Gutter Cleaning",
+    question: "What are the risks of not cleaning gutters?",
+    answer:
+      "Blocked gutters overflow onto fascia boards and eaves, causing timber rot and ceiling leaks. Stagnant water also attracts mosquitoes and can cause foundation erosion if overflow is constant.",
   },
 ];
 

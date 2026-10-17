@@ -18,14 +18,14 @@ export default function ServiceComparison() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-10">
           {services.map((service, idx) => (
             <div
               key={service.slug}
               className="bg-white rounded-2xl p-6 border border-border hover:border-accent/40 hover:shadow-lg transition-all duration-300 flex flex-col h-full"
             >
               <div className="text-xs font-bold text-accent uppercase tracking-wider mb-3">
-                0{idx + 1}
+                {String(idx + 1).padStart(2, "0")}
               </div>
               <h3 className="text-lg font-bold text-primary mb-2 font-glint italic">{service.name}</h3>
               <p className="text-sm text-text-muted leading-relaxed mb-4 flex-1">

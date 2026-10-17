@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Wrench, Droplets, RotateCcw, Paintbrush } from "lucide-react";
+import { ArrowRight, Wrench, Droplets, RotateCcw, Paintbrush, Wind } from "lucide-react";
 import { services } from "@/lib/data";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -7,6 +7,7 @@ const iconMap: Record<string, React.ElementType> = {
   Droplets,
   RotateCcw,
   Paintbrush,
+  Wind,
 };
 
 export default function ServiceGrid() {
@@ -21,11 +22,11 @@ export default function ServiceGrid() {
             Professional Roofing Services
           </h2>
           <p className="text-text-muted max-w-2xl mx-auto text-lg">
-            We specialise in four core roofing services to address your specific needs.
+            We specialise in five core roofing services to address your specific needs.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {services.map((service) => {
             const Icon = iconMap[service.icon] || Wrench;
             return (

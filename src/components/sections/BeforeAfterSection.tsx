@@ -17,22 +17,29 @@ const projects: BeforeAfterProject[] = [
     title: "Ridge Pointing & Bedding Restoration",
     service: "Roof Pointing",
     location: "Canning Vale, WA",
-    beforeImage: "/images/web/IMG_2845.jpg",
-    afterImage: "/images/web/IMG_2870.jpg",
+    beforeImage: "/images/web/ba_ridge_before.jpg",
+    afterImage: "/images/web/ba_ridge_after.jpg",
   },
   {
     title: "Moss & Algae Pressure Cleaning",
     service: "Roof Cleaning",
     location: "Bunbury, WA",
-    beforeImage: "/images/web/IMG_4965.jpg",
-    afterImage: "/images/web/IMG_4970.jpg",
+    beforeImage: "/images/web/ba_cleaning_before.jpg",
+    afterImage: "/images/web/ba_cleaning_after.jpg",
   },
   {
     title: "Roof Painting & Membrane Coating",
     service: "Roof Painting",
     location: "Perth, WA",
-    beforeImage: "/images/web/IMG_5293.jpg",
-    afterImage: "/images/web/IMG_5505.jpg",
+    beforeImage: "/images/web/ba_painting_before.jpg",
+    afterImage: "/images/web/ba_painting_after.jpg",
+  },
+  {
+    title: "Full Gutter Clean & Downpipe Flush",
+    service: "Gutter Cleaning",
+    location: "Rockingham, WA",
+    beforeImage: "/images/web/gutter_before.jpg",
+    afterImage: "/images/web/gutter_after.jpg",
   },
 ];
 
@@ -167,7 +174,7 @@ export default function BeforeAfterSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project) => (
             <BeforeAfterItem key={project.title} project={project} />
           ))}
