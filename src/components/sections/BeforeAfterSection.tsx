@@ -14,32 +14,25 @@ interface BeforeAfterProject {
 
 const projects: BeforeAfterProject[] = [
   {
-    title: "Ridge Pointing & Bedding Restoration",
-    service: "Roof Pointing",
-    location: "Canning Vale, WA",
-    beforeImage: "/images/web/ba_ridge_before.jpg",
-    afterImage: "/images/web/ba_ridge_after.jpg",
-  },
-  {
-    title: "Moss & Algae Pressure Cleaning",
-    service: "Roof Cleaning",
-    location: "Bunbury, WA",
-    beforeImage: "/images/web/ba_cleaning_before.jpg",
-    afterImage: "/images/web/ba_cleaning_after.jpg",
-  },
-  {
-    title: "Roof Painting & Membrane Coating",
-    service: "Roof Painting",
+    title: "Solar Panel & Metal Roof Cleaning",
+    service: "Roof & Solar Cleaning",
     location: "Perth, WA",
-    beforeImage: "/images/web/ba_painting_before.jpg",
-    afterImage: "/images/web/ba_painting_after.jpg",
+    beforeImage: "/images/web/ba_solar_clean_before.jpg",
+    afterImage: "/images/web/ba_solar_clean_after.jpg",
   },
   {
-    title: "Full Gutter Clean & Downpipe Flush",
-    service: "Gutter Cleaning",
-    location: "Rockingham, WA",
-    beforeImage: "/images/web/gutter_before.jpg",
-    afterImage: "/images/web/gutter_after.jpg",
+    title: "Roof Drainage & Solar Bird Proofing",
+    service: "Gutter & Solar Protection",
+    location: "Mandurah, WA",
+    beforeImage: "/images/web/ba_solar_mesh_before.jpg",
+    afterImage: "/images/web/ba_solar_mesh_after.jpg",
+  },
+  {
+    title: "Tile Valley Replacement & Ridge Pointing",
+    service: "Valley Repair & Pointing",
+    location: "Bunbury, WA",
+    beforeImage: "/images/web/ba_valley_leak_before.jpg",
+    afterImage: "/images/web/ba_tile_pointing_after.jpg",
   },
 ];
 
@@ -174,7 +167,7 @@ export default function BeforeAfterSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
             <BeforeAfterItem key={project.title} project={project} />
           ))}
