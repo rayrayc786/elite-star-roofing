@@ -74,25 +74,40 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               {post.excerpt}
             </p>
             
-            <p>
-              Maintaining your roof in top condition is essential to safeguarding your property against harsh Western Australia weather elements. At Elite Star Roofing WA, our technicians perform thorough inspections to spot early signs of damage before they turn into major structural repairs.
-            </p>
-            
-            <h2>Why Early Detection Matters</h2>
-            <p>
-              Proper maintenance and early detection of roofing issues can save homeowners significant money and prevent severe structural water damage. Catching cracked ridge caps or deteriorating flashing early prevents water from reaching internal timber framing and plaster ceilings.
-            </p>
-
-            <ul>
-              <li>Regular visual checks after severe winter storms.</li>
-              <li>Clearing moss and debris build-up to maintain water run-off.</li>
-              <li>Re-pointing loose ridge capping with high-flexibility compounds.</li>
-            </ul>
-
-            <h3>When to Call a Professional</h3>
-            <p>
-              While minor maintenance like cleaning gutters can be managed carefully by homeowners, working at height requires specialized safety equipment, harnesses, and trade expertise. If you notice leaks, cracked tiles, or roof discoloration, reach out to Elite Star Roofing WA for a professional assessment.
-            </p>
+            {post.sections && post.sections.length > 0 ? (
+              post.sections.map((sec, idx) => (
+                <div key={idx} className="mb-8">
+                  {sec.heading && <h2 className="text-2xl font-bold text-primary mb-4">{sec.heading}</h2>}
+                  {sec.subheading && <h3 className="text-xl font-bold text-primary/90 mb-3">{sec.subheading}</h3>}
+                  {sec.content.map((p, pIdx) => (
+                    <p key={pIdx} className="text-text/80 leading-relaxed mb-4">{p}</p>
+                  ))}
+                  {sec.listItems && (
+                    <ul className="space-y-2 my-4">
+                      {sec.listItems.map((li, lIdx) => (
+                        <li key={lIdx} className="text-text/80">{li}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {sec.callout && (
+                    <div className="p-4 bg-accent-light/50 border-l-4 border-accent rounded-r-xl my-6">
+                      <p className="font-bold text-sm text-primary mb-1">{sec.callout.title || "Note"}</p>
+                      <p className="text-sm text-text/80">{sec.callout.text}</p>
+                    </div>
+                  )}
+                </div>
+              ))
+            ) : (
+              <>
+                <p>
+                  Maintaining your roof in top condition is essential to safeguarding your property against harsh Western Australia weather elements. At Elite Star Roofing WA, our technicians perform thorough inspections to spot early signs of damage before they turn into major structural repairs.
+                </p>
+                <h2>Why Early Detection Matters</h2>
+                <p>
+                  Proper maintenance and early detection of roofing issues can save homeowners significant money and prevent severe structural water damage. Catching cracked ridge caps or deteriorating flashing early prevents water from reaching internal timber framing and plaster ceilings.
+                </p>
+              </>
+            )}
           </article>
         </div>
       </section>

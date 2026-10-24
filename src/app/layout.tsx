@@ -21,6 +21,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://elitestarroofing.com.au"),
   title: {
     default: `${businessInfo.name} | Professional Roofing Services`,
     template: `%s | ${businessInfo.name}`,

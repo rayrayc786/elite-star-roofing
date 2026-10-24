@@ -8,6 +8,7 @@ import WhyUs from "@/components/sections/WhyUs";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, MapPin } from "lucide-react";
 import { faqs, blogPosts, serviceAreas } from "@/lib/data";
 
@@ -71,32 +72,54 @@ export default function HomePage() {
               </h2>
             </div>
             <Link
-              href="/resources"
+              href="/blog"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-hover transition-colors mt-4 sm:mt-0"
             >
-              View All Resources <ArrowRight className="w-4 h-4" />
+              View All Guides <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogPosts.slice(0, 3).map((post) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl">
+            {blogPosts.slice(0, 2).map((post) => (
               <Link
                 key={post.slug}
-                href={`/resources/${post.slug}`}
-                className="group bg-white rounded-2xl overflow-hidden border border-border hover:border-accent/40 hover:shadow-lg transition-all"
+                href={`/blog/${post.slug}`}
+                className="group bg-white rounded-2xl overflow-hidden border border-border hover:border-accent/40 hover:shadow-lg transition-all flex flex-col"
               >
-                <div className="aspect-[16/9] bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                  <span className="text-sm text-text-muted">[Featured image placeholder]</span>
-                </div>
-                <div className="p-5">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs font-semibold text-accent">{post.category}</span>
-                    <span className="w-1 h-1 rounded-full bg-border" />
-                    <span className="text-xs text-text-muted">{post.readTime}</span>
+                <div className="relative aspect-[16/9] bg-primary/5 overflow-hidden">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 450px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-1 bg-accent text-white text-[10px] font-bold uppercase tracking-wider rounded-md">
+                      {post.category}
+                    </span>
                   </div>
-                  <h3 className="text-base font-bold text-primary group-hover:text-accent transition-colors mb-2 font-glint italic">
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex items-center gap-2 text-xs text-text-muted mb-3 uppercase tracking-wider">
+                    <span>
+                      {new Date(post.date).toLocaleDateString("en-AU", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </span>
+                    <span className="w-1 h-1 rounded-full bg-accent" />
+                    <span>{post.readTime}</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-primary group-hover:text-accent transition-colors mb-2 font-glint italic">
                     {post.title}
                   </h3>
-                  <p className="text-sm text-text-muted line-clamp-2">{post.excerpt}</p>
+                  <p className="text-sm text-text-muted line-clamp-2 mb-4">{post.excerpt}</p>
+                  <div className="mt-auto pt-3 border-t border-border/40">
+                    <span className="text-xs font-bold uppercase tracking-wider text-accent group-hover:text-accent-hover inline-flex items-center gap-1">
+                      Read Guide <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
                 </div>
               </Link>
             ))}

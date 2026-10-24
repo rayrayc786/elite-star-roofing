@@ -787,6 +787,22 @@ export const faqs: FAQ[] = [
   },
 ];
 
+export interface BlogPostSection {
+  heading?: string;
+  subheading?: string;
+  content: string[];
+  listItems?: string[];
+  callout?: {
+    type?: "tip" | "warning" | "info" | "quote";
+    title?: string;
+    text: string;
+  };
+  table?: {
+    headers: string[];
+    rows: string[][];
+  };
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -795,10 +811,344 @@ export interface BlogPost {
   date: string;
   readTime: string;
   author: string;
+  authorRole?: string;
   image: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  primaryKeyword?: string;
+  keyTakeaways?: string[];
+  beforeAfter?: {
+    beforeImage: string;
+    afterImage: string;
+    beforeLabel?: string;
+    afterLabel?: string;
+    caption: string;
+  };
+  sections: BlogPostSection[];
+  faqs?: { question: string; answer: string }[];
+  relatedServices?: { name: string; href: string }[];
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "how-much-does-roof-painting-cost-in-perth",
+    title: "How Much Does Roof Painting Cost in Perth?",
+    excerpt:
+      "Wondering how much roof painting costs in Perth? See what affects the price, what is included in a professional quote, and how to get an accurate estimate.",
+    category: "Roof Painting",
+    date: "2026-10-24", // Today
+    readTime: "6 min read",
+    author: "Elite Star Roofing WA",
+    authorRole: "WA Roofing Specialists",
+    image: "/images/web/ba_painting_after.jpg",
+    metaTitle: "Roof Painting Cost in Perth | Elite Star Roofing",
+    metaDescription:
+      "Wondering how much roof painting costs in Perth? See what affects the price, what is included and how to get a fair quote.",
+    primaryKeyword: "roof painting cost in Perth",
+    keyTakeaways: [
+      "Roof painting costs in Perth depend on roof size, pitch, material type, and the current condition of tiles and mortar.",
+      "A complete quote must always include high-pressure cleaning, tile repairs or re-pointing, sealer/primer, and 2 premium top coats.",
+      "Skipping thorough cleaning and repairs is the number one cause of paint flaking and premature failure.",
+      "Repainting protects against harsh WA sun and coastal salt while costing a fraction of a full roof replacement.",
+    ],
+    beforeAfter: {
+      beforeImage: "/images/web/ba_painting_before.jpg",
+      afterImage: "/images/web/ba_painting_after.jpg",
+      beforeLabel: "Faded & Weathered Before",
+      afterLabel: "Restored & Painted After",
+      caption:
+        "Real before and after roof restoration and painting project in Perth by Elite Star Roofing WA.",
+    },
+    sections: [
+      {
+        heading: "Understanding Roof Painting Costs in Perth",
+        content: [
+          "If your roof looks faded, patchy or stained, you have probably started to wonder what a repaint will cost. It is one of the most common questions Perth homeowners ask us, and the honest answer is: it depends. The good news is that the main things that drive the price are easy to understand once you know what to look for.",
+          "In this guide, we explain what affects roof painting cost in Perth, what a proper job should include, and how to compare quotes fairly so you are not caught out with hidden surprises.",
+        ],
+      },
+      {
+        heading: "What Affects the Cost of Roof Painting in Perth?",
+        subheading: "Key Factors That Drive Your Quote",
+        content: [
+          "No two roofs are the same, so no two quotes are identical. Here are the core factors our estimators evaluate during an on-site assessment:",
+        ],
+        listItems: [
+          "Roof size and shape: The larger the roof, the more surface area there is to clean, prepare and paint. A simple single-storey home costs less than a double-storey house with multiple valleys, steep pitches, or hard-to-reach gables requiring safety staging.",
+          "Roof material: Most Perth homes feature concrete tiles, terracotta tiles, or Colorbond metal sheeting. Concrete tile roofs are porous and require specialized primer/sealers to lock down chalky surfaces, whereas terracotta and metal require distinct chemical cleaning and coating profiles.",
+          "Current condition of the roof: This is often the single biggest cost driver. A roof in sound condition needs a wash, prime, and coat. A roof with broken tiles, cracked ridge capping, or heavy lichen needs structural repairs and re-pointing first.",
+          "Type and quality of paint: Professional roof paints and solar-reflective membranes are engineered specifically for Western Australia's extreme UV radiation and coastal salt air. High-grade elastomeric coatings cost more upfront but last twice as long.",
+          "Number of coats and colour changes: A lasting job requires a dedicated primer/sealer plus at least two thick top coats. Transitioning between dramatically contrasting colours may require additional pigment coverage.",
+          "Access and site safety conditions: High-set two-storey homes, tight suburban setbacks, steep land gradients, and overhead powerlines dictate the safety equipment and time required.",
+        ],
+        callout: {
+          type: "warning",
+          title: "The Danger of Skipping Preparation",
+          text: "Painting over dirty tiles or deteriorated mortar pointing is the most common reason a cheap paint job fails within 12 to 24 months. Proper preparation is 70% of a quality finish.",
+        },
+      },
+      {
+        heading: "What is Usually Included in a Roof Painting Quote?",
+        subheading: "The 6 Essential Steps of a Complete Job",
+        content: [
+          "A transparent quote should clearly itemise every step so you know exactly what work will be carried out on your home. At Elite Star Roofing, a professional roof painting project includes:",
+        ],
+        listItems: [
+          "1. Comprehensive Roof Inspection: Inspecting every elevation, identifying cracked tiles, loose ridge caps, and flashing issues.",
+          "2. Industrial High-Pressure Cleaning: Removing accumulated dirt, lichen, moss, mold, and oxidized old paint.",
+          "3. Structural Repairs & Re-Pointing: Replacing broken tiles and bedding/re-pointing ridge caps with flexible polymer compound.",
+          "4. Sealer or Primer Coat: Applying an appropriate penetrative sealer or primer to guarantee optimal adhesion.",
+          "5. Two Coats of Premium Roof Membrane: Spray-applying two protective, weatherproof top coats in your chosen colour.",
+          "6. Complete Site Cleanup: Clearing all gutters, downpipe collars, pathways, and patios around your property.",
+        ],
+      },
+      {
+        heading: "Typical Price Range for Roof Painting in Perth",
+        content: [
+          "Most Perth residential homes fall somewhere in a broad range, typically starting from a few thousand dollars for a compact, well-kept single-storey roof, up to higher amounts for large, steep, or heavily deteriorated roofs requiring extensive mortar re-bedding and tile replacement.",
+          "Because every property is unique, we never publish misleading 'one-size-fits-all' pricing. An accurate quote requires a licensed roofer to physically inspect your roof, measure the surface area, examine pitch, and verify substrate condition.",
+        ],
+        table: {
+          headers: ["Home Type", "Approximate Area", "Typical Scope", "Estimated Investment"],
+          rows: [
+            ["Compact Single Storey", "120 – 160 m²", "Pressure clean, minor tile swaps, primer + 2 coats", "$2,800 – $4,200"],
+            ["Standard Family Home", "160 – 240 m²", "Wash, ridge re-pointing, tile replacement, 3-coat system", "$3,800 – $5,800"],
+            ["Large or Multi-Level", "240 – 350+ m²", "Safety harness setup, multi-storey access, full restoration + paint", "$5,500 – $8,500+"],
+          ],
+        },
+      },
+      {
+        heading: "How to Compare Roof Painting Quotes Fairly",
+        content: [
+          "When gathering quotes from Perth contractors, do not evaluate solely on the bottom-line price. Use this checklist to protect your home:",
+        ],
+        listItems: [
+          "Is commercial high-pressure cleaning included? Painting over dirt or algae guarantees peeling.",
+          "Are tile replacements and ridge re-pointing itemised? Hidden repair costs often appear halfway through an underquoted job.",
+          "How many coats are guaranteed in writing? A proper job is 1 sealer/primer + 2 full coats.",
+          "What brand and warranty come with the coating? Ask for the specific brand name and manufacturer warranty.",
+          "Is the company licensed, fully insured, and locally based? Check genuine local Google reviews and completed project galleries.",
+        ],
+      },
+      {
+        heading: "Is Roof Painting Worth the Investment?",
+        content: [
+          "For the vast majority of Perth homeowners, yes. A fresh coating does far more than elevate your home's aesthetics. It seals micro-cracks in aging tiles, prevents moisture penetration during winter storms, and with lighter colours can reflect significant solar heat to reduce cooling costs.",
+          "It also dramatically enhances street appeal and resale valuation. Repainting costs a small fraction of a full reroof, making it one of the highest-ROI home maintenance investments available.",
+        ],
+      },
+      {
+        heading: "How Long Does a Roof Paint Job Last?",
+        content: [
+          "A well-prepared roof coated with industrial-grade membrane will comfortably last 10 to 15 years in Western Australia. The eventual lifespan depends on initial preparation, paint quality, and how exposed your property is to coastal winds and summer sun.",
+          "Periodic cleaning every 2 to 3 years prevents airborne dirt and organic growth from eating into the protective coating over time.",
+        ],
+      },
+      {
+        heading: "Get a Clear, No-Pressure Roof Painting Quote",
+        content: [
+          "If you are planning to repaint your roof in Perth, Elite Star Roofing WA can inspect your property and provide a transparent, itemised written quote with zero sales pressure.",
+          "Based in Bibra Lake, we proudly service Perth Metro, Canning Vale, Cockburn, Mandurah, Bunbury, and surrounding areas.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Can you paint a roof that has moss or algae on it?",
+        answer:
+          "Not until it has been thoroughly cleaned and treated. Moss and algae prevent paint from bonding directly to the tile surface. High-pressure cleaning with anti-fungal treatment is always required before applying any primers or coatings.",
+      },
+      {
+        question: "Do I need to leave my home while the roof is being painted?",
+        answer:
+          "No, you can comfortably stay at home during the entire project. We just recommend parking vehicles on the street or in the garage and bringing outdoor washing or patio furniture inside for the day.",
+      },
+      {
+        question: "How long does a roof painting job take?",
+        answer:
+          "Most residential homes take 2 to 3 working days, depending on roof dimensions, structural repairs required, and local weather conditions. Rain or high humidity can delay application as surfaces must be completely dry.",
+      },
+      {
+        question: "Does the colour I choose make a difference to energy efficiency?",
+        answer:
+          "Yes. Lighter shades like classic off-whites, cool greys, or muted sandstone reflect significantly more solar heat, helping keep your roof cavity and living spaces cooler during scorching Perth heatwaves.",
+      },
+    ],
+    relatedServices: [
+      { name: "Roof Painting Service", href: "/services/roof-painting" },
+      { name: "Roof Cleaning Service", href: "/services/roof-cleaning" },
+      { name: "Roof Pointing & Repairs", href: "/services/roof-pointing" },
+    ],
+  },
+  {
+    slug: "how-often-should-you-clean-your-roof-in-perth",
+    title: "How Often Should You Clean Your Roof in Perth?",
+    excerpt:
+      "How often should Perth homeowners clean their roof? Learn the signs it is time, what environmental factors affect the schedule, and why DIY pressure cleaning can be risky.",
+    category: "Roof Cleaning",
+    date: "2026-10-17", // One week past
+    readTime: "5 min read",
+    author: "Elite Star Roofing WA",
+    authorRole: "WA Roofing Specialists",
+    image: "/images/web/ba_cleaning_after.jpg",
+    metaTitle: "How Often to Clean a Roof in Perth | Elite Star Roofing",
+    metaDescription:
+      "How often should Perth homeowners clean their roof? Learn the signs it is time, what affects the schedule and why DIY can be risky.",
+    primaryKeyword: "how often to clean a roof",
+    keyTakeaways: [
+      "Most Perth homes should be professionally cleaned every 2 to 3 years to prevent moisture retention and tile breakdown.",
+      "Homes in coastal areas like Mandurah and Bunbury or shaded properties under trees often require cleaning every 1 to 2 years.",
+      "Moss and algae hold moisture against porous tiles, breaking down protective surfaces and leading to internal leaks.",
+      "DIY pressure washing is risky: improper angles and excessive pressure can crack tiles and blast water under flashings.",
+    ],
+    beforeAfter: {
+      beforeImage: "/images/web/ba_cleaning_before.jpg",
+      afterImage: "/images/web/ba_cleaning_after.jpg",
+      beforeLabel: "Heavy Moss & Algae Before",
+      afterLabel: "Deep Cleaned & Restored After",
+      caption:
+        "High-pressure tile roof cleaning completed in Perth by Elite Star Roofing WA, removing years of moss and grime.",
+    },
+    sections: [
+      {
+        heading: "The Real Cost of Neglecting Your Roof",
+        content: [
+          "Your roof works hard all year round. It withstands intense summer sun, torrential winter downpours, coastal salt breezes, and blowing leaves and dust. Over time, that environmental exposure leaves its mark.",
+          "Many Perth homeowners only think about roof maintenance when water begins dripping through a ceiling, but establishing a regular cleaning schedule prevents premature wear, preserves street appeal, and saves thousands of dollars over the lifetime of your home.",
+        ],
+      },
+      {
+        heading: "The Short Answer: How Often to Clean Your Roof",
+        content: [
+          "For most Perth suburban homes, a professional roof clean every 2 to 3 years is the ideal rule of thumb.",
+          "Roofs shaded by large gum trees, situated within a few kilometres of the coast, or located in damp, low-lying areas often benefit from cleaning every 1 to 2 years. Conversely, homes on open, sun-drenched blocks with minimal canopy cover can frequently stretch to 3 or 4 years.",
+          "The most reliable approach is to inspect your roof's physical condition rather than relying strictly on the calendar.",
+        ],
+      },
+      {
+        heading: "What Affects How Often Your Roof Needs Cleaning?",
+        subheading: "Key Environmental Factors in Western Australia",
+        content: [
+          "Several local factors influence how quickly debris, lichen, and algae accumulate on your roof:",
+        ],
+        listItems: [
+          "Overhanging Trees & Shade: Trees drop leaves, twigs, pollen, and sap. Constant shade keeps tiles damp for hours after morning dew or rain, creating the ideal breeding ground for moss and algae.",
+          "Proximity to the Coast: Coastal communities in Mandurah, Rockingham, and Bunbury deal with airborne salt spray. Salt deposits accelerate surface degradation and make tiles more susceptible to staining.",
+          "Roof Material: Concrete and terracotta tiles have porous surfaces that trap dirt and moisture. Metal roofs shed organic matter more easily but still collect sludge in valleys and gutter lines.",
+          "Roof Pitch & Water Drainage: Low-pitch roofs drain water more slowly than steep pitches, allowing dirt and organic matter to settle in tile laps and valley trays.",
+          "Perth Seasonal Climate: Perth experiences dry, scorching summers followed by wet, cool winters. Algae and moss proliferate during the damp months, which is why late summer and autumn cleans are so popular.",
+        ],
+      },
+      {
+        heading: "Signs Your Roof Needs Cleaning Now",
+        subheading: "Don't Wait for the Next Scheduled Clean",
+        content: [
+          "If you observe any of the following symptoms, arrange an inspection promptly:",
+        ],
+        listItems: [
+          "Dark green, black, or brown streaks staining your tiles (active algae colonies).",
+          "Thick moss patches or crusty lichen flourishing along tile edges and ridge capping.",
+          "Faded, patchy discoloration where environmental grime has hardened on the surface.",
+          "Valleys, gutters, and downpipes clogged with decomposing leaf mulch.",
+          "Damp, water-logged spots that fail to dry hours after rainfall stops.",
+          "Flaking or chalky paint residue on previously coated tile roofs.",
+        ],
+        callout: {
+          type: "warning",
+          title: "Early Action Prevents Leaks",
+          text: "When moss builds up in tile channels, it acts like a sponge, holding rainwater until it backs up under the tile edges and seeps into ceiling insulation.",
+        },
+      },
+      {
+        heading: "Why Regular Roof Cleaning Matters",
+        content: [
+          "Professional roof cleaning delivers substantial functional and financial benefits beyond simple cosmetic improvement:",
+        ],
+        listItems: [
+          "1. Extends Roof Lifespan: Lichen and moss produce weak acids that eat into tile concrete and mortar. Removing them preserves the structural integrity of your roof.",
+          "2. Optimises Stormwater Drainage: Clearing tile valleys and gutters allows torrential winter rain to flow cleanly away from fascias and eaves.",
+          "3. Early Damage Detection: During cleaning, our roofers get a close-up look at every tile, catching cracked ridge pointing, broken tiles, and flashing gaps before leaks occur.",
+          "4. Boosts Property Value: A freshly cleaned roof transforms the appearance of your home, immediately elevating kerb appeal for prospective buyers or renters.",
+          "5. Essential Preparation for Painting: If you ever decide to repaint, a pristine, moss-free surface is non-negotiable for paint adhesion.",
+        ],
+      },
+      {
+        heading: "Can I Clean My Roof Myself?",
+        subheading: "Why DIY Pressure Cleaning is High Risk",
+        content: [
+          "It is tempting to hire a pressure washer over the weekend, but we strongly advise against DIY roof cleaning for two vital reasons:",
+          "1. Fall Hazards & Safety: Wet tiles coated in algae are extraordinarily slippery. Falls from residential roofs remain one of the leading causes of serious injury and fatalities across Australia.",
+          "2. Tile and Water Ingress Damage: High-pressure nozzles held at the wrong angle easily fracture brittle tiles, strip protective coatings, and drive litres of pressurized water directly under flashings into your roof cavity.",
+          "Professional roofers employ dedicated fall-arrest safety systems, specialized flat-surface cleaners, and controlled pressure calibration tailored to your roof type.",
+        ],
+      },
+      {
+        heading: "Recommended Roof Cleaning Schedule for Perth",
+        content: [
+          "Here is a straightforward timetable to help you schedule routine maintenance for your home:",
+        ],
+        table: {
+          headers: ["Property Environment", "Cleaning Frequency", "Primary Objective"],
+          rows: [
+            ["Shaded / Coastal (Mandurah, Bunbury)", "Every 1 to 2 Years", "Salt removal, algae & lichen eradication"],
+            ["Typical Perth Suburban Block", "Every 2 to 3 Years", "Debris clearing, surface wash, gutter flush"],
+            ["Open, Sunny Roof with minimal trees", "Every 3 to 4 Years", "Preventative wash & structural inspection"],
+            ["Prior to Roof Painting or Restoration", "Immediately prior (Mandatory)", "Surface de-contamination for primer adhesion"],
+            ["Following Major Storm Events", "As needed inspection", "Clearing accumulated branch debris from valleys"],
+          ],
+        },
+      },
+      {
+        heading: "What Does a Professional Roof Clean Involve?",
+        content: [
+          "At Elite Star Roofing, our multi-point cleaning process is thorough, safe, and respectful of your home:",
+        ],
+        listItems: [
+          "Initial roof safety and tile condition inspection.",
+          "Gentle manual scraping of dense moss clumps and debris.",
+          "Application of targeted, eco-friendly anti-fungal treatments.",
+          "Calibrated pressure washing matching your specific tile density.",
+          "Downpipe flushing to ensure clear stormwater egress.",
+          "Ground-level cleanup of all patios, windows, and perimeter pathways.",
+        ],
+      },
+      {
+        heading: "Book Your Roof Clean with Elite Star Roofing",
+        content: [
+          "Not sure whether your roof is due for maintenance? Our experienced technicians will inspect your roof and provide honest, practical advice.",
+          "We operate from Bibra Lake and proudly serve Perth, Canning Vale, Cockburn, Mandurah, Bunbury, and surrounding suburbs.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the best time of year to clean a roof in Perth?",
+        answer:
+          "Late summer and autumn (March through May) are ideal. The weather is dry, making work safe and efficient, and cleaning before winter rains prevents algae and moss from flourishing during the cold, damp months.",
+      },
+      {
+        question: "Will pressure cleaning damage my roof tiles?",
+        answer:
+          "Not when carried out by trained professionals. We use regulated pressure and specialized wide-fan surface cleaners that remove grime without eroding the tile face. Damage only happens when amateurs use pinpoint high-pressure nozzles at aggressive angles.",
+      },
+      {
+        question: "How long does a typical roof clean take?",
+        answer:
+          "Most single and double-storey residential homes take between half a day to one full day, depending on the square meterage, pitch, and severity of moss growth.",
+      },
+      {
+        question: "Do I need to be home while you clean the roof?",
+        answer:
+          "No, you do not need to be home as long as we have clear access to the exterior of the property and an outdoor garden tap. We do recommend moving vehicles out of the driveway and keeping pets indoors.",
+      },
+    ],
+    relatedServices: [
+      { name: "Roof Cleaning Service", href: "/services/roof-cleaning" },
+      { name: "Roof Painting Service", href: "/services/roof-painting" },
+      { name: "Roof Pointing & Re-bedding", href: "/services/roof-pointing" },
+    ],
+  },
+  /* OLD PLACEHOLDER BLOGS COMMENTED OUT - SHOWING ONLY REAL BLOGS 1 & 2
   {
     slug: "how-to-identify-a-roof-leak",
     title: "How to Identify a Roof Leak",
@@ -808,7 +1158,61 @@ export const blogPosts: BlogPost[] = [
     date: "2024-01-15",
     readTime: "5 min read",
     author: "Elite Star Roofing WA",
+    authorRole: "Leak Tracing Technicians",
     image: "/images/web/IMG_0918.jpg",
+    metaTitle: "How to Identify a Roof Leak | Elite Star Roofing WA",
+    metaDescription:
+      "Learn the telltale signs of roof leaks in Perth homes and what to check inside and out before calling a roof repair specialist.",
+    primaryKeyword: "identify a roof leak",
+    keyTakeaways: [
+      "Water stains on ceilings and peeling paint are key interior indicators of an active leak.",
+      "Water often travels along rafters, meaning the leak entry point on the roof may be metres away from the ceiling stain.",
+      "Check valleys, flashings around skylights or chimneys, and cracked ridge pointing after heavy rains.",
+    ],
+    sections: [
+      {
+        heading: "Catching Roof Leaks Before Catastrophic Damage",
+        content: [
+          "A roof leak rarely begins as a dramatic deluge. In most homes, water ingress starts as a gradual drip, soaking into ceiling plaster, insulation batts, and timber trusses long before a wet spot appears inside your living areas.",
+          "Catching a leak early saves thousands in timber rot repairs and ceiling replacements. Here is what to inspect both inside and outside your property.",
+        ],
+      },
+      {
+        heading: "Interior Signs of a Leak",
+        content: [
+          "Look closely for these subtle indications inside your rooms:",
+        ],
+        listItems: [
+          "Brown or yellowish rings spreading on ceilings and cornice joins.",
+          "Musty odors in roof spaces or rooms with closed windows.",
+          "Bubbling paint, sagging plasterboard, or flaking wallpaper.",
+          "Damp insulation batts directly above light fittings and downlights.",
+        ],
+      },
+      {
+        heading: "Exterior Checks on the Roof",
+        content: [
+          "From ground level or safe ladder access, inspect these vulnerable spots:",
+        ],
+        listItems: [
+          "Cracked, shifted, or chipped roof tiles.",
+          "Corroded or rusted valley trays packed with leaf litter.",
+          "Deteriorated mortar pointing along the ridge caps.",
+          "Damaged lead or metal flashings around chimneys, vent pipes, and solar mounts.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Why is water leaking far from where the ceiling stain is?",
+        answer:
+          "Water follows gravity down the pitch of the roof trusses before dripping onto plasterboard. It often enters at a high ridge or valley and only shows up on the ceiling metres lower down.",
+      },
+    ],
+    relatedServices: [
+      { name: "Leak Tracing & Repairs", href: "/services/roof-repairs" },
+      { name: "Roof Pointing", href: "/services/roof-pointing" },
+    ],
   },
   {
     slug: "common-causes-of-roof-leaks",
@@ -819,7 +1223,48 @@ export const blogPosts: BlogPost[] = [
     date: "2024-01-10",
     readTime: "6 min read",
     author: "Elite Star Roofing WA",
+    authorRole: "WA Roofing Specialists",
     image: "/images/web/IMG_0919.jpg",
+    metaTitle: "Common Causes of Roof Leaks | Elite Star Roofing WA",
+    metaDescription:
+      "Understand the most frequent reasons roofs develop leaks in Perth and how preventative maintenance stops water damage.",
+    primaryKeyword: "causes of roof leaks",
+    keyTakeaways: [
+      "Broken tiles, cracked ridge pointing, and rusted valley trays account for over 80% of residential leaks.",
+      "Blocked gutters force rainwater back under eaves and into internal walls.",
+      "Regular preventative maintenance is far cheaper than emergency storm repairs.",
+    ],
+    sections: [
+      {
+        heading: "Why Do Roofs Leak?",
+        content: [
+          "Even the best-built roofs face continuous wear from UV degradation, storm winds, and thermal expansion. In Western Australia, intense temperature swings cause roof structures to expand and contract, placing stress on seals, mortar, and fasteners.",
+        ],
+      },
+      {
+        heading: "Top Causes of Roof Ingress in WA",
+        content: [
+          "Here are the primary culprits our repair teams diagnose across Perth, Mandurah, and Bunbury:",
+        ],
+        listItems: [
+          "Cracked and Dislodged Tiles: Fallen branches, foot traffic, or severe hail fracture tiles, creating an open gateway for water.",
+          "Deteriorated Ridge Cap Pointing: Traditional cement mortar breaks down with age, allowing driving rain to penetrate the ridge line.",
+          "Rusted Valley Trays: Metal valleys collect moisture, leaves, and dirt, eventually rusting through unseen beneath the tiles.",
+          "Blocked Gutters & Downpipes: Overflowing water backs up under roof sheeting and eaves, flooding wall cavities.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "How do I know if my leak is an emergency?",
+        answer:
+          "If water is actively pooling on your ceiling, bulging the plaster, or dripping near electrical fittings, it is an emergency. Relieve pressure by puncturing a small hole into a bucket and contact a roofing professional immediately.",
+      },
+    ],
+    relatedServices: [
+      { name: "Roof Repairs", href: "/services/roof-repairs" },
+      { name: "Gutter Cleaning", href: "/services/gutter-cleaning" },
+    ],
   },
   {
     slug: "roof-repair-vs-restoration",
@@ -830,7 +1275,51 @@ export const blogPosts: BlogPost[] = [
     date: "2024-01-05",
     readTime: "4 min read",
     author: "Elite Star Roofing WA",
+    authorRole: "Restoration Consultants",
     image: "/images/web/IMG_2870.jpg",
+    metaTitle: "Roof Repair vs Restoration: How to Choose | Elite Star Roofing WA",
+    metaDescription:
+      "Compare targeted roof repairs with complete roof restorations in Perth to find the most cost-effective option for your home.",
+    primaryKeyword: "roof repair vs restoration",
+    keyTakeaways: [
+      "Roof repairs target isolated faults like a few broken tiles or single flashing leak.",
+      "A restoration comprehensively revitalises the entire roof with cleaning, re-pointing, and multi-coat protective membrane.",
+      "Restoration extends the lifespan of an older roof by 10 to 15 years at a fraction of reroofing costs.",
+    ],
+    sections: [
+      {
+        heading: "Deciding Between a Repair and a Full Restoration",
+        content: [
+          "Homeowners often wonder whether patching a few problem spots is sufficient or if an extensive roof restoration is the wiser long-term investment. Understanding the difference helps you allocate your budget effectively.",
+        ],
+      },
+      {
+        heading: "When to Opt for a Roof Repair",
+        content: [
+          "A targeted repair is suitable when your overall roof is structurally sound and you only have localised issues:",
+        ],
+        listItems: [
+          "A handful of cracked tiles caused by storm debris or antenna installers.",
+          "A single leaking valley tray or chimney flashing.",
+          "A localized gutter blockage or minor leak above a patio.",
+        ],
+      },
+      {
+        heading: "When a Roof Restoration is the Better Choice",
+        content: [
+          "A full restoration is recommended when your roof shows systemic signs of aging:",
+        ],
+        listItems: [
+          "Mortar pointing is cracked or crumbling across the majority of the ridge line.",
+          "Tiles are brittle, porous, and covered in dense lichen or moss.",
+          "The roof looks severely faded and dated, diminishing your home's kerb appeal.",
+        ],
+      },
+    ],
+    relatedServices: [
+      { name: "Roof Painting & Restoration", href: "/services/roof-painting" },
+      { name: "Roof Repairs", href: "/services/roof-repairs" },
+    ],
   },
   {
     slug: "roof-painting-preparation-guide",
@@ -841,7 +1330,30 @@ export const blogPosts: BlogPost[] = [
     date: "2023-12-20",
     readTime: "5 min read",
     author: "Elite Star Roofing WA",
+    authorRole: "Master Applicators",
     image: "/images/web/IMG_5505.jpg",
+    metaTitle: "Roof Painting Preparation Guide | Elite Star Roofing WA",
+    metaDescription:
+      "Discover why proper washing, tile repairs, and priming are essential steps for a long-lasting roof paint finish in Perth.",
+    primaryKeyword: "roof painting preparation",
+    keyTakeaways: [
+      "70% of a roof painting job's longevity comes down to meticulous surface preparation.",
+      "Never paint over moss, lichen, or crumbling mortar.",
+      "Applying the correct primer creates a tenacious chemical bond for top coats.",
+    ],
+    sections: [
+      {
+        heading: "Why Preparation Dictates Longevity",
+        content: [
+          "Applying paint to an unprepared roof is like building a house on quicksand. Western Australia's intense UV index and wild seasonal temperature swings will quickly blister, crack, and peel any coating that lacks proper adhesion.",
+          "At Elite Star Roofing, our team spends the majority of project time preparing the substrate so your new roof colour looks pristine for over a decade.",
+        ],
+      },
+    ],
+    relatedServices: [
+      { name: "Roof Painting", href: "/services/roof-painting" },
+      { name: "Roof Cleaning", href: "/services/roof-cleaning" },
+    ],
   },
   {
     slug: "signs-your-roof-needs-attention",
@@ -852,7 +1364,29 @@ export const blogPosts: BlogPost[] = [
     date: "2023-12-15",
     readTime: "4 min read",
     author: "Elite Star Roofing WA",
+    authorRole: "Roof Inspectors",
     image: "/images/web/IMG_4970.jpg",
+    metaTitle: "Signs Your Roof Needs Attention | Elite Star Roofing WA",
+    metaDescription:
+      "Recognize critical warning signs that your Perth roof requires immediate inspection and repair before leaks cause internal damage.",
+    primaryKeyword: "signs roof needs repair",
+    keyTakeaways: [
+      "Visual checks from the street can reveal early warnings like sagging ridge caps and broken tiles.",
+      "Check gutters for granules or concrete fragments which signal tile surface breakdown.",
+      "Book an inspection before the rainy winter season begins.",
+    ],
+    sections: [
+      {
+        heading: "Early Warning Signs to Watch For",
+        content: [
+          "Most roofs silently degrade for years before catastrophic failure. Regular visual checks allow you to take action early and prevent expensive structural repairs.",
+        ],
+      },
+    ],
+    relatedServices: [
+      { name: "Roof Repairs", href: "/services/roof-repairs" },
+      { name: "Roof Cleaning", href: "/services/roof-cleaning" },
+    ],
   },
   {
     slug: "questions-to-ask-a-roofing-contractor",
@@ -863,8 +1397,31 @@ export const blogPosts: BlogPost[] = [
     date: "2023-12-10",
     readTime: "5 min read",
     author: "Elite Star Roofing WA",
+    authorRole: "Industry Advisors",
     image: "/images/web/IMG_5760_JPG.jpg",
+    metaTitle: "Questions to Ask a Roofing Contractor in WA | Elite Star Roofing",
+    metaDescription:
+      "Essential questions to ask your Perth roofing contractor before signing a quote to ensure quality, insurance, and warranty protection.",
+    primaryKeyword: "hire roofing contractor",
+    keyTakeaways: [
+      "Verify public liability insurance and trade qualifications before any work begins.",
+      "Demand an itemised quote that breaks down preparation, repairs, and materials.",
+      "Ask for recent local Perth references and verified photos of finished jobs.",
+    ],
+    sections: [
+      {
+        heading: "Protecting Your Home When Hiring a Roofer",
+        content: [
+          "Your roof is your home's first line of defense against the elements. Choosing the wrong contractor can lead to substandard materials, unaddressed structural leaks, and voided insurance policies.",
+        ],
+      },
+    ],
+    relatedServices: [
+      { name: "About Us", href: "/about" },
+      { name: "Request a Free Quote", href: "/request-quote" },
+    ],
   },
+  */
 ];
 
 export interface TeamMember {
