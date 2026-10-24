@@ -121,7 +121,7 @@ export default async function BlogPostPage({
       name: businessInfo.name,
       logo: {
         "@type": "ImageObject",
-        url: "https://elitestarroofing.com.au/favicon.ico",
+        url: "https://elitestarroofing.com.au/Elite%20Final%20Logo.png",
       },
     },
     mainEntityOfPage: {
@@ -175,6 +175,7 @@ export default async function BlogPostPage({
               <ArrowLeft className="w-3.5 h-3.5" /> Back to All Guides
             </Link>
             <Breadcrumbs
+              variant="light"
               items={[
                 { label: "Blog", href: "/blog" },
                 { label: post.category, href: "/blog" },

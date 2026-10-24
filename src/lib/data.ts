@@ -503,53 +503,150 @@ export const whyUsPoints = [
 export const problemCards = [
   {
     problem: "Roof leaking?",
-    description: "Water entering your home needs urgent attention.",
+    description: "Water entering your home needs urgent inspection and repair.",
     serviceSlug: "leak-detection",
   },
   {
     problem: "Water stains?",
-    description: "Stains on ceilings or walls could indicate a roof leak.",
+    description: "Ceiling or wall stains often indicate a hidden roof leak.",
     serviceSlug: "leak-detection",
   },
   {
     problem: "Damaged tiles?",
-    description: "Broken, cracked, or missing tiles leave your roof vulnerable.",
-    serviceSlug: "roof-repair",
+    description: "Broken, cracked, or shifted tiles leave your roof vulnerable.",
+    serviceSlug: "roof-pointing",
   },
   {
-    problem: "Cracked surfaces?",
-    description: "Cracked roofing materials can lead to leaks and further damage.",
-    serviceSlug: "roof-repair",
+    problem: "Cracked bedding?",
+    description: "Deteriorated ridge mortar allows driving rain into roof cavities.",
+    serviceSlug: "roof-pointing",
   },
   {
-    problem: "Old-looking roof?",
-    description: "An aging roof may benefit from restoration or repainting.",
-    serviceSlug: "roof-restoration",
+    problem: "Loose ridge caps?",
+    description: "Dislodged capping tiles vulnerable to blowing off in high winds.",
+    serviceSlug: "roof-pointing",
   },
   {
-    problem: "Faded roof?",
-    description: "A faded or discoloured roof can be refreshed with roof painting.",
+    problem: "Faded roof color?",
+    description: "Sun-bleached tiles can be refreshed with UV-resistant roof paint.",
     serviceSlug: "roof-painting",
   },
   {
-    problem: "Storm damage?",
-    description: "Storms can cause significant roof damage that needs prompt repair.",
-    serviceSlug: "roof-repair",
+    problem: "Old-looking roof?",
+    description: "Aging roofs benefit from complete cleaning and color restoration.",
+    serviceSlug: "roof-painting",
   },
   {
-    problem: "Unsure where the leak is?",
-    description: "The source of a leak is often not where the water appears.",
+    problem: "Moss & lichen?",
+    description: "Stubborn organic growth traps moisture and blocks water runoff.",
+    serviceSlug: "roof-cleaning",
+  },
+  {
+    problem: "Storm damage?",
+    description: "Wind, hail, or debris damage needing prompt assessment.",
+    serviceSlug: "leak-detection",
+  },
+  {
+    problem: "Unsure where leak is?",
+    description: "Water travels along rafters — our tracing pinpoints the source.",
     serviceSlug: "leak-detection",
   },
   {
     problem: "Gutters overflowing?",
-    description: "Blocked gutters cause fascia rot, ceiling leaks, and foundation damage.",
+    description: "Blocked gutters cause fascia rot and water overflow under eaves.",
     serviceSlug: "gutter-cleaning",
   },
   {
     problem: "Blocked downpipes?",
-    description: "Downpipe blockages stop rainwater draining away from your home safely.",
+    description: "Downpipe clogs prevent rainwater draining safely away from home.",
     serviceSlug: "gutter-cleaning",
+  },
+];
+
+export interface Testimonial {
+  id: string;
+  name: string;
+  suburb: string;
+  state: string;
+  rating: number;
+  date: string;
+  service: string;
+  quote: string;
+  verified: boolean;
+}
+
+export const testimonials: Testimonial[] = [
+  {
+    id: "review-1",
+    name: "David & Sarah Henderson",
+    suburb: "Canning Vale",
+    state: "WA",
+    rating: 5,
+    date: "3 weeks ago",
+    service: "Ridge Pointing & Leak Repair",
+    quote:
+      "Had a persistent leak in our lounge ceiling every time we got heavy rain from the southwest. Two other tradies had come out and couldn't figure out where the water was getting in. The Elite Star team got up on the roof, did a proper inspection with photos, and showed us that cracked mortar bedding along the back valley was channeling rainwater straight into the cavity. They re-bedded and re-pointed the entire ridge line with flexible pointing. Not a single drop through the recent storms. Spotless cleanup afterwards too.",
+    verified: true,
+  },
+  {
+    id: "review-2",
+    name: "Mark Collins",
+    suburb: "Mandurah",
+    state: "WA",
+    rating: 5,
+    date: "1 month ago",
+    service: "Full Roof Restoration & Painting",
+    quote:
+      "Our 25-year-old concrete tile roof was badly faded and covered in black lichen. Elite Star completely transformed the look of our home in just three days. High-pressure clean, replaced 14 broken tiles, re-pointed all ridges, and applied three coats of heat-reflective charcoal membrane. The difference is night and day—our neighbours literally stopped to ask who did the job. Punctual, polite, and no hidden price jumps.",
+    verified: true,
+  },
+  {
+    id: "review-3",
+    name: "Fiona Campbell",
+    suburb: "Bunbury",
+    state: "WA",
+    rating: 5,
+    date: "2 months ago",
+    service: "High-Pressure Roof Cleaning & Moss Removal",
+    quote:
+      "Can't recommend them highly enough. Our terracotta tiled roof hadn't been touched in over a decade and was thick with moss blocking the gutters. Elite Star treated the tiles carefully without damaging any of the terracotta, cleared every downpipe, and washed down all the exterior walls and paths before leaving. Fair quote, turned up right on schedule, and fantastic communication.",
+    verified: true,
+  },
+  {
+    id: "review-4",
+    name: "Peter Jenkins",
+    suburb: "Rockingham",
+    state: "WA",
+    rating: 5,
+    date: "1 month ago",
+    service: "Emergency Leak Detection & Gutter Clearing",
+    quote:
+      "Called Elite Star on a Sunday afternoon when water started dripping through a light fitting during a coastal storm. They answered straight away, walked me through how to isolate the area safely, and were at our property first thing Monday morning. Found dislodged tiles and blocked box gutters choked with pine needles. Repaired quickly and at a very honest price. True lifesavers.",
+    verified: true,
+  },
+  {
+    id: "review-5",
+    name: "Craig Mitchell",
+    suburb: "Fremantle",
+    state: "WA",
+    rating: 5,
+    date: "2 months ago",
+    service: "Ridge Cap Re-Bedding & Flexible Pointing",
+    quote:
+      "Previous cement pointing was crumbling into the gutters and ridge caps were loose by hand. The boys removed all the old failing mortar, set new bedding, and finished with color-matched flexible pointing. You can see the pride they take in their workmanship. Very professional outfit and great to deal with from quote to completion.",
+    verified: true,
+  },
+  {
+    id: "review-6",
+    name: "Emma & Bradley Davies",
+    suburb: "Morley",
+    state: "WA",
+    rating: 5,
+    date: "3 months ago",
+    service: "Tile Repair & Roof Repainting",
+    quote:
+      "We were prepping our family home for sale and the faded terracotta roof was letting the whole property down. Elite Star repaired cracked tiles and applied a fresh, modern coat that gave the house massive street appeal. We received multiple compliments from real estate agents during open inspections. Outstanding service and great value.",
+    verified: true,
   },
 ];
 

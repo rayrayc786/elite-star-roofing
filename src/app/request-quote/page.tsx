@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, CheckCircle, Home, Umbrella, Wrench, AlertTriangle, ShieldCheck } from "lucide-react";
 import { businessInfo } from "@/lib/data";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 
 export default function RequestQuotePage() {
   const [step, setStep] = useState(1);
@@ -30,6 +31,7 @@ export default function RequestQuotePage() {
   return (
     <div className="min-h-screen bg-light-gray py-12 lg:py-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs items={[{ label: "Request a Free Quote" }]} variant="light" className="mb-8" />
         
         {/* Header */}
         <div className="text-center mb-10">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { blogPosts } from "@/lib/data";
 import BlogListInteractive from "@/components/blog/BlogListInteractive";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Roofing Blog & Insights | Elite Star Roofing WA",
@@ -18,6 +19,8 @@ export default function BlogPage() {
   return (
     <div className="bg-warm-white min-h-screen pt-24 pb-20">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs items={[{ label: "Blog" }]} variant="light" />
+
         {/* Header */}
         <div className="mb-12">
           <span className="block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">

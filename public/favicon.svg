@@ -1,0 +1,61 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Brand Primary Orange Gradient -->
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6A28" />
+      <stop offset="100%" stop-color="#EF4323" />
+    </linearGradient>
+
+    <!-- Deep Primary Black Gradient -->
+    <linearGradient id="blackGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#181818" />
+      <stop offset="100%" stop-color="#000000" />
+    </linearGradient>
+  </defs>
+
+  <!-- Layer 1: Outer Orange Star (Gable Peak at Top) -->
+  <polygon
+    points="256,16 328,172 498,184 366,296 408,468 256,376 104,468 146,296 14,184 184,172"
+    fill="url(#orangeGrad)"
+    stroke="#D83617"
+    stroke-width="10"
+    stroke-linejoin="round"
+  />
+
+  <!-- Layer 2: Cream / White Accent Border for Crisp Separation -->
+  <polygon
+    points="256,52 318,184 460,194 348,290 384,438 256,360 128,438 164,290 52,194 194,184"
+    fill="#FCF8ED"
+    stroke="#FCF8ED"
+    stroke-width="4"
+    stroke-linejoin="round"
+  />
+
+  <!-- Layer 3: Solid Core Black Star -->
+  <polygon
+    points="256,76 310,192 432,202 334,286 366,416 256,348 146,416 178,286 80,202 202,192"
+    fill="url(#blackGrad)"
+    stroke="#000000"
+    stroke-width="2"
+    stroke-linejoin="round"
+  />
+
+  <!-- Layer 4: Geometric Roof Ridge Gable / Apex Accent -->
+  <path
+    d="M 256,104 L 324,216 L 256,192 L 188,216 Z"
+    fill="url(#orangeGrad)"
+    stroke="#FCF8ED"
+    stroke-width="8"
+    stroke-linejoin="round"
+  />
+
+  <!-- Layer 5: Central Star Spark / Keystone -->
+  <polygon
+    points="256,236 266,262 294,264 272,282 278,310 256,294 234,310 240,282 218,264 246,262"
+    fill="#FCF8ED"
+    stroke="#EF4323"
+    stroke-width="4"
+    stroke-linejoin="round"
+  />
+</svg>

@@ -59,6 +59,7 @@ export default function Header() {
               className="object-contain h-24 lg:h-32 w-auto scale-150 lg:scale-[2] transform origin-left" 
               style={{ width: "auto" }}
               priority
+              loading="eager"
             />
           </Link>
 

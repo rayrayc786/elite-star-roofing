@@ -37,6 +37,21 @@ export const metadata: Metadata = {
     "roofing WA",
     "Western Australia roofing",
   ],
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "en_AU",
@@ -63,6 +78,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "RoofingContractor"],
     name: businessInfo.name,
+    image: "https://elitestarroofing.com.au/Elite%20Final%20Logo.png",
+    logo: "https://elitestarroofing.com.au/Elite%20Final%20Logo.png",
     description:
       "Professional roofing services in Western Australia. Roof repair, leak detection, roof restoration, and roof painting.",
     url: typeof window !== "undefined" ? window.location.origin : "",
