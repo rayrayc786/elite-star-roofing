@@ -13,7 +13,7 @@ export default function TermsPage() {
       <section className="bg-primary py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: "Terms of Service" }]} />
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Terms of Service</h1>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-cream mb-4 font-glint italic uppercase">Terms of Service</h1>
           <p className="text-white/70 text-sm">Last updated: {new Date().toLocaleDateString('en-AU', { month: 'long', year: 'numeric' })}</p>
         </div>
       </section>
@@ -27,7 +27,7 @@ export default function TermsPage() {
 
             <h2>1. Service Provision</h2>
             <p>
-              {businessInfo.name} provides roofing services including repair, leak detection, restoration, and painting. All services are subject to an initial assessment and a formal quote. The scope of work will be outlined in the quote provided to you.
+              {businessInfo.name} provides professional roofing services including roof cleaning, precision leak detection, ridge pointing, roof painting, and gutter cleaning across Western Australia. All services are subject to an initial assessment and a formal quote. The scope of work will be outlined in the quote provided to you.
             </p>
 
             <h2>2. Quotes and Estimates</h2>

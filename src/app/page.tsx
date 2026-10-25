@@ -1,6 +1,5 @@
 import HeroSection from "@/components/sections/HeroSection";
 import ServiceGrid from "@/components/sections/ServiceGrid";
-import ServiceComparison from "@/components/sections/ServiceComparison";
 import ProblemCards from "@/components/sections/ProblemCards";
 import BeforeAfterSection from "@/components/sections/BeforeAfterSection";
 import ProcessTimeline from "@/components/sections/ProcessTimeline";
@@ -15,12 +14,12 @@ import { faqs, blogPosts, serviceAreas } from "@/lib/data";
 
 export default function HomePage() {
   const homeFaqs = faqs.filter((f) => f.category === "General").slice(0, 4);
+  const primaryServiceAreas = serviceAreas.filter((a) => a.slug !== "perth-canning-vale");
 
   return (
     <>
       <HeroSection />
       <ServiceGrid />
-      <ServiceComparison />
       <ProblemCards />
       <BeforeAfterSection />
       <ProcessTimeline />
@@ -111,7 +110,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {serviceAreas.map((area) => (
+            {primaryServiceAreas.map((area) => (
               <Link
                 key={area.slug}
                 href={`/service-areas/${area.slug}`}

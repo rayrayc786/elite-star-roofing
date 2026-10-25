@@ -13,7 +13,7 @@ export default function PrivacyPage() {
       <section className="bg-primary py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: "Privacy Policy" }]} />
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Privacy Policy</h1>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-cream mb-4 font-glint italic uppercase">Privacy Policy</h1>
           <p className="text-white/70 text-sm">Last updated: {new Date().toLocaleDateString('en-AU', { month: 'long', year: 'numeric' })}</p>
         </div>
       </section>
@@ -37,7 +37,7 @@ export default function PrivacyPage() {
             <h2>How We Use Your Information</h2>
             <p>We use the information we collect to:</p>
             <ul>
-              <li>Respond to your inquiries and provide accurate quotes.</li>
+              <li>Respond to your enquiries and provide accurate quotes.</li>
               <li>Deliver the roofing services you have requested.</li>
               <li>Communicate with you regarding your project.</li>
               <li>Improve our website and customer service.</li>

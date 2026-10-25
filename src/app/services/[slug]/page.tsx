@@ -6,6 +6,7 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import CTASection from "@/components/sections/CTASection";
+import BeforeAfterCompare from "@/components/ui/BeforeAfterCompare";
 import { services } from "@/lib/data";
 
 export async function generateStaticParams() {
@@ -126,8 +127,34 @@ export default async function ServiceDetailPage({
         </div>
       </section>
 
+      {/* Gutter Cleaning Interactive Before & After Feature */}
+      {service.slug === "gutter-cleaning" && (
+        <section className="py-12 bg-white border-b border-border">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-6">
+              <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-2 font-subheading">
+                Real Results
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary font-glint italic uppercase">
+                Gutter Clearing Before &amp; After
+              </h2>
+              <p className="text-sm text-text-muted mt-2">
+                Slide back and forth to see the difference after our deep clearing and downpipe flushing.
+              </p>
+            </div>
+            <BeforeAfterCompare
+              beforeImage="/images/web/gutter_before.jpg"
+              afterImage="/images/web/gutter_after.jpg"
+              beforeLabel="Clogged Gutters"
+              afterLabel="Cleared &amp; Flushed"
+              caption="Before &amp; After: Complete organic debris removal and downpipe blockage flush in Western Australia."
+            />
+          </div>
+        </section>
+      )}
+
       {/* Real Project Gallery */}
-      {service.galleryImages && service.galleryImages.length > 0 && (
+      {((service.galleryItems && service.galleryItems.length > 0) || (service.galleryImages && service.galleryImages.length > 0)) && (
         <section className="py-16 lg:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
@@ -139,23 +166,41 @@ export default async function ServiceDetailPage({
               </h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {service.galleryImages.map((imgUrl, i) => (
-                <div key={i} className="bg-warm-white border border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                  <div className="relative aspect-[4/3]">
-                    <Image
-                      src={imgUrl}
-                      alt={`${service.name} project photo ${i + 1}`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-sm font-bold text-primary font-glint italic">{service.name} Project #{i + 1}</h3>
-                    <p className="text-xs text-text-muted">Western Australia Job Site</p>
-                  </div>
-                </div>
-              ))}
+              {service.galleryItems && service.galleryItems.length > 0
+                ? service.galleryItems.map((item, i) => (
+                    <div key={i} className="bg-warm-white border border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                      <div className="relative aspect-[4/3]">
+                        <Image
+                          src={item.image}
+                          alt={`${item.title} - ${item.suburb}, WA`}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="text-sm font-bold text-primary font-glint italic">{item.title}</h3>
+                        <p className="text-xs text-text-muted">{item.suburb}, Western Australia</p>
+                      </div>
+                    </div>
+                  ))
+                : service.galleryImages?.map((imgUrl, i) => (
+                    <div key={i} className="bg-warm-white border border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                      <div className="relative aspect-[4/3]">
+                        <Image
+                          src={imgUrl}
+                          alt={`${service.name} project photo ${i + 1}`}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="text-sm font-bold text-primary font-glint italic">{service.name} Project #{i + 1}</h3>
+                        <p className="text-xs text-text-muted">Western Australia Job Site</p>
+                      </div>
+                    </div>
+                  ))}
             </div>
           </div>
         </section>

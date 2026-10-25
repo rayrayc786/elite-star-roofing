@@ -219,12 +219,13 @@ export default async function BlogPostPage({
           </header>
 
           {/* Featured Hero Image */}
-          <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl overflow-hidden shadow-md border border-border/60 mb-10">
+          <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl overflow-hidden shadow-md border border-border/60 mb-10 bg-warm-white">
             <Image
               src={post.image}
               alt={post.title}
               fill
               priority
+              unoptimized
               sizes="(max-width: 900px) 100vw, 900px"
               className="object-cover"
             />

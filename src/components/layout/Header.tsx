@@ -41,131 +41,127 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-          ? "bg-warm-white/98 shadow-md border-b border-border"
-          : "bg-warm-white/90 backdrop-blur-sm border-b border-border/60"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-[120px] lg:h-[120px]">
-          {/* Logo */}
-          <Link href="/" className="flex items-center shrink-0" aria-label="Elite Star Roofing WA Home">
-            <Image 
-              src="/Elite Final Logo.png" 
-              alt="Elite Star Roofing WA Logo" 
-              width={400} 
-              height={120} 
-              className="object-contain h-24 lg:h-32 w-auto scale-150 lg:scale-[2] transform origin-left" 
-              style={{ width: "auto" }}
-              priority
-              loading="eager"
-            />
-          </Link>
+        className={`fixed top-0 left-0 right-0 z-50 bg-warm-white border-b border-border transition-all duration-200 ${
+          scrolled ? "shadow-md" : "shadow-xs"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-[76px]">
+            {/* Logo */}
+            <Link href="/" className="flex items-center shrink-0 py-1" aria-label="Elite Star Roofing WA Home">
+              <Image 
+                src="/logo.png" 
+                alt="Elite Star Roofing WA Logo" 
+                width={180} 
+                height={90} 
+                className="h-[46px] sm:h-[52px] w-auto object-contain" 
+                priority
+                loading="eager"
+              />
+            </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
-            {navigationItems.map((item) =>
-              item.children ? (
-                <div key={item.label} className="relative" ref={dropdownRef}>
-                  <button
-                    onClick={() => setServicesOpen(!servicesOpen)}
-                    onMouseEnter={() => setServicesOpen(true)}
-                    className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-text hover:text-accent transition-colors rounded-lg"
-                    aria-expanded={servicesOpen}
-                    aria-haspopup="true"
-                  >
-                    {item.label}
-                    <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  {servicesOpen && (
-                    <div
-                      className="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-border py-2 animate-fade-in"
-                      onMouseLeave={() => setServicesOpen(false)}
-                      role="menu"
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5" aria-label="Main navigation">
+              {navigationItems.map((item) =>
+                item.children ? (
+                  <div key={item.label} className="relative" ref={dropdownRef}>
+                    <button
+                      onClick={() => setServicesOpen(!servicesOpen)}
+                      onMouseEnter={() => setServicesOpen(true)}
+                      className="flex items-center gap-1 px-2.5 xl:px-3 py-2 text-xs xl:text-sm font-semibold text-text hover:text-accent transition-colors rounded-lg"
+                      aria-expanded={servicesOpen}
+                      aria-haspopup="true"
                     >
-                      <Link
-                        href={item.href}
-                        className="block px-4 py-2.5 text-sm font-semibold text-primary hover:bg-light-gray transition-colors"
-                        onClick={() => setServicesOpen(false)}
-                        role="menuitem"
+                      {item.label}
+                      <ChevronDown className={`w-3.5 h-3.5 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    {servicesOpen && (
+                      <div
+                        className="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-border py-2 animate-fade-in"
+                        onMouseLeave={() => setServicesOpen(false)}
+                        role="menu"
                       >
-                        All Services
-                      </Link>
-                      <div className="border-t border-border my-1" />
-                      {item.children.map((child) => (
                         <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block px-4 py-2.5 text-sm text-text hover:bg-light-gray hover:text-accent transition-colors"
+                          href={item.href}
+                          className="block px-4 py-2.5 text-xs xl:text-sm font-semibold text-primary hover:bg-light-gray transition-colors"
                           onClick={() => setServicesOpen(false)}
                           role="menuitem"
                         >
-                          {child.label}
+                          All Services
                         </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="px-3 py-2 text-sm font-medium text-text hover:text-accent transition-colors rounded-lg"
+                        <div className="border-t border-border my-1" />
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="block px-4 py-2.5 text-xs xl:text-sm text-text hover:bg-light-gray hover:text-accent transition-colors"
+                            onClick={() => setServicesOpen(false)}
+                            role="menuitem"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="px-2.5 xl:px-3 py-2 text-xs xl:text-sm font-semibold text-text hover:text-accent transition-colors rounded-lg"
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
+            </nav>
+
+            {/* Desktop CTAs */}
+            <div className="hidden lg:flex items-center gap-2 xl:gap-3">
+              {businessInfo.phoneRaw && (
+                <a
+                  href={`tel:${businessInfo.phoneRaw}`}
+                  className="flex items-center gap-1.5 px-3.5 xl:px-4 py-2 text-xs xl:text-sm font-semibold text-primary border-2 border-primary rounded-lg hover:bg-primary hover:text-white transition-all shrink-0"
                 >
-                  {item.label}
-                </Link>
-              )
-            )}
-          </nav>
-
-          {/* Desktop CTAs */}
-          <div className="hidden lg:flex items-center gap-3">
-            {businessInfo.phoneRaw && (
-              <a
-                href={`tel:${businessInfo.phoneRaw}`}
-                className="flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-primary border-2 border-primary rounded-lg hover:bg-primary hover:text-white transition-all"
+                  <Phone className="w-3.5 h-3.5" />
+                  Call Now
+                </a>
+              )}
+              <Link
+                href="/request-quote"
+                className="px-4 xl:px-5 py-2 text-xs xl:text-sm font-semibold bg-accent text-white rounded-lg hover:bg-accent-hover transition-all shadow-md hover:shadow-lg shrink-0"
               >
-                <Phone className="w-4 h-4" />
-                Call Now
-              </a>
-            )}
-            <Link
-              href="/request-quote"
-              className="px-5 py-2.5 text-sm font-semibold bg-accent text-white rounded-lg hover:bg-accent-hover transition-all shadow-md hover:shadow-lg"
-            >
-              Get a Free Quote
-            </Link>
-          </div>
+                Get a Free Quote
+              </Link>
+            </div>
 
-          {/* Mobile: Call + Menu */}
-          <div className="flex lg:hidden items-center gap-2">
-            {businessInfo.phoneRaw && (
-              <a
-                href={`tel:${businessInfo.phoneRaw}`}
-                className="p-2.5 bg-primary text-white rounded-lg"
-                aria-label="Call us"
+            {/* Mobile: Call + Menu */}
+            <div className="flex lg:hidden items-center gap-2">
+              {businessInfo.phoneRaw && (
+                <a
+                  href={`tel:${businessInfo.phoneRaw}`}
+                  className="p-2.5 bg-primary text-white rounded-lg"
+                  aria-label="Call us"
+                >
+                  <Phone className="w-5 h-5" />
+                </a>
+              )}
+              <button
+                onClick={() => setMobileOpen(!mobileOpen)}
+                className="p-2.5 text-primary hover:bg-light-gray rounded-lg transition-colors"
+                aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileOpen}
               >
-                <Phone className="w-5 h-5" />
-              </a>
-            )}
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-2.5 text-primary hover:bg-light-gray rounded-lg transition-colors"
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileOpen}
-            >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+                {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-
       </header>
 
-      {/* Mobile Menu (Moved outside header to avoid backdrop-filter containing block issues) */}
+      {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 top-[120px] bg-white z-40 overflow-y-auto" role="dialog" aria-label="Mobile navigation">
+        <div className="lg:hidden fixed inset-0 top-[76px] bg-white z-40 overflow-y-auto" role="dialog" aria-label="Mobile navigation">
           <nav className="p-6 space-y-1" aria-label="Mobile navigation">
             {navigationItems.map((item) =>
               item.children ? (

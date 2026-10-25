@@ -66,15 +66,15 @@ export default function HeroSection() {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[4rem] font-bold leading-[1.1] mb-6 tracking-wide font-glint italic uppercase text-white">
+            <h1 className="text-3xl sm:text-4xl lg:text-[3.25rem] font-bold leading-tight mb-6 tracking-normal uppercase text-white font-glint italic max-w-3xl">
               Reliable Roofing Solutions <br className="hidden sm:block" />
               <span className="text-accent">Built to Protect</span>{" "}
               <span className="text-cream">Your Home</span>
             </h1>
 
-            <p className="text-lg text-cream/80 leading-relaxed mb-10 max-w-2xl font-[family-name:var(--font-montserrat)]">
-              Roof repairs, leak detection, roof restoration, and roof painting.
-              Professional service from a local WA roofing team you can trust.
+            <p className="text-base sm:text-lg text-cream/90 leading-relaxed mb-10 max-w-2xl font-[family-name:var(--font-montserrat)] font-normal">
+              Roof cleaning, leak detection, roof pointing, roof painting, and gutter cleaning.
+              Professional workmanship from a local WA roofing team based in Bibra Lake.
             </p>
 
             {/* Trust Points */}

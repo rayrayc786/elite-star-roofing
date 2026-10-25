@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight, MapPin, Wrench } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import CTASection from "@/components/sections/CTASection";
+import BeforeAfterCompare from "@/components/ui/BeforeAfterCompare";
 import { projects } from "@/lib/data";
 
 export async function generateStaticParams() {
@@ -38,17 +39,30 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Hero Image */}
-          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-border shadow-md mb-10">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 1200px"
-              className="object-cover"
-            />
-          </div>
+          {/* Interactive Before & After Comparison if available */}
+          {project.beforeImage && project.afterImage ? (
+            <div className="mb-10">
+              <BeforeAfterCompare
+                beforeImage={project.beforeImage}
+                afterImage={project.afterImage}
+                beforeLabel="Before Restoration"
+                afterLabel="After Completion"
+                caption={`${project.title} — ${project.location}`}
+              />
+            </div>
+          ) : (
+            /* Hero Image */
+            <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-border shadow-md mb-10">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 1200px"
+                className="object-cover"
+              />
+            </div>
+          )}
 
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">

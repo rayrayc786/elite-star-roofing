@@ -11,23 +11,29 @@ export const businessInfo = {
   phone: "+61 451 901 275", // Replace with actual phone number
   phoneRaw: "+61451901275", // Replace with tel: link format e.g. +61400000000
   email: "elitestarroofing@gmail.com", // Replace with actual email
-  address: "[BUSINESS ADDRESS]", // Replace with actual address
-  city: "[CITY]",
+  address: "Bibra Lake, WA 6163",
+  city: "Bibra Lake, Perth",
   state: "WA",
   country: "Australia",
-  abn: "[ABN NUMBER]", // Replace with actual ABN
-  license: "[LICENSE NUMBER]", // Replace with actual license
+  abn: "",
+  license: "",
   openingHours: {
-    weekdays: "[OPENING HOURS]", // e.g. "7:00 AM – 5:00 PM"
-    saturday: "[SATURDAY HOURS]",
-    sunday: "Closed",
+    weekdays: "7:00 AM – 5:00 PM",
+    saturday: "8:00 AM – 1:00 PM",
+    sunday: "Closed (Emergency leak calls available)",
   },
   social: {
-    facebook: "#",
-    instagram: "#",
-    google: "#",
+    facebook: "",
+    instagram: "",
+    google: "",
   },
 };
+
+export interface ServiceGalleryItem {
+  image: string;
+  title: string;
+  suburb: string;
+}
 
 export interface Service {
   slug: string;
@@ -38,6 +44,7 @@ export interface Service {
   icon: string;
   image: string;
   galleryImages?: string[];
+  galleryItems?: ServiceGalleryItem[];
   problems: string[];
   processSteps: { title: string; description: string }[];
   faqs: { question: string; answer: string }[];
@@ -57,10 +64,18 @@ export const services: Service[] = [
     icon: "Wrench",
     image: "/images/web/IMG_4970.jpg",
     galleryImages: [
-      "/images/web/IMG_4970.jpg",
       "/images/web/IMG_4965.jpg",
       "/images/web/IMG_5652.jpg",
       "/images/web/IMG_5647.jpg",
+      "/images/web/ba_cleaning_after.jpg",
+      "/images/web/IMG_5605.jpg",
+    ],
+    galleryItems: [
+      { image: "/images/web/IMG_4965.jpg", title: "Heavy Moss & Lichen Removal", suburb: "Bunbury" },
+      { image: "/images/web/IMG_5652.jpg", title: "Tile Surface Pressure Wash", suburb: "Mandurah" },
+      { image: "/images/web/IMG_5647.jpg", title: "Water Channel Unblocking", suburb: "Canning Vale" },
+      { image: "/images/web/ba_cleaning_after.jpg", title: "Full Concrete Tile Clean", suburb: "Rockingham" },
+      { image: "/images/web/IMG_5605.jpg", title: "Final Roof Rinse & Inspection", suburb: "Fremantle" },
     ],
     problems: [
       "Heavy moss, lichen, and algae buildup",
@@ -123,10 +138,18 @@ export const services: Service[] = [
     icon: "Droplets",
     image: "/images/web/IMG_0918.jpg",
     galleryImages: [
-      "/images/web/IMG_0918.jpg",
       "/images/web/IMG_0919.jpg",
-      "/images/web/WhatsApp_Image_2026-10-07_at_09_33_00.jpg",
-      "/images/web/WhatsApp_Image_2026-10-07_at_09_33_12__2.jpg",
+      "/images/web/leak_detection_valley_flashing.jpg",
+      "/images/web/leak_detection_tile_cavity.jpg",
+      "/images/web/leak_detection_damaged_valley.jpg",
+      "/images/web/leak_detection_moisture_trace.jpg",
+    ],
+    galleryItems: [
+      { image: "/images/web/IMG_0919.jpg", title: "Ceiling Dampness Source Tracing", suburb: "Mandurah" },
+      { image: "/images/web/leak_detection_valley_flashing.jpg", title: "Valley Flashing Water Ingress", suburb: "Canning Vale" },
+      { image: "/images/web/leak_detection_tile_cavity.jpg", title: "Roof Cavity Inspection & Repair", suburb: "Bunbury" },
+      { image: "/images/web/leak_detection_damaged_valley.jpg", title: "Corroded Valley Flashing Replacement", suburb: "Rockingham" },
+      { image: "/images/web/leak_detection_moisture_trace.jpg", title: "Storm Water Penetration Point Sealed", suburb: "Bibra Lake" },
     ],
     problems: [
       "Water stains on ceilings or walls",
@@ -162,7 +185,7 @@ export const services: Service[] = [
       {
         question: "Why can't I find where the leak is coming from?",
         answer:
-          "Water can travel along roof structures, rafters, and sarking for meters before dripping onto plasterboard. Professional leak detection traces this path directly back to the roof surface entry point.",
+          "Water can travel along roof structures, rafters, and sarking for metres before dripping onto plasterboard. Professional leak detection traces this path directly back to the roof surface entry point.",
       },
       {
         question: "What happens during a leak detection inspection?",
@@ -190,11 +213,18 @@ export const services: Service[] = [
     icon: "RotateCcw",
     image: "/images/web/IMG_2870.jpg",
     galleryImages: [
-      "/images/web/IMG_2870.jpg",
+      "/images/web/IMG_2845.jpg",
       "/images/web/IMG_2429.jpg",
       "/images/web/IMG_2442.jpg",
       "/images/web/IMG_2866.jpg",
       "/images/web/IMG_2968.jpg",
+    ],
+    galleryItems: [
+      { image: "/images/web/IMG_2845.jpg", title: "Crumbling Mortar Bedding Removal", suburb: "Canning Vale" },
+      { image: "/images/web/IMG_2429.jpg", title: "Flexible Pointing Trowel Application", suburb: "Fremantle" },
+      { image: "/images/web/IMG_2442.jpg", title: "Hip & Ridge Line Alignment", suburb: "Mandurah" },
+      { image: "/images/web/IMG_2866.jpg", title: "Storm-Proof Capping Seal", suburb: "Bunbury" },
+      { image: "/images/web/IMG_2968.jpg", title: "Colour-Matched Ridge Restoration", suburb: "South Perth" },
     ],
     problems: [
       "Cracked, crumbling, or missing ridge cap mortar",
@@ -220,9 +250,9 @@ export const services: Service[] = [
           "High-adhesion flexible pointing compound is trowelled over all caps to lock them securely in place.",
       },
       {
-        title: "Color Matching & Cleanup",
+        title: "Colour Matching & Cleanup",
         description:
-          "Pointing is color-matched to your roof tile shade, leaving a clean, seamless, storm-proof seal.",
+          "Pointing is colour-matched to your roof tile shade, leaving a clean, seamless, storm-proof seal.",
       },
     ],
     faqs: [
@@ -257,17 +287,24 @@ export const services: Service[] = [
     icon: "Paintbrush",
     image: "/images/web/IMG_5505.jpg",
     galleryImages: [
-      "/images/web/IMG_5505.jpg",
       "/images/web/IMG_5293.jpg",
-      "/images/web/IMG_1544.jpg",
-      "/images/web/IMG_2914.jpg",
+      "/images/web/ba_painting_after.jpg",
       "/images/web/IMG_5794.jpg",
+      "/images/web/IMG_2914.jpg",
+      "/images/web/IMG_5482.jpg",
+    ],
+    galleryItems: [
+      { image: "/images/web/IMG_5293.jpg", title: "Porous Tile Primer & Sealer Coat", suburb: "Perth Metro" },
+      { image: "/images/web/ba_painting_after.jpg", title: "Dual-Coat Acrylic Membrane Transformation", suburb: "Canning Vale" },
+      { image: "/images/web/IMG_5794.jpg", title: "UV-Resistant Modern Charcoal Finish", suburb: "Mandurah" },
+      { image: "/images/web/IMG_2914.jpg", title: "Deep Colour Saturation & Trim Detailing", suburb: "Bunbury" },
+      { image: "/images/web/IMG_5482.jpg", title: "Weather-Shield Topcoat Inspection", suburb: "Rockingham" },
     ],
     problems: [
       "Faded, dull, or discoloured roof tiles",
       "Peeling or flaking existing roof paint",
       "Porous tiles absorbing rainwater",
-      "Desire to modernise roof color and curb appeal",
+      "Desire to modernise roof colour and curb appeal",
       "Roof surface needing UV and weather barrier protection",
     ],
     processSteps: [
@@ -284,12 +321,12 @@ export const services: Service[] = [
       {
         title: "Primer & Sealer Application",
         description:
-          "A high-penetration primer sealer is applied to bind the tile surface and maximize topcoat adhesion.",
+          "A high-penetration primer sealer is applied to bind the tile surface and maximise topcoat adhesion.",
       },
       {
         title: "Dual Topcoat Painting",
         description:
-          "Two full coats of premium acrylic roof membrane paint are applied for deep color and UV protection.",
+          "Two full coats of premium acrylic roof membrane paint are applied for deep colour and UV protection.",
       },
     ],
     faqs: [
@@ -299,7 +336,7 @@ export const services: Service[] = [
           "If roof tiles are structurally sound, painting provides a brand-new aesthetic look and waterproof protection at a fraction of full replacement cost.",
       },
       {
-        question: "What roof paint colors are available?",
+        question: "What roof paint colours are available?",
         answer:
           "We offer a wide range of standard and modern Colorbond-matched roof paint shades including Charcoal, Slate Grey, Monument, Terracotta Red, and Classic Cream.",
       },
@@ -324,9 +361,18 @@ export const services: Service[] = [
     icon: "Wind",
     image: "/images/web/gutter_hero.jpg",
     galleryImages: [
-      "/images/web/gutter_hero.jpg",
       "/images/web/gutter_before.jpg",
       "/images/web/gutter_after.jpg",
+      "/images/web/IMG_5727.jpg",
+      "/images/web/IMG_5732.jpg",
+      "/images/web/IMG_5639.jpg",
+    ],
+    galleryItems: [
+      { image: "/images/web/gutter_before.jpg", title: "Gum Leaf & Sludge Gutter Build-up", suburb: "Rockingham" },
+      { image: "/images/web/gutter_after.jpg", title: "Cleared Channel & Unblocked Eaves", suburb: "Rockingham" },
+      { image: "/images/web/IMG_5727.jpg", title: "High-Reach Downpipe Clearance", suburb: "Canning Vale" },
+      { image: "/images/web/IMG_5732.jpg", title: "Box Gutter Pressure Flushing", suburb: "Mandurah" },
+      { image: "/images/web/IMG_5639.jpg", title: "Perimeter Rinse & Waste Removal", suburb: "Bibra Lake" },
     ],
     problems: [
       "Gutters overflowing during heavy rain",
@@ -527,13 +573,13 @@ export const problemCards = [
     serviceSlug: "roof-pointing",
   },
   {
-    problem: "Faded roof color?",
+    problem: "Faded roof colour?",
     description: "Sun-bleached tiles can be refreshed with UV-resistant roof paint.",
     serviceSlug: "roof-painting",
   },
   {
     problem: "Old-looking roof?",
-    description: "Aging roofs benefit from complete cleaning and color restoration.",
+    description: "Aging roofs benefit from complete cleaning and colour restoration.",
     serviceSlug: "roof-painting",
   },
   {
@@ -676,7 +722,7 @@ export const projects: Project[] = [
     beforeImage: "/images/web/IMG_2845.jpg",
     afterImage: "/images/web/IMG_2870.jpg",
     galleryImages: [
-      "/images/web/IMG_2870.jpg",
+      "/images/web/IMG_2845.jpg",
       "/images/web/IMG_2429.jpg",
       "/images/web/IMG_2442.jpg",
       "/images/web/IMG_2866.jpg",
@@ -695,12 +741,12 @@ export const projects: Project[] = [
     beforeImage: "/images/web/IMG_0919.jpg",
     afterImage: "/images/web/IMG_0918.jpg",
     galleryImages: [
-      "/images/web/IMG_0918.jpg",
       "/images/web/IMG_0919.jpg",
-      "/images/web/WhatsApp_Image_2026-10-07_at_09_33_00.jpg",
+      "/images/web/leak_detection_valley_flashing.jpg",
+      "/images/web/leak_detection_damaged_valley.jpg",
     ],
     description: "Expert leak detection to trace ceiling dampness back to a hidden valley flashing failure.",
-    challenge: "The visible interior ceiling stain was several meters away from the actual roof entry point where rainwater was leaking under tiles.",
+    challenge: "The visible interior ceiling stain was several metres away from the actual roof entry point where rainwater was leaking under tiles.",
     result: "Traced the water trajectory, replaced corroded valley flashing and damaged tiles, and fully restored interior ceiling protection.",
   },
   {
@@ -713,13 +759,13 @@ export const projects: Project[] = [
     beforeImage: "/images/web/IMG_4965.jpg",
     afterImage: "/images/web/IMG_4970.jpg",
     galleryImages: [
-      "/images/web/IMG_4970.jpg",
       "/images/web/IMG_4965.jpg",
       "/images/web/IMG_5652.jpg",
+      "/images/web/IMG_5647.jpg",
     ],
     description: "Deep pressure cleaning of a heavily lichen-covered tile roof in Bunbury.",
     challenge: "Years of accumulated moss had clogged rainwater channels between tiles, causing water to pool and overflow into eaves.",
-    result: "Cleared all lichen, unblocked water flow channels, and thoroughly washed down gutters, leaving the roof looking clean and revitalized.",
+    result: "Cleared all lichen, unblocked water flow channels, and thoroughly washed down gutters, leaving the roof looking clean and revitalised.",
   },
   {
     slug: "terracotta-roof-painting-coating",
@@ -731,10 +777,10 @@ export const projects: Project[] = [
     beforeImage: "/images/web/IMG_5293.jpg",
     afterImage: "/images/web/IMG_5505.jpg",
     galleryImages: [
-      "/images/web/IMG_5505.jpg",
       "/images/web/IMG_5293.jpg",
-      "/images/web/IMG_1544.jpg",
+      "/images/web/ba_painting_after.jpg",
       "/images/web/IMG_5794.jpg",
+      "/images/web/IMG_5482.jpg",
     ],
     description: "Full surface cleaning, tile repairs, priming, and double-coat acrylic roof painting for a home in Perth.",
     challenge: "Severely faded, chalky tiles had lost their protective finish and absorbed moisture during rains.",
@@ -746,13 +792,13 @@ export const projects: Project[] = [
     service: "Gutter Cleaning",
     serviceSlug: "gutter-cleaning",
     location: "Rockingham, WA",
-    image: "/images/web/gutter_after.jpg",
+    image: "/images/web/gutter_hero.jpg",
     beforeImage: "/images/web/gutter_before.jpg",
     afterImage: "/images/web/gutter_after.jpg",
     galleryImages: [
-      "/images/web/gutter_hero.jpg",
       "/images/web/gutter_before.jpg",
       "/images/web/gutter_after.jpg",
+      "/images/web/IMG_5727.jpg",
     ],
     description: "Complete gutter debris removal and downpipe flushing for a residential home surrounded by large gum trees in Rockingham.",
     challenge: "Years of accumulated gum leaves and decomposed organic sludge had completely blocked the gutters, causing overflow onto the fascia and visible water staining on the eaves.",
@@ -764,24 +810,77 @@ export interface ServiceArea {
   slug: string;
   name: string;
   description: string;
+  subheading?: string;
+  image?: string;
+  highlights?: string[];
+  suburbs?: string[];
 }
 
-// Placeholder service areas — replace with actual service areas
 export const serviceAreas: ServiceArea[] = [
   {
-    slug: "bunbury",
-    name: "Bunbury",
-    description: "Professional roofing services in Bunbury. Roof cleaning, pointing, painting, leak detection, and all roofing services.",
+    slug: "canning-vale",
+    name: "Canning Vale",
+    description: "Specialised roofing services for Canning Vale and Perth's southern suburbs. We specialise in concrete tile restoration, flexible ridge re-pointing, and storm leak repairs.",
+    subheading: "Concrete Tile & Ridge Restorations in Canning Vale",
+    image: "/images/web/IMG_2870.jpg",
+    highlights: [
+      "Flexible ridge pointing engineered for suburban WA homes",
+      "Broken tile replacement and valley tray clearance",
+      "Fast local response from our nearby Bibra Lake hub",
+    ],
+    suburbs: ["Canning Vale", "Thornlie", "Harrisdale", "Piara Waters", "Southern River", "Bibra Lake", "Cockburn", "Jandakot"],
   },
   {
     slug: "mandurah",
     name: "Mandurah",
-    description: "Professional roofing services in Mandurah. Roof cleaning, pointing, painting, leak detection, and all roofing services.",
+    description: "Coastal roofing solutions for Mandurah and the Peel region. Protecting coastal properties against ocean salt air corrosion, driving rain, and mortar bedding failure.",
+    subheading: "Coastal Weatherproofing & Leak Tracing in Mandurah",
+    image: "/images/web/IMG_0918.jpg",
+    highlights: [
+      "Marine-grade valley flashing and tile re-bedding",
+      "Precision ceiling leak tracing and water ingress repair",
+      "Corrosion-resistant materials tailored for coastal WA",
+    ],
+    suburbs: ["Mandurah", "Halls Head", "Meadow Springs", "Falcon", "Dawesville", "Baldivis", "Rockingham", "Pinjarra"],
   },
   {
+    slug: "bunbury",
+    name: "Bunbury",
+    description: "Trusted local roofing expertise across Bunbury and South West WA. Focused on heavy moss removal, tile pressure washing, gutter clearing, and membrane coating.",
+    subheading: "High-Pressure Cleaning & Tile Rejuvenation in Bunbury",
+    image: "/images/web/IMG_4970.jpg",
+    highlights: [
+      "Industrial moss, lichen, and algae pressure wash",
+      "Gutter unblocking and downpipe pressure flushing",
+      "Protective acrylic roof painting for long-term tile health",
+    ],
+    suburbs: ["Bunbury", "Australind", "Eaton", "Dalyellup", "Pelican Point", "Treendale", "South Bunbury", "Carey Park"],
+  },
+  {
+    slug: "perth",
+    name: "Perth",
+    description: "Comprehensive residential roof painting, cleaning, and maintenance throughout Greater Perth. Operating from Bibra Lake to keep WA roofs durable and weather-tight.",
+    subheading: "Complete Roof Restorations & Painting Across Perth",
+    image: "/images/web/IMG_5505.jpg",
+    highlights: [
+      "UV-reflective heat-shield roof membrane painting",
+      "Complete 5-stage tile re-pointing and restoration",
+      "Transparent itemised quotes with no sales pressure",
+    ],
+    suburbs: ["Fremantle", "Melville", "Victoria Park", "South Perth", "Stirling", "Joondalup", "Midland", "Armadale"],
+  },
+  // Alias for backward compatibility
+  {
     slug: "perth-canning-vale",
-    name: "Perth Canning Vale",
-    description: "Professional roofing services in Perth Canning Vale. Roof cleaning, pointing, painting, leak detection, and all roofing services.",
+    name: "Canning Vale",
+    description: "Specialised roofing services for Canning Vale and Perth's southern suburbs. Concrete tile restoration, flexible ridge re-pointing, and storm leak repairs.",
+    subheading: "Concrete Tile & Ridge Restorations in Canning Vale",
+    image: "/images/web/IMG_2870.jpg",
+    highlights: [
+      "Flexible ridge pointing engineered for suburban WA homes",
+      "Broken tile replacement and valley tray clearance",
+      "Fast local response from our nearby Bibra Lake hub",
+    ],
   },
 ];
 
@@ -797,90 +896,120 @@ export const faqs: FAQ[] = [
     category: "General",
     question: "What roofing services do you provide?",
     answer:
-      "We provide four core roofing services: Roof Repair, Leak Detection, Roof Restoration, and Roof Painting. Each service is designed to address specific roofing problems and needs.",
+      "We provide five core roofing services across Western Australia: Roof Cleaning, Leak Detection, Roof Pointing, Roof Painting, and Gutter Cleaning. Each service is tailored to protect your home from harsh WA weather.",
   },
   {
     category: "General",
     question: "How do I request a quote?",
     answer:
-      "You can request a free quote by filling out our online quote form, calling us directly, or sending us an email. We'll get back to you to discuss your roofing needs and arrange an assessment if required.",
+      "You can request a free quote by filling out our online quote form, calling us directly on +61 451 901 275, or sending an email to elitestarroofing@gmail.com. We arrange prompt, transparent on-site assessments.",
   },
   {
     category: "General",
     question: "How long does a roofing job typically take?",
     answer:
-      "The duration varies depending on the type of service and scope of work. Minor repairs may take a few hours, while a full roof restoration could take several days. We provide estimated timelines with every quote.",
+      "Most gutter cleaning and leak inspections take 2 to 4 hours. High-pressure cleaning or ridge pointing is usually completed within 1 day, while a full multi-coat roof painting project typically takes 2 to 3 days depending on weather.",
   },
   {
     category: "General",
     question: "Do you provide free quotes?",
     answer:
-      "Yes. We provide free, no-obligation quotes for all our roofing services. Contact us to discuss your needs and we'll arrange an assessment.",
+      "Yes. We provide free, 100% no-obligation itemised quotes for all five of our roofing services across the Perth metro, Mandurah, Bunbury, and surrounding WA regions.",
   },
-  // Roof Repair
+  // Roof Cleaning
   {
-    category: "Roof Repair",
-    question: "When does a roof need repair?",
+    category: "Roof Cleaning",
+    question: "Why is professional roof cleaning necessary in Perth?",
     answer:
-      "Signs that your roof may need repair include visible damage to tiles or materials, water stains on ceilings, missing ridge caps, damaged flashing, or any visible wear. If you notice any of these, we recommend getting a professional inspection.",
+      "Perth's winter rains and shaded coastal climates encourage thick moss, lichen, and algae growth. These organisms trap moisture against porous tiles, breaking down protective glaze and causing water backup into eaves. High-pressure cleaning removes buildup safely.",
   },
   {
-    category: "Roof Repair",
-    question: "Can damaged roof sections be repaired?",
+    category: "Roof Cleaning",
+    question: "Will pressure cleaning damage my tiles?",
     answer:
-      "In many cases, isolated damage can be repaired without replacing the entire roof. We assess the extent of the damage and recommend the most cost-effective solution, whether that's a targeted repair or a broader approach.",
+      "No. Our technicians calibrate pressure levels according to tile composition (concrete, terracotta, or metal) to lift stubborn lichen and grime without fracturing tiles or forcing water under flashings.",
+  },
+  {
+    category: "Roof Cleaning",
+    question: "How often should I have my roof cleaned?",
+    answer:
+      "In general WA conditions, we recommend high-pressure cleaning every 2 to 3 years. Properties shaded by large trees or situated in damp coastal pockets benefit from cleaning every 1 to 2 years.",
   },
   // Leak Detection
   {
     category: "Leak Detection",
-    question: "Why can't I find where the leak is coming from?",
+    question: "Why can't I find where my roof leak is coming from?",
     answer:
-      "Water often travels along roof structures, beams, and waterproof membranes before appearing inside your home. The point where you see the water is frequently not where it's entering the roof. Professional leak detection traces the water path to find the actual source.",
+      "Water rarely drops straight down. It travels along roof battens, trusses, and sarking membranes before staining your interior plasterboard. Professional leak detection traces the moisture trajectory back to the external tile or flashing defect.",
   },
   {
     category: "Leak Detection",
-    question: "What happens during leak detection?",
+    question: "What happens during a leak detection inspection?",
     answer:
-      "We conduct a thorough inspection of the roof surface, checking all flashing points, penetrations (vents, pipes), valleys, ridge lines, and any areas where water could potentially enter. We then trace the water path to identify the actual leak source.",
-  },
-  // Roof Restoration
-  {
-    category: "Roof Restoration",
-    question: "What is roof restoration?",
-    answer:
-      "Roof restoration is a comprehensive process of cleaning, repairing, and protecting an existing roof to extend its lifespan and improve its appearance. It's different from a full replacement — it works with your existing roof structure when it's still structurally sound.",
+      "We inspect roof valleys, penetrations (vents, skylights, flues), lead flashing, ridge capping, and internal ceiling cavity framework to locate the precise water entry point.",
   },
   {
-    category: "Roof Restoration",
-    question: "When is restoration suitable?",
+    category: "Leak Detection",
+    question: "Should I wait until heavy rain to book an inspection?",
     answer:
-      "Restoration is typically suitable when the roof structure is sound but the surface shows signs of age, wear, or deterioration. If the underlying structure has significant damage, we'll advise on the best approach for your situation.",
+      "No. Booking an inspection immediately prevents structural timber rot, damaged insulation batts, and electrical ceiling hazards. We can diagnose intrusion points even in dry weather.",
+  },
+  // Roof Pointing
+  {
+    category: "Roof Pointing",
+    question: "What is flexible roof pointing?",
+    answer:
+      "Flexible pointing is a polymer-modified compound that replaces brittle sand-and-cement mortar. It flexes with normal house movement and thermal expansion, preventing cracks and keeping ridge caps storm-proof for 10 to 15+ years.",
+  },
+  {
+    category: "Roof Pointing",
+    question: "What are the warning signs my ridge caps need re-pointing?",
+    answer:
+      "Look for crumbling mortar pieces washed into gutters, visible cracks along the hip lines, dislodged ridge capping tiles, or internal ceiling stains underneath ridge junctions.",
+  },
+  {
+    category: "Roof Pointing",
+    question: "Do you re-bed ridge caps before pointing?",
+    answer:
+      "Yes. Where the existing cement base has failed, we remove the loose mortar and re-bed the capping tiles on fresh sand-cement mortar before applying the flexible pointing topcoat.",
   },
   // Roof Painting
   {
     category: "Roof Painting",
-    question: "Why paint a roof?",
+    question: "Why should I paint my roof instead of replacing it?",
     answer:
-      "Roof painting refreshes the appearance of your home, adds a protective layer to the roof surface, and can help with weatherproofing. It's a cost-effective way to improve your roof without a full replacement.",
+      "If your tiles are structurally intact, high-build acrylic roof painting restores full waterproof protection and modern street appeal at approximately one-third the cost of a full re-roof.",
   },
   {
     category: "Roof Painting",
-    question: "What preparation is required before painting?",
+    question: "What roof paint colours are available?",
     answer:
-      "Proper preparation is essential for a lasting result. This typically includes pressure cleaning, repairing damaged areas, replacing broken tiles, fixing pointing, and applying primer or sealer where needed.",
+      "We apply premium Colorbond-matched shades including Monument, Charcoal, Slate Grey, Surfmist, Classic Cream, and Terracotta Red, formulated specifically for intense WA UV resistance.",
+  },
+  {
+    category: "Roof Painting",
+    question: "How long does roof paint take to cure?",
+    answer:
+      "Our coatings dry to touch in 2 to 4 hours and reach full weather-cure in 48 to 72 hours, providing immediate rain resistance.",
   },
   // Gutter Cleaning
   {
     category: "Gutter Cleaning",
-    question: "How often should gutters be cleaned in WA?",
+    question: "How often should gutters be cleaned in Western Australia?",
     answer:
-      "We recommend cleaning gutters at least twice a year — once in autumn after leaf fall and once in spring before the wet season. Homes near large gum trees may benefit from more frequent cleans.",
+      "We advise cleaning gutters at least twice annually — once in late autumn after deciduous leaf drop, and once in spring prior to the peak thunderstorm season.",
   },
   {
     category: "Gutter Cleaning",
-    question: "What are the risks of not cleaning gutters?",
+    question: "What happens if gutters and downpipes remain blocked?",
     answer:
-      "Blocked gutters overflow onto fascia boards and eaves, causing timber rot and ceiling leaks. Stagnant water also attracts mosquitoes and can cause foundation erosion if overflow is constant.",
+      "Compacted debris causes stormwater to back up under eaves, rotting timber fascia boards, damaging ceiling linings, and causing garden or foundation soil erosion around your perimeter.",
+  },
+  {
+    category: "Gutter Cleaning",
+    question: "Do your gutter cleaning services include flushing downpipes?",
+    answer:
+      "Yes. Every service includes manual debris clearance followed by full downpipe water flushing to confirm free-flowing discharge to stormwater outlets.",
   },
 ];
 
@@ -933,7 +1062,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Wondering how much roof painting costs in Perth? See what affects the price, what is included in a professional quote, and how to get an accurate estimate.",
     category: "Roof Painting",
-    date: "2026-10-24", // Today
+    date: "2026-10-14",
     readTime: "6 min read",
     author: "Elite Star Roofing WA",
     authorRole: "WA Roofing Specialists",
@@ -972,7 +1101,7 @@ export const blogPosts: BlogPost[] = [
         ],
         listItems: [
           "Roof size and shape: The larger the roof, the more surface area there is to clean, prepare and paint. A simple single-storey home costs less than a double-storey house with multiple valleys, steep pitches, or hard-to-reach gables requiring safety staging.",
-          "Roof material: Most Perth homes feature concrete tiles, terracotta tiles, or Colorbond metal sheeting. Concrete tile roofs are porous and require specialized primer/sealers to lock down chalky surfaces, whereas terracotta and metal require distinct chemical cleaning and coating profiles.",
+          "Roof material: Most Perth homes feature concrete tiles, terracotta tiles, or Colorbond metal sheeting. Concrete tile roofs are porous and require specialised primer/sealers to lock down chalky surfaces, whereas terracotta and metal require distinct chemical cleaning and coating profiles.",
           "Current condition of the roof: This is often the single biggest cost driver. A roof in sound condition needs a wash, prime, and coat. A roof with broken tiles, cracked ridge capping, or heavy lichen needs structural repairs and re-pointing first.",
           "Type and quality of paint: Professional roof paints and solar-reflective membranes are engineered specifically for Western Australia's extreme UV radiation and coastal salt air. High-grade elastomeric coatings cost more upfront but last twice as long.",
           "Number of coats and colour changes: A lasting job requires a dedicated primer/sealer plus at least two thick top coats. Transitioning between dramatically contrasting colours may require additional pigment coverage.",
@@ -991,12 +1120,12 @@ export const blogPosts: BlogPost[] = [
           "A transparent quote should clearly itemise every step so you know exactly what work will be carried out on your home. At Elite Star Roofing, a professional roof painting project includes:",
         ],
         listItems: [
-          "1. Comprehensive Roof Inspection: Inspecting every elevation, identifying cracked tiles, loose ridge caps, and flashing issues.",
-          "2. Industrial High-Pressure Cleaning: Removing accumulated dirt, lichen, moss, mold, and oxidized old paint.",
-          "3. Structural Repairs & Re-Pointing: Replacing broken tiles and bedding/re-pointing ridge caps with flexible polymer compound.",
-          "4. Sealer or Primer Coat: Applying an appropriate penetrative sealer or primer to guarantee optimal adhesion.",
-          "5. Two Coats of Premium Roof Membrane: Spray-applying two protective, weatherproof top coats in your chosen colour.",
-          "6. Complete Site Cleanup: Clearing all gutters, downpipe collars, pathways, and patios around your property.",
+          "Comprehensive Roof Inspection: Inspecting every elevation, identifying cracked tiles, loose ridge caps, and flashing issues.",
+          "Industrial High-Pressure Cleaning: Removing accumulated dirt, lichen, moss, mould, and oxidised old paint.",
+          "Structural Repairs & Re-Pointing: Replacing broken tiles and bedding/re-pointing ridge caps with flexible polymer compound.",
+          "Sealer or Primer Coat: Applying an appropriate penetrative sealer or primer to guarantee optimal adhesion.",
+          "Two Coats of Premium Roof Membrane: Spray-applying two protective, weatherproof top coats in your chosen colour.",
+          "Complete Site Cleanup: Clearing all gutters, downpipe collars, pathways, and patios around your property.",
         ],
       },
       {
@@ -1083,7 +1212,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "How often should Perth homeowners clean their roof? Learn the signs it is time, what environmental factors affect the schedule, and why DIY pressure cleaning can be risky.",
     category: "Roof Cleaning",
-    date: "2026-10-17", // One week past
+    date: "2026-10-08",
     readTime: "5 min read",
     author: "Elite Star Roofing WA",
     authorRole: "WA Roofing Specialists",
@@ -1175,8 +1304,8 @@ export const blogPosts: BlogPost[] = [
         content: [
           "It is tempting to hire a pressure washer over the weekend, but we strongly advise against DIY roof cleaning for two vital reasons:",
           "1. Fall Hazards & Safety: Wet tiles coated in algae are extraordinarily slippery. Falls from residential roofs remain one of the leading causes of serious injury and fatalities across Australia.",
-          "2. Tile and Water Ingress Damage: High-pressure nozzles held at the wrong angle easily fracture brittle tiles, strip protective coatings, and drive litres of pressurized water directly under flashings into your roof cavity.",
-          "Professional roofers employ dedicated fall-arrest safety systems, specialized flat-surface cleaners, and controlled pressure calibration tailored to your roof type.",
+          "2. Tile and Water Ingress Damage: High-pressure nozzles held at the wrong angle easily fracture brittle tiles, strip protective coatings, and drive litres of pressurised water directly under flashings into your roof cavity.",
+          "Professional roofers employ dedicated fall-arrest safety systems, specialised flat-surface cleaners, and controlled pressure calibration tailored to your roof type.",
         ],
       },
       {
@@ -1226,12 +1355,12 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Will pressure cleaning damage my roof tiles?",
         answer:
-          "Not when carried out by trained professionals. We use regulated pressure and specialized wide-fan surface cleaners that remove grime without eroding the tile face. Damage only happens when amateurs use pinpoint high-pressure nozzles at aggressive angles.",
+          "Not when carried out by trained professionals. We use regulated pressure and specialised wide-fan surface cleaners that remove grime without eroding the tile face. Damage only happens when amateurs use pinpoint high-pressure nozzles at aggressive angles.",
       },
       {
         question: "How long does a typical roof clean take?",
         answer:
-          "Most single and double-storey residential homes take between half a day to one full day, depending on the square meterage, pitch, and severity of moss growth.",
+          "Most single and double-storey residential homes take between half a day to one full day, depending on the roof area, pitch, and severity of moss growth.",
       },
       {
         question: "Do I need to be home while you clean the roof?",
@@ -1530,10 +1659,22 @@ export interface TeamMember {
 
 export const teamMembers: TeamMember[] = [
   {
-    name: "Elite Star Roofing Specialists",
-    role: "WA Roofing Team",
-    bio: "Dedicated local roofing professionals serving Bunbury, Mandurah, Canning Vale, and Greater WA with top-tier workmanship and reliable customer service.",
+    name: "David M.",
+    role: "Senior Roof Inspection Specialist",
+    bio: "Over 15 years in WA residential roof restoration, precision leak tracing, and tile condition diagnosis across Perth and the Peel region.",
     image: "/images/web/IMG_5780.jpg",
+  },
+  {
+    name: "Liam K.",
+    role: "Lead Re-Pointing & Coating Technician",
+    bio: "Specialising in flexible polymer ridge pointing, mortar bedding repairs, and industrial high-build acrylic roof membrane application.",
+    image: "/images/web/IMG_5797.jpg",
+  },
+  {
+    name: "WA On-Site Operations Crew",
+    role: "Site Safety & Quality Assurance",
+    bio: "Dedicated local roofing technicians ensuring spotless property cleanups, safe ladder staging, and strict quality control on every project.",
+    image: "/images/web/IMG_5719.jpg",
   },
 ];
 

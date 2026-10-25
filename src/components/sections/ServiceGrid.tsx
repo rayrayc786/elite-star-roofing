@@ -27,25 +27,48 @@ export default function ServiceGrid() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          {services.map((service) => {
+          {services.map((service, idx) => {
             const Icon = iconMap[service.icon] || Wrench;
             return (
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="group relative bg-white border border-border hover:border-accent/40 rounded-2xl p-6 lg:p-8 hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+                className="group relative bg-white border border-border hover:border-accent/40 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 flex flex-col h-full"
               >
-                <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shrink-0">
-                  <Icon className="w-7 h-7 text-accent group-hover:text-white transition-colors" />
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:scale-105 transition-all duration-300 shrink-0">
+                    <Icon className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
+                  </div>
+                  <span className="text-xs font-bold text-accent/80 font-subheading">
+                    0{idx + 1}
+                  </span>
                 </div>
+                
                 <h3 className="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors font-glint italic">
                   {service.name}
                 </h3>
-                <p className="text-sm text-text-muted leading-relaxed mb-4 flex-1">
+                
+                <p className="text-xs text-text-muted leading-relaxed mb-4">
                   {service.tagline}
                 </p>
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 mt-auto">
-                  Learn More <ArrowRight className="w-4 h-4" />
+
+                {/* Common signs */}
+                <div className="pt-3 border-t border-border/60 mb-4 flex-1">
+                  <p className="text-[10px] font-bold text-text-muted uppercase tracking-wider mb-2 font-subheading">
+                    Common Signs:
+                  </p>
+                  <ul className="space-y-1.5">
+                    {service.problems.slice(0, 2).map((problem) => (
+                      <li key={problem} className="text-xs text-text-muted flex items-start gap-1.5 leading-snug">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1 shrink-0" />
+                        <span>{problem}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-accent group-hover:text-accent-hover transition-colors mt-auto">
+                  Learn More <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
             );

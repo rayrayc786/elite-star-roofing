@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     template: `%s | ${businessInfo.name}`,
   },
   description:
-    "Professional roofing services in Western Australia. Roof repair, leak detection, roof restoration, and roof painting. Get a free quote today.",
+    "Professional roofing services in Western Australia: Roof Cleaning, Leak Detection, Roof Pointing, Roof Painting, and Gutter Cleaning. Get a free quote today.",
   keywords: [
-    "roofing",
-    "roof repair",
-    "leak detection",
-    "roof restoration",
-    "roof painting",
     "roofing WA",
+    "roof cleaning Perth",
+    "leak detection WA",
+    "roof pointing Perth",
+    "roof painting WA",
+    "gutter cleaning Perth",
     "Western Australia roofing",
   ],
   icons: {
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     siteName: businessInfo.name,
     title: `${businessInfo.name} | Professional Roofing Services`,
     description:
-      "Professional roofing services in Western Australia. Roof repair, leak detection, roof restoration, and roof painting.",
+      "Professional roofing services in Western Australia: Roof Cleaning, Leak Detection, Roof Pointing, Roof Painting, and Gutter Cleaning.",
   },
   robots: {
     index: true,
@@ -81,7 +81,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     image: "https://elitestarroofing.com.au/Elite%20Final%20Logo.png",
     logo: "https://elitestarroofing.com.au/Elite%20Final%20Logo.png",
     description:
-      "Professional roofing services in Western Australia. Roof repair, leak detection, roof restoration, and roof painting.",
+      "Professional roofing services in Western Australia: Roof Cleaning, Leak Detection, Roof Pointing, Roof Painting, and Gutter Cleaning.",
     url: typeof window !== "undefined" ? window.location.origin : "",
     telephone: businessInfo.phoneRaw || undefined,
     email: businessInfo.email !== "[EMAIL ADDRESS]" ? businessInfo.email : undefined,
@@ -100,7 +100,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       itemListElement: [
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Roof Repair" },
+          itemOffered: { "@type": "Service", name: "Roof Cleaning" },
         },
         {
           "@type": "Offer",
@@ -108,11 +108,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         },
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Roof Restoration" },
+          itemOffered: { "@type": "Service", name: "Roof Pointing" },
         },
         {
           "@type": "Offer",
           itemOffered: { "@type": "Service", name: "Roof Painting" },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: "Gutter Cleaning" },
         },
       ],
     },
@@ -131,7 +135,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to main content
         </a>
         <Header />
-        <main id="main-content" className="flex-1 pt-[72px] lg:pt-[80px] pb-[60px] lg:pb-0">
+        <main id="main-content" className="flex-1 pt-[76px] pb-24 lg:pb-0">
           {children}
         </main>
         <Footer />

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, CheckCircle, Home, Umbrella, Wrench, AlertTriangle, ShieldCheck } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle, Sparkles, AlertTriangle, ShieldCheck, Paintbrush, Wind } from "lucide-react";
 import { businessInfo } from "@/lib/data";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 
@@ -35,9 +35,6 @@ export default function RequestQuotePage() {
         
         {/* Header */}
         <div className="text-center mb-10">
-          <Link href="/" className="inline-flex items-center justify-center w-12 h-12 bg-white rounded-xl shadow-sm mb-6 text-accent hover:bg-accent hover:text-white transition-all">
-            <Home className="w-6 h-6" />
-          </Link>
           <h1 className="text-3xl lg:text-4xl font-bold text-primary mb-3 font-glint italic uppercase">Request a Free Quote</h1>
           <p className="text-text-muted">Tell us about your roofing needs and we&apos;ll get back to you with a clear quote.</p>
         </div>
@@ -72,10 +69,11 @@ export default function RequestQuotePage() {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {[
-                  { id: "roof-repair", label: "Roof Repair", icon: Wrench },
+                  { id: "roof-cleaning", label: "Roof Cleaning", icon: Sparkles },
                   { id: "leak-detection", label: "Leak Detection", icon: AlertTriangle },
-                  { id: "roof-restoration", label: "Roof Restoration", icon: ShieldCheck },
-                  { id: "roof-painting", label: "Roof Painting", icon: Umbrella },
+                  { id: "roof-pointing", label: "Roof Pointing", icon: ShieldCheck },
+                  { id: "roof-painting", label: "Roof Painting", icon: Paintbrush },
+                  { id: "gutter-cleaning", label: "Gutter Cleaning", icon: Wind },
                 ].map((item) => (
                   <label key={item.id} className={`flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all ${formData.serviceType === item.id ? "border-accent bg-accent/5" : "border-border hover:border-accent/50"}`}>
                     <input

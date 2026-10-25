@@ -8,7 +8,7 @@ import { ArrowRight, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Our Projects",
-  description: "View our roofing project gallery. Roof repair, leak detection, restoration and painting projects across WA.",
+  description: "View our roofing project gallery. Roof cleaning, leak detection, ridge pointing, roof painting, and gutter cleaning projects across Western Australia.",
 };
 
 export default function ProjectsPage() {

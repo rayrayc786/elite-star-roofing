@@ -3,9 +3,10 @@
 import { useState } from "react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { businessInfo } from "@/lib/data";
-import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle } from "lucide-react";
 
 export default function ContactPage() {
+  const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,7 +16,7 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thank you for your message. We will be in touch shortly.");
+    setSubmitted(true);
   };
 
   return (
@@ -25,7 +26,7 @@ export default function ContactPage() {
           <Breadcrumbs items={[{ label: "Contact Us" }]} />
           <h1 className="text-4xl lg:text-5xl font-bold text-cream mb-4 font-glint italic uppercase">Contact Us</h1>
           <p className="text-lg text-white/70 max-w-2xl">
-            Get in touch with Elite Star Roofing WA for inquiries, advice, or to schedule a service.
+            Get in touch with Elite Star Roofing WA for enquiries, advice, or to schedule a service.
           </p>
         </div>
       </section>
@@ -97,70 +98,93 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="lg:col-span-3">
               <div className="bg-white rounded-2xl p-8 border border-border shadow-lg">
-                <h2 className="text-2xl font-bold text-primary mb-2 font-glint italic uppercase">Send a Message</h2>
-                <p className="text-text-muted mb-8">Fill out the form below and we&apos;ll get back to you as soon as possible.</p>
+                {submitted ? (
+                  <div className="text-center py-10 animate-fade-in">
+                    <div className="w-16 h-16 bg-success/15 rounded-full flex items-center justify-center mx-auto mb-5">
+                      <CheckCircle className="w-8 h-8 text-success" />
+                    </div>
+                    <h2 className="text-2xl font-bold text-primary mb-3 font-glint italic uppercase">Message Sent Successfully!</h2>
+                    <p className="text-text-muted mb-6 max-w-md mx-auto text-sm leading-relaxed">
+                      Thank you for contacting Elite Star Roofing WA, {formData.name || "there"}. We have received your message and our team will get back to you shortly.
+                    </p>
+                    <button
+                      onClick={() => {
+                        setSubmitted(false);
+                        setFormData({ name: "", email: "", phone: "", message: "" });
+                      }}
+                      className="px-6 py-2.5 bg-light-gray hover:bg-border text-primary font-semibold text-sm rounded-xl transition-colors"
+                    >
+                      Send Another Message
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <h2 className="text-2xl font-bold text-primary mb-2 font-glint italic uppercase">Send a Message</h2>
+                    <p className="text-text-muted mb-8">Fill out the form below and we&apos;ll get back to you as soon as possible.</p>
 
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-semibold text-primary mb-1.5">Name *</label>
-                      <input
-                        type="text"
-                        id="name"
-                        required
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
-                        placeholder="John Doe"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-semibold text-primary mb-1.5">Phone *</label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        required
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
-                        placeholder="Your phone number"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-primary mb-1.5">Email *</label>
-                    <input
-                      type="email"
-                      id="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-primary mb-1.5">Message *</label>
-                    <textarea
-                      id="message"
-                      required
-                      rows={5}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none"
-                      placeholder="How can we help you?"
-                    />
-                  </div>
-                  
-                  <button
-                    type="submit"
-                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-accent text-white font-bold rounded-xl hover:bg-accent-hover transition-all shadow-md shadow-accent/20"
-                  >
-                    Send Message <ArrowRight className="w-5 h-5" />
-                  </button>
-                </form>
+                    <form onSubmit={handleSubmit} className="space-y-5">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                          <label htmlFor="name" className="block text-sm font-semibold text-primary mb-1.5">Name *</label>
+                          <input
+                            type="text"
+                            id="name"
+                            required
+                            value={formData.name}
+                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                            className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+                            placeholder="John Doe"
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="phone" className="block text-sm font-semibold text-primary mb-1.5">Phone *</label>
+                          <input
+                            type="tel"
+                            id="phone"
+                            required
+                            value={formData.phone}
+                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                            className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+                            placeholder="Your phone number"
+                          />
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-semibold text-primary mb-1.5">Email *</label>
+                        <input
+                          type="email"
+                          id="email"
+                          required
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+                          placeholder="john@example.com"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label htmlFor="message" className="block text-sm font-semibold text-primary mb-1.5">Message *</label>
+                        <textarea
+                          id="message"
+                          required
+                          rows={5}
+                          value={formData.message}
+                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                          className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none"
+                          placeholder="How can we help you?"
+                        />
+                      </div>
+                      
+                      <button
+                        type="submit"
+                        className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-accent text-white font-bold rounded-xl hover:bg-accent-hover transition-all shadow-md shadow-accent/20"
+                      >
+                        Send Message <ArrowRight className="w-5 h-5" />
+                      </button>
+                    </form>
+                  </>
+                )}
               </div>
             </div>
 
@@ -168,19 +192,27 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Google Map */}
+      {/* Map */}
       <section className="bg-light-gray pb-16 lg:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-2 block font-subheading">
+              Our Base & Coverage Area
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary font-glint italic uppercase">
+              Bibra Lake WA Headquarters
+            </h2>
+          </div>
           <div className="w-full h-[400px] lg:h-[500px] rounded-2xl overflow-hidden border border-border shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1716616.4883446034!2d114.73307525357493!3d-31.954690356543167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32966cdb47733d%3A0x304f0b535df55d0!2sPerth%20WA%2C%20Australia!5e0!3m2!1sen!2sus!4v1714578500293!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108253.97816139433!2d115.77258814588825!3d-32.09632488879685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a3298fa7f75d5e9%3A0x504f0b535df5050!2sBibra%20Lake%20WA%206163%2C%20Australia!5e0!3m2!1sen!2sau!4v1714578500293!5m2!1sen!2sau"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Service Area Map"
+              title="Bibra Lake WA Base & Service Area Map"
             ></iframe>
           </div>
         </div>

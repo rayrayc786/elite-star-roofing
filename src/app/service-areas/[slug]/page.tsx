@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight, MapPin, Phone, Shield, Award } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, MapPin, Phone, Shield, Award, CheckCircle } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import CTASection from "@/components/sections/CTASection";
 import { serviceAreas, businessInfo, services } from "@/lib/data";
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const area = serviceAreas.find((a) => a.slug === slug);
   if (!area) return {};
   return {
-    title: `Roofing Services in ${area.name}`,
+    title: `Roofing Services in ${area.name} | Elite Star Roofing`,
     description: area.description,
   };
 }
@@ -64,45 +65,71 @@ export default async function ServiceAreaDetailPage({ params }: { params: Promis
           <div className="text-center mb-12">
             <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">Our Services</span>
             <h2 className="text-3xl font-bold text-primary mb-4 font-glint italic uppercase">What We Do in {area.name}</h2>
-            <p className="text-text-muted max-w-2xl mx-auto">We provide our full range of professional roofing services to residential properties in {area.name} and surrounding areas.</p>
+            <p className="text-text-muted max-w-2xl mx-auto">We provide our full range of 5 professional roofing services to residential and commercial properties in {area.name} and surrounding areas.</p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {services.map((service) => (
-              <Link key={service.slug} href={`/services/${service.slug}`} className="bg-white border border-border hover:border-accent/40 rounded-xl p-5 hover:shadow-md transition-all">
-                <h3 className="text-lg font-bold text-primary mb-2 font-glint italic">{service.name}</h3>
-                <p className="text-sm text-text-muted mb-4">{service.tagline}</p>
-                <span className="inline-flex items-center gap-1 text-sm font-semibold text-accent">Learn More <ArrowRight className="w-3.5 h-3.5" /></span>
+              <Link key={service.slug} href={`/services/${service.slug}`} className="bg-white border border-border hover:border-accent/40 rounded-xl p-5 hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                  <h3 className="text-base font-bold text-primary mb-2 font-glint italic">{service.name}</h3>
+                  <p className="text-xs text-text-muted mb-4">{service.tagline}</p>
+                </div>
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-accent">Learn More <ArrowRight className="w-3.5 h-3.5" /></span>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Trust */}
+      {/* Local Trust & Coverage Highlights */}
       <section className="py-16 lg:py-24 bg-light-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
+              <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">
+                Local Expertise
+              </span>
               <h2 className="text-3xl font-bold text-primary mb-6 font-glint italic uppercase">Your Local {area.name} Roofers</h2>
               <p className="text-text-muted mb-6 leading-relaxed">
-                As a local WA roofing company, we understand the specific challenges that {area.name} roofs face from our local climate and weather conditions.
+                As a local Western Australian roofing specialist, we understand the specific environmental challenges that {area.name} roofs endure — from intense summer heat and coastal winds to winter downpours.
               </p>
-              <ul className="space-y-4">
+              
+              <ul className="space-y-4 mb-8">
                 {[
-                  { icon: Shield, text: "Fully licensed and insured professionals" },
-                  { icon: Award, text: "High-quality materials suited for WA weather" },
-                  { icon: MapPin, text: "Prompt response times for local residents" },
+                  { icon: Shield, text: "Fully qualified & insured roofing specialists with public liability coverage" },
+                  { icon: Award, text: "Premium Australian-tested materials built for WA conditions" },
+                  { icon: MapPin, text: "Fast local response times and reliable mobile dispatch" },
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     <item.icon className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                    <span className="text-text">{item.text}</span>
+                    <span className="text-text text-sm font-medium">{item.text}</span>
                   </li>
                 ))}
               </ul>
+
+              {area.suburbs && area.suburbs.length > 0 && (
+                <div className="p-5 bg-white rounded-xl border border-border">
+                  <p className="text-xs font-bold uppercase tracking-wider text-primary mb-3">Suburbs Serviced Across {area.name}:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {area.suburbs.map((suburb) => (
+                      <span key={suburb} className="inline-flex items-center gap-1 text-xs px-2.5 py-1 bg-warm-white text-text-muted rounded-md border border-border">
+                        <CheckCircle className="w-3 h-3 text-accent" /> {suburb}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-            <div className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center border border-border">
-              <span className="text-sm text-text-muted">[Local project/area image placeholder]</span>
+
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-border shadow-md">
+              <Image
+                src={area.image || "/images/web/IMG_2870.jpg"}
+                alt={`Elite Star Roofing work in ${area.name}`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
           </div>
         </div>

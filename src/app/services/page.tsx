@@ -25,7 +25,7 @@ export default function ServicesPage() {
           <Breadcrumbs items={[{ label: "Services" }]} />
           <h1 className="text-4xl lg:text-5xl font-bold text-cream mb-4 font-glint italic uppercase">Our Roofing Services</h1>
           <p className="text-lg text-white/70 max-w-2xl">
-            We specialise in five core roofing services designed to address your specific needs. From gutter cleaning to full restorations.
+            We specialise in five core roofing services designed to address your specific needs — from precision leak detection and pressure cleaning to ridge pointing and roof painting.
           </p>
         </div>
       </section>

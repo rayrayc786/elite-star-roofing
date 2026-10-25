@@ -7,7 +7,7 @@ import { Heart, Target, Users, Shield, Eye, Handshake } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: `Learn about ${businessInfo.name}. Professional roofing services in WA — roof repair, leak detection, restoration, and painting.`,
+  description: `Learn about ${businessInfo.name}. Professional roofing services in WA — roof cleaning, leak detection, ridge pointing, roof painting, and gutter cleaning.`,
 };
 
 const values = [
@@ -15,7 +15,7 @@ const values = [
   { icon: Handshake, title: "Honest Communication", description: "Clear, upfront communication from first contact to completion." },
   { icon: Eye, title: "Problem-First Approach", description: "We diagnose the actual problem before recommending solutions." },
   { icon: Heart, title: "Customer Care", description: "We treat every home as if it were our own." },
-  { icon: Target, title: "Focused Expertise", description: "Specialising in repair, detection, restoration, and painting." },
+  { icon: Target, title: "Focused Expertise", description: "Specialising in cleaning, leak detection, pointing, painting, and gutter maintenance." },
   { icon: Users, title: "Local Commitment", description: "Proudly serving homeowners across Western Australia." },
 ];
 
@@ -39,17 +39,17 @@ export default function AboutPage() {
             <div>
               <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">Our Story</span>
               <h2 className="text-3xl font-bold text-primary mb-6 font-glint italic uppercase">
-                About {businessInfo.name}
+                Our Story &amp; Commitment
               </h2>
               <div className="space-y-4 text-text-muted leading-relaxed">
                 <p>
-                  Since our establishment, Elite Star Roofing has been providing reliable and professional roofing services to homeowners and businesses across Australia. What started with a commitment to quality workmanship has grown into a trusted roofing service focused on delivering durable, practical, and long-lasting solutions.
+                  Since our establishment, Elite Star Roofing has been providing reliable and professional roofing services to homeowners and businesses across Western Australia. What started with a commitment to quality workmanship has grown into a trusted roofing service focused on delivering durable, practical, and long-lasting solutions.
                 </p>
                 <p>
-                  At Elite Star Roofing, we specialise in roof repairs, maintenance, restoration, cleaning, gutter and box gutter works, leak prevention, and bird-proofing solutions. Whether you need a small repair, ongoing maintenance, or comprehensive roofing works, our experienced team takes pride in completing every project with care and attention to detail.
+                  At Elite Star Roofing, we specialise in high-pressure roof cleaning, precision leak detection, flexible ridge pointing, UV-resistant roof painting, and comprehensive gutter cleaning. Whether you need a small repair, seasonal maintenance, or a complete roof overhaul, our experienced team takes pride in completing every project with care and attention to detail.
                 </p>
                 <p>
-                  We combine quality materials, professional workmanship, and a strong focus on safety to ensure every roofing project is completed to a high standard. From residential properties to commercial buildings, we work closely with our customers to provide reliable solutions that protect their property and keep their roof performing at its best.
+                  We combine quality Australian-tested materials, professional workmanship, and a strong focus on safety to ensure every roofing project is completed to a high standard. From residential properties to commercial buildings, we work closely with our customers to provide reliable solutions that protect their property and keep their roof performing at its best.
                 </p>
                 <p className="font-bold text-primary italic">
                   Elite Star Roofing — Quality workmanship. Reliable service. Built to last.
@@ -58,7 +58,7 @@ export default function AboutPage() {
             </div>
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] border border-border shadow-md">
               <Image
-                src="/images/web/IMG_1544.jpg"
+                src="/images/web/IMG_5780.jpg"
                 alt="Elite Star Roofing WA Team on Site"
                 fill
                 priority
@@ -92,7 +92,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-16 lg:py-24 bg-white">
+      {/* <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 font-subheading">Our Team</span>
@@ -119,7 +119,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <CTASection variant="light" title="Work With Us" description="Get in touch to discuss your roofing needs. We'd love to help." />
     </>

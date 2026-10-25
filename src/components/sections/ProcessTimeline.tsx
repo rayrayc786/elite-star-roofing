@@ -16,41 +16,18 @@ export default function ProcessTimeline() {
           </p>
         </div>
 
-        {/* Desktop Timeline */}
-        <div className="hidden lg:block">
-          <div className="relative">
-            {/* Connecting Line */}
-            <div className="absolute top-10 left-0 right-0 h-[2px] bg-border" />
-            <div className="grid grid-cols-5 gap-6">
-              {processSteps.map((step) => (
-                <div key={step.number} className="relative text-center">
-                  <div className="relative z-10 w-20 h-20 mx-auto rounded-2xl bg-primary border border-white/10 flex items-center justify-center mb-5 shadow-lg">
-                    <span className="text-2xl font-bold text-accent font-glint italic">{step.number}</span>
-                  </div>
-                  <h3 className="text-base font-bold text-primary mb-2 font-glint italic">{step.title}</h3>
-                  <p className="text-sm text-text-muted leading-relaxed">{step.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Timeline */}
-        <div className="lg:hidden space-y-0">
-          {processSteps.map((step, idx) => (
-            <div key={step.number} className="flex gap-4">
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 rounded-xl bg-primary border border-white/10 flex items-center justify-center shrink-0 shadow-md">
-                  <span className="text-lg font-bold text-accent font-glint italic">{step.number}</span>
-                </div>
-                {idx < processSteps.length - 1 && (
-                  <div className="w-[2px] flex-1 bg-border my-2" />
-                )}
+        {/* Single Responsive Timeline Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
+          {processSteps.map((step) => (
+            <div
+              key={step.number}
+              className="bg-white border border-border/80 rounded-2xl p-6 shadow-xs hover:border-accent/40 hover:shadow-md transition-all flex flex-col text-left lg:text-center relative"
+            >
+              <div className="w-14 h-14 rounded-2xl bg-primary border border-white/10 flex items-center justify-center mb-4 lg:mx-auto shadow-md">
+                <span className="text-xl font-bold text-accent font-glint italic">{step.number}</span>
               </div>
-              <div className="pb-8">
-                <h3 className="text-base font-bold text-primary mb-1 font-glint italic">{step.title}</h3>
-                <p className="text-sm text-text-muted leading-relaxed">{step.description}</p>
-              </div>
+              <h3 className="text-base font-bold text-primary mb-2 font-glint italic">{step.title}</h3>
+              <p className="text-xs sm:text-sm text-text-muted leading-relaxed">{step.description}</p>
             </div>
           ))}
         </div>

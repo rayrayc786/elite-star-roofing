@@ -13,37 +13,42 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center mb-6" aria-label="Elite Star Roofing WA Home">
               <Image 
-                src="/Elite Final Logo.png" 
+                src="/logo.png" 
                 alt="Elite Star Roofing WA Logo" 
-                width={400} 
-                height={140} 
-                className="object-contain h-24 lg:h-32 w-auto scale-150 lg:scale-[2] transform origin-left" 
-                style={{ width: "auto" }}
+                width={180} 
+                height={90} 
+                className="h-12 sm:h-14 w-auto object-contain bg-white rounded-lg px-2.5 py-1.5 shadow-xs" 
               />
             </Link>
             <p className="text-white/70 text-sm leading-relaxed mb-6">
-              Professional roofing services in Western Australia. Roof repair, leak detection, roof restoration, and roof painting.
+              Professional roofing services in Western Australia: Roof Cleaning, Leak Detection, Roof Pointing, Roof Painting, and Gutter Cleaning.
             </p>
-            <div className="flex gap-3">
-              <a
-                href={businessInfo.social.facebook}
-                className="w-10 h-10 rounded-lg bg-white/10 hover:bg-accent hover:text-white flex items-center justify-center transition-all"
-                aria-label="Facebook"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Globe className="w-5 h-5" />
-              </a>
-              <a
-                href={businessInfo.social.instagram}
-                className="w-10 h-10 rounded-lg bg-white/10 hover:bg-accent hover:text-white flex items-center justify-center transition-all"
-                aria-label="Instagram"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Globe className="w-5 h-5" />
-              </a>
-            </div>
+            {(businessInfo.social.facebook || businessInfo.social.instagram) && (
+              <div className="flex gap-3">
+                {businessInfo.social.facebook && (
+                  <a
+                    href={businessInfo.social.facebook}
+                    className="w-10 h-10 rounded-lg bg-white/10 hover:bg-accent hover:text-white flex items-center justify-center transition-all"
+                    aria-label="Facebook"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Globe className="w-5 h-5" />
+                  </a>
+                )}
+                {businessInfo.social.instagram && (
+                  <a
+                    href={businessInfo.social.instagram}
+                    className="w-10 h-10 rounded-lg bg-white/10 hover:bg-accent hover:text-white flex items-center justify-center transition-all"
+                    aria-label="Instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Globe className="w-5 h-5" />
+                  </a>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Services */}
@@ -122,7 +127,7 @@ export default function Footer() {
                 <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                 <div>
                   <p className="text-xs text-white/50 uppercase tracking-wide">Service Area</p>
-                  <p className="text-sm text-white/80">Western Australia</p>
+                  <p className="text-sm text-white/80">Bibra Lake, Perth, Mandurah, Bunbury & WA</p>
                 </div>
               </div>
             </div>
