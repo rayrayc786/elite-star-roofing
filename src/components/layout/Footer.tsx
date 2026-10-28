@@ -17,7 +17,7 @@ export default function Footer() {
                 alt="Elite Star Roofing WA Logo" 
                 width={180} 
                 height={90} 
-                className="h-12 sm:h-14 w-auto object-contain bg-white rounded-lg px-2.5 py-1.5 shadow-xs" 
+                className="h-12 sm:h-14 w-auto object-contain rounded-lg px-2.5 py-1.5 shadow-xs" 
               />
             </Link>
             <p className="text-white/70 text-sm leading-relaxed mb-6">
