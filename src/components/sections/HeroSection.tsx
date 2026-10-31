@@ -22,10 +22,27 @@ export default function HeroSection() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic here
-    alert("Thank you! We will be in touch shortly.");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "quick-estimate",
+          sourcePage: "Hero Section",
+          ...formData,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Submission failed");
+      }
+      alert("Thank you! We have received your request and will be in touch shortly.");
+      setFormData({ name: "", phone: "", email: "", suburb: "", service: "", message: "" });
+    } catch {
+      alert("Thank you! If urgent, please call us directly at " + businessInfo.phone);
+    }
   };
 
   return (

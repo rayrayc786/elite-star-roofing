@@ -3,20 +3,49 @@
 import { useState } from "react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { businessInfo } from "@/lib/data";
-import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle, Loader2, AlertCircle } from "lucide-react";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     message: "",
+    botField: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "contact",
+          sourcePage: "/contact",
+          ...formData,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Failed to send message. Please try calling us directly.");
+      }
+
+      setSubmitted(true);
+      setFormData({ name: "", email: "", phone: "", message: "", botField: "" });
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Something went wrong. Please try again or call us directly.";
+      setErrorMessage(msg);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -110,7 +139,7 @@ export default function ContactPage() {
                     <button
                       onClick={() => {
                         setSubmitted(false);
-                        setFormData({ name: "", email: "", phone: "", message: "" });
+                        setFormData({ name: "", email: "", phone: "", message: "", botField: "" });
                       }}
                       className="px-6 py-2.5 bg-light-gray hover:bg-border text-primary font-semibold text-sm rounded-xl transition-colors"
                     >
@@ -122,7 +151,31 @@ export default function ContactPage() {
                     <h2 className="text-2xl font-bold text-primary mb-2 font-glint italic uppercase">Send a Message</h2>
                     <p className="text-text-muted mb-8">Fill out the form below and we&apos;ll get back to you as soon as possible.</p>
 
+                    {errorMessage && (
+                      <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3 text-red-700 text-sm">
+                        <AlertCircle className="w-5 h-5 shrink-0 text-red-500 mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Unable to send message</p>
+                          <p className="mt-0.5 text-red-600">{errorMessage}</p>
+                        </div>
+                      </div>
+                    )}
+
                     <form onSubmit={handleSubmit} className="space-y-5">
+                      {/* Honeypot anti-spam field */}
+                      <div style={{ display: "none" }} aria-hidden="true">
+                        <label htmlFor="website_hp">Leave this field empty</label>
+                        <input
+                          type="text"
+                          id="website_hp"
+                          name="botField"
+                          tabIndex={-1}
+                          autoComplete="off"
+                          value={formData.botField}
+                          onChange={(e) => setFormData({ ...formData, botField: e.target.value })}
+                        />
+                      </div>
+
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
                           <label htmlFor="name" className="block text-sm font-semibold text-primary mb-1.5">Name *</label>
@@ -130,9 +183,10 @@ export default function ContactPage() {
                             type="text"
                             id="name"
                             required
+                            disabled={loading}
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                            className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+                            className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all disabled:opacity-50"
                             placeholder="John Doe"
                           />
                         </div>
@@ -142,10 +196,17 @@ export default function ContactPage() {
                             type="tel"
                             id="phone"
                             required
+                            disabled={loading}
+                            inputMode="tel"
+                            pattern="[0-9+\s\-()]{8,}"
+                            title="Please enter a valid phone number (at least 8 digits)"
                             value={formData.phone}
-                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                            className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
-                            placeholder="Your phone number"
+                            onChange={(e) => {
+                              const val = e.target.value.replace(/[^0-9+\s\-()]/g, "");
+                              setFormData({ ...formData, phone: val });
+                            }}
+                            className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all disabled:opacity-50"
+                            placeholder="0400 000 000"
                           />
                         </div>
                       </div>
@@ -156,9 +217,10 @@ export default function ContactPage() {
                           type="email"
                           id="email"
                           required
+                          disabled={loading}
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+                          className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all disabled:opacity-50"
                           placeholder="john@example.com"
                         />
                       </div>
@@ -169,18 +231,29 @@ export default function ContactPage() {
                           id="message"
                           required
                           rows={5}
+                          disabled={loading}
                           value={formData.message}
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                          className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none"
+                          className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none disabled:opacity-50"
                           placeholder="How can we help you?"
                         />
                       </div>
                       
                       <button
                         type="submit"
-                        className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-accent text-white font-bold rounded-xl hover:bg-accent-hover transition-all shadow-md shadow-accent/20"
+                        disabled={loading}
+                        className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-accent text-white font-bold rounded-xl hover:bg-accent-hover transition-all shadow-md shadow-accent/20 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        Send Message <ArrowRight className="w-5 h-5" />
+                        {loading ? (
+                          <>
+                            <Loader2 className="w-5 h-5 animate-spin" />
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            Send Message <ArrowRight className="w-5 h-5" />
+                          </>
+                        )}
                       </button>
                     </form>
                   </>

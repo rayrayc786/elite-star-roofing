@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, CheckCircle, Sparkles, AlertTriangle, ShieldCheck, Paintbrush, Wind } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle, Sparkles, AlertTriangle, ShieldCheck, Paintbrush, Wind, Loader2, AlertCircle } from "lucide-react";
 import { businessInfo } from "@/lib/data";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 
 export default function RequestQuotePage() {
   const [step, setStep] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     serviceType: "",
     urgency: "",
@@ -19,13 +21,48 @@ export default function RequestQuotePage() {
     phone: "",
     address: "",
     suburb: "",
+    botField: "",
   });
 
   const handleNext = () => setStep((s) => Math.min(s + 1, 4));
   const handlePrev = () => setStep((s) => Math.max(s - 1, 1));
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStep(4); // Success step
+    setLoading(true);
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "quote",
+          sourcePage: "/request-quote",
+          name: `${formData.firstName} ${formData.lastName}`.trim(),
+          email: formData.email,
+          phone: formData.phone,
+          address: formData.address,
+          suburb: formData.suburb,
+          service: formData.serviceType,
+          timing: formData.urgency,
+          message: `Property Type: ${formData.propertyType}${formData.description ? `\nNotes: ${formData.description}` : ""}`,
+          botField: formData.botField,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Failed to submit quote request. Please try calling us directly.");
+      }
+
+      setStep(4); // Success step
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Something went wrong. Please try again or call us directly.";
+      setErrorMessage(msg);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -158,7 +195,31 @@ export default function RequestQuotePage() {
             <div className="animate-fade-in">
               <h2 className="text-xl font-bold text-primary mb-6 font-glint italic">Your Contact Details</h2>
               
+              {errorMessage && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3 text-red-700 text-sm">
+                  <AlertCircle className="w-5 h-5 shrink-0 text-red-500 mt-0.5" />
+                  <div>
+                    <p className="font-semibold">Unable to submit quote request</p>
+                    <p className="mt-0.5 text-red-600">{errorMessage}</p>
+                  </div>
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-5 mb-8">
+                {/* Honeypot field */}
+                <div style={{ display: "none" }} aria-hidden="true">
+                  <label htmlFor="quote_website_hp">Leave empty</label>
+                  <input
+                    type="text"
+                    id="quote_website_hp"
+                    name="botField"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={formData.botField}
+                    onChange={(e) => setFormData({ ...formData, botField: e.target.value })}
+                  />
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="firstName" className="block text-sm font-semibold text-primary mb-1.5">First Name *</label>
@@ -166,9 +227,10 @@ export default function RequestQuotePage() {
                       type="text"
                       id="firstName"
                       required
+                      disabled={loading}
                       value={formData.firstName}
                       onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                      className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+                      className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent disabled:opacity-50"
                     />
                   </div>
                   <div>
@@ -177,9 +239,10 @@ export default function RequestQuotePage() {
                       type="text"
                       id="lastName"
                       required
+                      disabled={loading}
                       value={formData.lastName}
                       onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                      className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+                      className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent disabled:opacity-50"
                     />
                   </div>
                 </div>
@@ -191,9 +254,10 @@ export default function RequestQuotePage() {
                       type="email"
                       id="email"
                       required
+                      disabled={loading}
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+                      className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent disabled:opacity-50"
                     />
                   </div>
                   <div>
@@ -202,9 +266,17 @@ export default function RequestQuotePage() {
                       type="tel"
                       id="phone"
                       required
+                      disabled={loading}
+                      inputMode="tel"
+                      pattern="[0-9+\s\-()]{8,}"
+                      title="Please enter a valid phone number (at least 8 digits)"
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+                      onChange={(e) => {
+                        const val = e.target.value.replace(/[^0-9+\s\-()]/g, "");
+                        setFormData({ ...formData, phone: val });
+                      }}
+                      className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent disabled:opacity-50"
+                      placeholder="0400 000 000"
                     />
                   </div>
                 </div>
@@ -215,9 +287,10 @@ export default function RequestQuotePage() {
                     type="text"
                     id="address"
                     required
+                    disabled={loading}
                     value={formData.address}
                     onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                    className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+                    className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent disabled:opacity-50"
                   />
                 </div>
                 
@@ -227,18 +300,32 @@ export default function RequestQuotePage() {
                     type="text"
                     id="suburb"
                     required
+                    disabled={loading}
                     value={formData.suburb}
                     onChange={(e) => setFormData({ ...formData, suburb: e.target.value })}
-                    className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+                    className="w-full px-4 py-3 bg-light-gray border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent disabled:opacity-50"
                   />
                 </div>
                 
                 <div className="pt-4 flex items-center justify-between">
-                  <button type="button" onClick={handlePrev} className="inline-flex items-center gap-2 px-4 py-3 text-text-muted hover:text-primary font-medium transition-colors">
+                  <button type="button" disabled={loading} onClick={handlePrev} className="inline-flex items-center gap-2 px-4 py-3 text-text-muted hover:text-primary font-medium transition-colors disabled:opacity-50">
                     <ArrowLeft className="w-4 h-4" /> Back
                   </button>
-                  <button type="submit" className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white font-bold rounded-xl hover:bg-accent-hover transition-all shadow-lg hover:shadow-xl shadow-accent/25">
-                    Submit Request
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white font-bold rounded-xl hover:bg-accent-hover transition-all shadow-lg hover:shadow-xl shadow-accent/25 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {loading ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        Submit Request
+                      </>
+                    )}
                   </button>
                 </div>
               </form>
